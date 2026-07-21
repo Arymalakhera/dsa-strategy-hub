@@ -1,0 +1,38 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Shared Problem Bank: Publicly readable by all users, modified only by admin/seed
+    match /problemBank/{problemId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // Public Leaderboard: Publicly readable, writeable only via Firebase Cloud Functions / Admin SDK
+    match /leaderboard/{userId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // User Profile & Subcollections: Strictly restricted to the owning authenticated user
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+
+      match /roadmap/{leetcodeId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      match /chatSessions/{problemId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      match /topicStats/{topicId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      match /rateLimit/{dateId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+  }
+}
