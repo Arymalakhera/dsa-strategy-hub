@@ -20,7 +20,8 @@ import {
   Key,
   Layers,
   Timer,
-  Search
+  Search,
+  BrainCircuit
 } from 'lucide-react';
 import { MockTimer } from './MockTimer';
 import { LottieMentorBot } from './LottieMentorBot';
@@ -433,20 +434,20 @@ export const HintLadderDrawer = ({
           <div className="flex-1 flex flex-col min-h-0 bg-[#FAF6EE] dark:bg-[#121316]">
             {/* Chat Messages Body */}
             <div className="flex-1 overflow-y-auto p-4 space-y-3.5">
-              {/* Animated Socratic Mentor Bot Header Card */}
-              <div className="p-3 bg-white dark:bg-[#1C1D22] border-2 border-black rounded-2xl flex items-center gap-3">
-                <div className="w-13 h-11 shrink-0 flex items-center justify-center">
-                  <LottieMentorBot size={48} showGlow={false} />
+              {/* Socratic Mentor Header Card */}
+              <div className="p-3 bg-white dark:bg-[#1C1D22] border-2 border-black rounded-2xl flex items-center gap-3 shadow-[0_2.5px_0_0_#18181B]">
+                <div className="w-10 h-10 rounded-xl bg-[#FFDE59] border-2 border-black flex items-center justify-center shrink-0 shadow-[0_2px_0_0_#18181B]">
+                  <BrainCircuit className="w-5 h-5 text-black" />
                 </div>
                 <div>
                   <h4 className="font-black text-xs text-black dark:text-white flex items-center gap-1.5">
-                    <span>DSA Mentor Bot</span>
-                    <span className="font-mono text-[9px] px-1.5 py-0.2 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-900 dark:text-emerald-300 border border-emerald-500/30">
-                      0 Credits
+                    <span>Socratic Mentor Guide</span>
+                    <span className="text-[10px] font-black px-2 py-0.2 rounded-full bg-[#A7F3D0] text-black border border-black">
+                      Active
                     </span>
                   </h4>
-                  <p className="text-[11px] text-slate-600 dark:text-zinc-400">
-                    Socratic guidance mode active. Select questions below for instant intuition!
+                  <p className="text-[11px] text-slate-600 dark:text-zinc-400 font-medium">
+                    Socratic guidance mode active. Select any question chip below for targeted intuition!
                   </p>
                 </div>
               </div>
