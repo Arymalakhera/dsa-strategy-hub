@@ -11,7 +11,9 @@ import {
   Search,
   Layers,
   ChevronRight,
-  Filter
+  Filter,
+  Target,
+  Star
 } from 'lucide-react';
 
 const COMPANIES = ['All', 'Amazon', 'Microsoft', 'Flipkart', 'Adobe', 'TCS', 'Infosys', 'Wipro'];
@@ -130,7 +132,7 @@ export const TopicDetailPage = ({
           </div>
         </div>
 
-        <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 font-medium leading-relaxed max-w-3xl">
+        <p className="text-xs sm:text-sm text-slate-700 dark:text-zinc-300 font-medium leading-relaxed">
           {topic.shortSummary}
         </p>
 
@@ -143,9 +145,10 @@ export const TopicDetailPage = ({
             {topic.patterns?.map((pattern, idx) => (
               <span
                 key={idx}
-                className="text-xs font-bold px-3 py-1 rounded-xl bg-[#FAF6EE] dark:bg-zinc-800 text-black dark:text-white border border-black/30 dark:border-zinc-600"
+                className="text-xs font-bold px-3 py-1 rounded-xl bg-[#FAF6EE] dark:bg-zinc-800 text-black dark:text-white border border-black/30 dark:border-zinc-600 flex items-center gap-1.5"
               >
-                🎯 {pattern}
+                <Target className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
+                <span>{pattern}</span>
               </span>
             ))}
           </div>
@@ -170,14 +173,14 @@ export const TopicDetailPage = ({
           {/* Must-only mode toggle button */}
           <button
             onClick={() => setMustOnlyMode(!mustOnlyMode)}
-            className={`neo-btn px-4 py-2 text-xs font-black transition-all shadow-[0_3px_0_0_#18181B] active:shadow-[0_0.5px_0_0_#18181B] active:translate-y-[2px] ${
+            className={`neo-btn px-4 py-2 text-xs font-black transition-all shadow-[0_3px_0_0_#18181B] active:shadow-[0_0.5px_0_0_#18181B] active:translate-y-[2px] flex items-center gap-1.5 ${
               mustOnlyMode
                 ? 'bg-[#FFDE59] text-black'
                 : 'bg-white dark:bg-zinc-800 text-slate-800 dark:text-white'
             }`}
           >
-            <Sparkles className="w-3.5 h-3.5 fill-amber-500 text-black" />
-            <span>⭐ Must-Only Mode</span>
+            <Star className="w-3.5 h-3.5 fill-black text-black" />
+            <span>MUST-Only Mode</span>
             <span className="px-2 py-0.5 rounded-full text-[10px] bg-black text-white font-black">
               {mustProblems.length}
             </span>
@@ -245,9 +248,9 @@ export const TopicDetailPage = ({
               className="w-full text-xs font-bold py-1.5 px-2.5 rounded-xl border-2 border-black dark:border-zinc-600 bg-[#FAF6EE] dark:bg-zinc-800 text-black dark:text-white cursor-pointer"
             >
               <option value="All">All Statuses</option>
-              <option value="not_started">⭕ Not Started</option>
-              <option value="solved">✅ Solved</option>
-              <option value="struggled">⚠️ Struggled</option>
+              <option value="not_started">Not Started</option>
+              <option value="solved">Solved</option>
+              <option value="struggled">Struggled</option>
             </select>
           </div>
         </div>

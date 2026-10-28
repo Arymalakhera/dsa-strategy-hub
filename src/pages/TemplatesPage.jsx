@@ -8,7 +8,9 @@ import {
   Search,
   BookOpen,
   ExternalLink,
-  Key
+  Key,
+  Clock,
+  Database
 } from 'lucide-react';
 
 const LANGUAGES = [
@@ -91,7 +93,7 @@ export const TemplatesPage = ({
           </span>
         </div>
 
-        <div className="max-w-3xl space-y-2">
+        <div className="space-y-2">
           <h1 className="text-2xl sm:text-4xl font-black tracking-tight text-black dark:text-white uppercase">
             Pattern Cheat Sheets & Notes
           </h1>
@@ -214,8 +216,8 @@ export const TemplatesPage = ({
                   </p>
 
                   <div className="flex items-center gap-4 text-xs font-mono font-bold text-slate-700 dark:text-zinc-300">
-                    <span>⏱️ Time: <strong className="text-purple-700 dark:text-purple-400">{template.timeComplexity}</strong></span>
-                    <span>💾 Space: <strong className="text-purple-700 dark:text-purple-400">{template.spaceComplexity}</strong></span>
+                    <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5 text-slate-700 dark:text-zinc-300" /> Time: <strong className="text-purple-700 dark:text-purple-400">{template.timeComplexity}</strong></span>
+                    <span className="flex items-center gap-1.5"><Database className="w-3.5 h-3.5 text-slate-700 dark:text-zinc-300" /> Space: <strong className="text-purple-700 dark:text-purple-400">{template.spaceComplexity}</strong></span>
                   </div>
 
                   <div className="rounded-2xl overflow-hidden border-2 border-black">
@@ -292,7 +294,7 @@ export const TemplatesPage = ({
             <div className="p-8 text-center rounded-3xl bg-white dark:bg-[#1C1D22] border-2 border-black dark:border-zinc-700 space-y-2">
               <BookOpen className="w-8 h-8 text-slate-400 mx-auto" />
               <p className="text-xs font-bold text-slate-700 dark:text-zinc-300">
-                You haven't written any notes yet! Click the 📝 Notes icon on any problem on the Roadmap to capture your 1-line memory trick.
+                You haven't written any notes yet! Click the Notes icon on any problem on the Roadmap to capture your 1-line memory trick.
               </p>
             </div>
           )}

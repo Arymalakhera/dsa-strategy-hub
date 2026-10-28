@@ -86,7 +86,7 @@ export const Navbar = ({
   return (
     <>
       <header className="sticky top-0 z-40 w-full border-b-2 border-black dark:border-zinc-700 bg-[#FAF6EE]/95 dark:bg-[#18181B]/95 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
+        <div className="w-full px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
           {/* 1. Left: Brand Logo & Title */}
           <Link to="/" className="flex items-center gap-2.5 group shrink-0">
             <div className="w-9 h-9 rounded-xl bg-[#FFDE59] border-2 border-black text-black flex items-center justify-center font-black transition-all group-hover:scale-105">
@@ -148,7 +148,7 @@ export const Navbar = ({
             </div>
 
             {/* Language Selector (Duolingo Style: bottom-press) */}
-            <div className="relative flex items-center px-2 py-1 rounded-xl bg-white dark:bg-[#27272A] border-2 border-black dark:border-zinc-500 shadow-[0_3px_0_0_#18181B] dark:shadow-[0_3px_0_0_#3F3F46] min-h-[38px] transition-all hover:translate-y-[-1px] active:translate-y-[2px]">
+            <div className="relative hidden sm:flex items-center px-2 py-1 rounded-xl bg-white dark:bg-[#27272A] border-2 border-black dark:border-zinc-500 shadow-[0_3px_0_0_#18181B] dark:shadow-[0_3px_0_0_#3F3F46] min-h-[38px] transition-all hover:translate-y-[-1px] active:translate-y-[2px]">
               <Code2 className="w-3.5 h-3.5 text-slate-700 dark:text-zinc-300 mr-1" />
               <select
                 value={language}
@@ -193,11 +193,11 @@ export const Navbar = ({
                     />
                   ) : (
                     <div className="w-6 h-6 rounded-full bg-[#FFDE59] text-black font-black text-xs flex items-center justify-center border border-black">
-                      {(profile?.displayName || user?.displayName || 'D')[0].toUpperCase()}
+                      {(profile?.displayName || user?.displayName || 'G')[0].toUpperCase()}
                     </div>
                   )}
                   <span className="hidden xl:inline font-bold text-xs truncate max-w-[80px]">
-                    {profile?.displayName || user?.displayName || 'User'}
+                    {profile?.displayName || user?.displayName || 'Guest'}
                   </span>
                 </button>
 
@@ -213,15 +213,15 @@ export const Navbar = ({
                         />
                       ) : (
                         <div className="w-10 h-10 rounded-full bg-[#FFDE59] text-black font-black text-sm flex items-center justify-center border-2 border-black">
-                          {(profile?.displayName || user?.displayName || 'D')[0].toUpperCase()}
+                          {(profile?.displayName || user?.displayName || 'G')[0].toUpperCase()}
                         </div>
                       )}
                       <div className="min-w-0 flex-1">
                         <h4 className="font-black text-sm text-black dark:text-white truncate">
-                          {profile?.displayName || user?.displayName || (isDemoMode ? 'Demo User' : 'Learner')}
+                          {profile?.displayName || user?.displayName || 'Guest'}
                         </h4>
                         <p className="text-[11px] text-slate-500 dark:text-zinc-400 truncate">
-                          {user?.email || (isDemoMode ? 'demo@dsastrategy.app' : 'Signed In')}
+                          {user?.email || 'Local Storage Mode'}
                         </p>
                       </div>
                     </div>
@@ -272,10 +272,10 @@ export const Navbar = ({
               <button
                 onClick={() => setIsAuthModalOpen(true)}
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border-2 border-black dark:border-zinc-400 bg-white dark:bg-zinc-800 text-black dark:text-white font-black text-xs shadow-[0_3px_0_0_#18181B] dark:shadow-[0_3px_0_0_#3F3F46] hover:translate-y-[-1px] active:translate-y-[2px] transition-all cursor-pointer min-h-[38px]"
-                title="Sign in with Google to sync progress"
+                title="Sign in or continue as Guest"
               >
-                <LogIn className="w-3.5 h-3.5 text-black dark:text-white" />
-                <span className="hidden sm:inline">Login</span>
+                <User className="w-3.5 h-3.5 text-black dark:text-white" />
+                <span>Guest</span>
               </button>
             )}
           </div>
@@ -287,8 +287,9 @@ export const Navbar = ({
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-fade-in">
           <div className="w-full max-w-md bg-white dark:bg-zinc-900 rounded-2xl border-2 border-black dark:border-zinc-700 shadow-[0_8px_0_0_#18181B] dark:shadow-[0_8px_0_0_#3F3F46] p-6 space-y-4">
             <div className="flex items-center justify-between border-b-2 border-black pb-3">
-              <h3 className="font-black text-slate-900 dark:text-white text-base">
-                📦 Data Backup & Restore
+              <h3 className="font-black text-slate-900 dark:text-white text-base flex items-center gap-1.5">
+                <Database className="w-4 h-4 text-black dark:text-white" />
+                <span>Data Backup & Restore</span>
               </h3>
               <button
                 onClick={() => setIsBackupOpen(false)}
@@ -358,8 +359,14 @@ export const Navbar = ({
             </div>
 
             {authError && (
-              <div className="p-3 bg-rose-100 dark:bg-rose-950/70 border-2 border-rose-500 text-rose-900 dark:text-rose-200 text-xs font-bold rounded-xl">
-                {authError}
+              <div className="p-3.5 bg-amber-50 dark:bg-amber-950/70 border-2 border-black dark:border-amber-400 text-amber-950 dark:text-amber-100 text-xs font-bold rounded-xl space-y-1.5">
+                <div className="flex items-start gap-2">
+                  <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+                  <div className="leading-relaxed font-semibold">{authError}</div>
+                </div>
+                <p className="text-[11px] text-slate-700 dark:text-zinc-300 font-medium pt-1 border-t border-black/10 dark:border-white/10">
+                  Tip: You do not need to sign in to use DSA Strategy Hub. Click <strong>&quot;Continue as Guest&quot;</strong> below to track all progress and notes locally in your browser.
+                </p>
               </div>
             )}
 
@@ -392,7 +399,8 @@ export const Navbar = ({
                 }}
                 className="w-full py-2.5 px-4 bg-[#FFDE59] text-black rounded-xl text-xs font-black border-2 border-black shadow-[0_3px_0_0_#18181B] active:shadow-[0_0.5px_0_0_#18181B] active:translate-y-[2px] transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
-                <span>Continue as Guest / Demo Mode</span>
+                <User className="w-4 h-4 text-black" />
+                <span>Continue as Guest (Local Offline Mode)</span>
               </button>
             </div>
 

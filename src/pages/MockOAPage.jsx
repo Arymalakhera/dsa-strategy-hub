@@ -18,7 +18,8 @@ import {
   Trophy,
   Target,
   ShieldAlert,
-  Sparkles
+  Sparkles,
+  X
 } from 'lucide-react';
 
 const COMPANIES = [
@@ -489,33 +490,36 @@ export const MockOAPage = ({
                   <div className="flex flex-wrap gap-2">
                     <button
                       onClick={() => handleSetProblemStatus(currentProb.id, 'solved')}
-                      className={`px-3 py-1 rounded-xl text-xs font-black border-2 border-black transition-all cursor-pointer ${
+                      className={`px-3 py-1 rounded-xl text-xs font-black border-2 border-black transition-all cursor-pointer inline-flex items-center gap-1.5 ${
                         currentStatus === 'solved'
                           ? 'bg-[#34D399] text-black shadow-[0_2.5px_0_0_#18181B] active:translate-y-[1.5px]'
                           : 'bg-white dark:bg-zinc-800 text-slate-800 dark:text-zinc-200'
                       }`}
                     >
-                      ✓ Solved Cleanly
+                      <CheckCircle2 className="w-3.5 h-3.5" />
+                      <span>Solved Cleanly</span>
                     </button>
                     <button
                       onClick={() => handleSetProblemStatus(currentProb.id, 'struggled')}
-                      className={`px-3 py-1 rounded-xl text-xs font-black border-2 border-black transition-all cursor-pointer ${
+                      className={`px-3 py-1 rounded-xl text-xs font-black border-2 border-black transition-all cursor-pointer inline-flex items-center gap-1.5 ${
                         currentStatus === 'struggled'
                           ? 'bg-[#FFDE59] text-black shadow-[0_2.5px_0_0_#18181B] active:translate-y-[1.5px]'
                           : 'bg-white dark:bg-zinc-800 text-slate-800 dark:text-zinc-200'
                       }`}
                     >
-                      ⚠ Needed Hints / Struggled
+                      <AlertTriangle className="w-3.5 h-3.5" />
+                      <span>Needed Hints / Struggled</span>
                     </button>
                     <button
                       onClick={() => handleSetProblemStatus(currentProb.id, 'unsolved')}
-                      className={`px-3 py-1 rounded-xl text-xs font-black border-2 border-black transition-all cursor-pointer ${
+                      className={`px-3 py-1 rounded-xl text-xs font-black border-2 border-black transition-all cursor-pointer inline-flex items-center gap-1.5 ${
                         currentStatus === 'unsolved'
                           ? 'bg-[#FECDD3] text-black shadow-[0_2.5px_0_0_#18181B] active:translate-y-[1.5px]'
                           : 'bg-white dark:bg-zinc-800 text-slate-800 dark:text-zinc-200'
                       }`}
                     >
-                      ✕ Unsolved
+                      <X className="w-3.5 h-3.5" />
+                      <span>Unsolved</span>
                     </button>
                   </div>
                 </div>

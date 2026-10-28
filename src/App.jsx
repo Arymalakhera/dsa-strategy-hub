@@ -116,12 +116,12 @@ export default function App() {
         onOpenSearch={() => setIsSearchOpen(true)}
       />
 
-      <div className="flex-1 flex max-w-7xl w-full mx-auto">
+      <div className="flex-1 flex w-full">
         {/* Desktop Sidebar */}
         <Sidebar dueCount={dueRevisions.length} />
 
         {/* Main Content Area */}
-        <main className="flex-1 px-4 sm:px-8 py-6 max-w-full overflow-x-hidden">
+        <main className="flex-1 px-3 sm:px-6 lg:px-8 py-4 sm:py-6 pb-24 lg:pb-8 w-full min-w-0 overflow-x-hidden">
           <ErrorBoundary>
             <Routes>
               <Route

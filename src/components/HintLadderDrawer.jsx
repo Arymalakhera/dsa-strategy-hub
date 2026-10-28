@@ -568,13 +568,20 @@ export const HintLadderDrawer = ({
             </button>
             <button
               onClick={() => onMarkStatus(problem.id, 'solved')}
-              className={`neo-btn px-3 py-1.5 text-xs font-black ${
+              className={`neo-btn px-3 py-1.5 text-xs font-black inline-flex items-center gap-1.5 ${
                 status === 'solved'
                   ? 'bg-[#34D399] text-black'
                   : 'bg-white dark:bg-zinc-800 text-black dark:text-white'
               }`}
             >
-              {status === 'solved' ? '✓ Solved' : 'Mark Solved'}
+              {status === 'solved' ? (
+                <>
+                  <Check className="w-3.5 h-3.5" />
+                  <span>Solved</span>
+                </>
+              ) : (
+                'Mark Solved'
+              )}
             </button>
             <button
               onClick={() => onMarkStatus(problem.id, 'struggled')}

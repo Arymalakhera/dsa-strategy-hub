@@ -221,7 +221,7 @@ export const SocraticChatModal: React.FC<SocraticChatModalProps> = ({
           {
             id: (Date.now() + 1).toString(),
             role: 'assistant',
-            content: `⚠️ **AI Mentor Notice**: ${errorText}\n\nPlease click **"Review My Code with AI"** or ask another question to try again.`,
+            content: `**AI Mentor Notice**: ${errorText}\n\nPlease click **"Review My Code with AI"** or ask another question to try again.`,
             stage: nextStage,
             timestamp: new Date().toISOString()
           }
@@ -241,7 +241,7 @@ export const SocraticChatModal: React.FC<SocraticChatModalProps> = ({
         {
           id: (Date.now() + 1).toString(),
           role: 'assistant',
-          content: `⚠️ **Network Error**: ${errorMsg}`,
+          content: `**Network Error**: ${errorMsg}`,
           stage: nextStage,
           timestamp: new Date().toISOString()
         }
@@ -338,7 +338,9 @@ export const SocraticChatModal: React.FC<SocraticChatModalProps> = ({
           <div className="bg-rose-900/90 border-b border-rose-700 p-3 text-xs text-rose-100 flex items-center gap-2 font-semibold">
             <AlertCircle className="w-4 h-4 text-rose-300 shrink-0" />
             <span className="flex-1">{chatError}</span>
-            <button onClick={() => setChatError(null)} className="text-rose-200 hover:text-white font-bold">✕</button>
+            <button onClick={() => setChatError(null)} className="text-rose-200 hover:text-white p-0.5 rounded cursor-pointer" aria-label="Dismiss error">
+              <X className="w-4 h-4" />
+            </button>
           </div>
         )}
 

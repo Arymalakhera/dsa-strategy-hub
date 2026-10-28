@@ -18,7 +18,8 @@ import {
   HelpCircle,
   Code2,
   Timer,
-  Video
+  Video,
+  Bell
 } from 'lucide-react';
 
 export const DashboardPage = ({
@@ -82,11 +83,11 @@ export const DashboardPage = ({
             Interview Preparation
           </span>
           <span className="neo-pill bg-[#C4B5FD] text-black">
-            14 Core Problem Patterns
+            {TOPICS.length} Core Problem Topics
           </span>
         </div>
 
-        <div className="max-w-3xl space-y-2">
+        <div className="space-y-2">
           <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-[#18181B] dark:text-white uppercase">
             Master DSA Patterns Without The Confusion
           </h1>
@@ -251,7 +252,7 @@ export const DashboardPage = ({
                   }`}
                 >
                   <CheckCircle2 className="w-4 h-4 inline mr-1" />
-                  <span>{todayPlanDay.isCompleted ? 'Done ✓' : 'Mark Day Complete'}</span>
+                  <span>{todayPlanDay.isCompleted ? 'Done' : 'Mark Day Complete'}</span>
                 </button>
               </div>
 
@@ -280,7 +281,9 @@ export const DashboardPage = ({
             </div>
           ) : (
             <div className="p-5 rounded-2xl bg-[#FAF6EE] dark:bg-zinc-800/40 border-2 border-black dark:border-zinc-700 text-center space-y-3">
-              <div className="text-2xl">🗓️</div>
+              <div className="flex justify-center">
+                <Calendar className="w-8 h-8 text-black dark:text-white" strokeWidth={2} />
+              </div>
               <p className="text-xs text-slate-700 dark:text-zinc-300 font-bold">
                 Have a target interview deadline? Generate an adaptive schedule tailored to your available hours per week!
               </p>
@@ -298,8 +301,9 @@ export const DashboardPage = ({
           {dueRevisions.length > 0 && (
             <div className="p-4 rounded-2xl bg-[#FEF08A] dark:bg-amber-950/40 border-2 border-black dark:border-zinc-700 flex items-center justify-between flex-wrap gap-2">
               <div>
-                <h4 className="font-black text-xs text-black dark:text-amber-200">
-                  🔔 {dueRevisions.length} Daily Reviews Due Today!
+                <h4 className="font-black text-xs text-black dark:text-amber-200 flex items-center gap-1.5">
+                  <Bell className="w-4 h-4 text-purple-700 dark:text-purple-400" />
+                  <span>{dueRevisions.length} Daily Reviews Due Today!</span>
                 </h4>
                 <p className="text-[11px] text-slate-800 dark:text-amber-300 font-medium mt-0.5">
                   Review previously struggled problems to retain algorithms permanently.

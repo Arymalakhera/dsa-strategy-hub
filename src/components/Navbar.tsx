@@ -136,7 +136,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               }`}
               title="Previous Mint Classic Theme"
             >
-              <span>🌊 Mint</span>
+              <span>Mint</span>
             </button>
             <button
               onClick={() => setThemeMode('glass')}
@@ -148,7 +148,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               title="Dribbble Blue Glassmorphism Theme"
             >
               <Sparkles className="w-3 h-3 text-amber-400 fill-amber-400" />
-              <span>💎 Glass</span>
+              <span>Glass</span>
             </button>
           </div>
         )}

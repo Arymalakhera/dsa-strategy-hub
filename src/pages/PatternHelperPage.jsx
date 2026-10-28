@@ -39,7 +39,7 @@ export const PatternHelperPage = () => {
           </span>
         </div>
 
-        <div className="max-w-3xl space-y-2">
+        <div className="space-y-2">
           <h1 className="text-2xl sm:text-4xl font-black tracking-tight text-black dark:text-white uppercase">
             "Which Pattern Is This?" Helper
           </h1>

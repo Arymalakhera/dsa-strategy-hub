@@ -18,7 +18,8 @@ import {
   Network,
   Cpu,
   Binary,
-  ArrowRight
+  ArrowRight,
+  Star
 } from 'lucide-react';
 
 const ICON_MAP = {
@@ -66,12 +67,12 @@ export const RoadmapPage = ({ progressMap = {} }) => {
           </span>
         </div>
 
-        <div className="max-w-3xl space-y-2">
+        <div className="space-y-2">
           <h1 className="text-2xl sm:text-4xl font-black tracking-tight text-black dark:text-white uppercase">
             Curated {TOPICS.length}-Topic DSA Roadmap
           </h1>
           <p className="text-slate-700 dark:text-zinc-300 text-xs sm:text-sm font-medium leading-relaxed">
-            Follow this battle-tested sequence. Master the high-yield <strong>⭐ Must</strong> problems first to lock down core algorithmic intuition before tackling Good and Bonus challenges.
+            Follow this battle-tested sequence. Master the high-yield <strong>MUST</strong> problems first to lock down core algorithmic intuition before tackling Good and Bonus challenges.
           </p>
 
           {/* Overall Progress Bars */}
@@ -80,7 +81,7 @@ export const RoadmapPage = ({ progressMap = {} }) => {
               <ProgressBar
                 completed={mustSolved}
                 total={mustTotal}
-                label="⭐ Must Problems (Core Interview Target)"
+                label="MUST Problems (Core Interview Target)"
                 color="yellow"
               />
             </div>
@@ -96,18 +97,19 @@ export const RoadmapPage = ({ progressMap = {} }) => {
         </div>
       </div>
 
-      {/* 14 Topics Ordered Grid */}
+      {/* 16 Topics Ordered Grid */}
       <div className="space-y-4">
         <div className="flex items-center justify-between flex-wrap gap-2">
           <h2 className="text-lg font-black text-slate-900 dark:text-white flex items-center gap-2">
-            <span>Sequenced Topic Flow (1 to 14)</span>
+            <span>Sequenced Topic Flow (1 to {TOPICS.length})</span>
           </h2>
-          <span className="text-xs font-bold text-slate-700 dark:text-zinc-300 bg-white dark:bg-zinc-800 px-3 py-1 rounded-full border-2 border-black">
-            👉 Click any card to view problems & 4-step hint ladder
+          <span className="text-xs font-bold text-slate-700 dark:text-zinc-300 bg-white dark:bg-zinc-800 px-3 py-1 rounded-full border-2 border-black flex items-center gap-1.5">
+            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+            <span>Click any card to view problems & 4-step hint ladder</span>
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
           {TOPICS.map((topic, index) => {
             const Icon = ICON_MAP[topic.icon] || Layers;
             const topicProblems = PROBLEMS.filter((p) => p.topicId === topic.id);

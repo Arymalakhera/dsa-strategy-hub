@@ -6,7 +6,12 @@ import {
   Sparkles,
   AlertTriangle,
   CheckCircle2,
-  Square
+  Square,
+  Calendar,
+  Clock,
+  Check,
+  Sliders,
+  Zap
 } from 'lucide-react';
 
 export const StudyPlannerPage = ({ studyPlan, onSavePlan, onToggleDay }) => {
@@ -74,7 +79,7 @@ export const StudyPlannerPage = ({ studyPlan, onSavePlan, onToggleDay }) => {
           </span>
         </div>
 
-        <div className="max-w-3xl space-y-2">
+        <div className="space-y-2">
           <h1 className="text-2xl sm:text-4xl font-black tracking-tight text-black dark:text-white uppercase">
             Personalized DSA Study Plan
           </h1>
@@ -84,20 +89,24 @@ export const StudyPlannerPage = ({ studyPlan, onSavePlan, onToggleDay }) => {
 
           {activePlan && (
             <div className="pt-3 flex flex-wrap items-center gap-2 text-xs font-black">
-              <span className="neo-pill bg-[#FAF6EE] dark:bg-zinc-800 text-black dark:text-white">
-                📅 {activePlan.startDate} → {activePlan.deadlineDate} ({activePlan.totalCalendarDays} days)
+              <span className="neo-pill bg-[#FAF6EE] dark:bg-zinc-800 text-black dark:text-white flex items-center gap-1.5">
+                <Calendar className="w-3.5 h-3.5 text-black dark:text-white" />
+                <span>{activePlan.startDate} → {activePlan.deadlineDate} ({activePlan.totalCalendarDays} days)</span>
               </span>
-              <span className="neo-pill bg-[#FAF6EE] dark:bg-zinc-800 text-black dark:text-white">
-                ⏱️ {activePlan.hoursPerDay} hrs/day • {activePlan.daysPerWeek} days/wk
+              <span className="neo-pill bg-[#FAF6EE] dark:bg-zinc-800 text-black dark:text-white flex items-center gap-1.5">
+                <Clock className="w-3.5 h-3.5 text-black dark:text-white" />
+                <span>{activePlan.hoursPerDay} hrs/day • {activePlan.daysPerWeek} days/wk</span>
               </span>
-              <span className="neo-pill bg-[#A7F3D0] text-black">
-                ✓ {completedDaysInPlan}/{totalDaysInPlan} Days Done
+              <span className="neo-pill bg-[#A7F3D0] text-black flex items-center gap-1.5">
+                <Check className="w-3.5 h-3.5 text-black" />
+                <span>{completedDaysInPlan}/{totalDaysInPlan} Days Done</span>
               </span>
               <button
                 onClick={() => setShowConfig(!showConfig)}
-                className="neo-btn bg-[#FFDE59] text-black px-3 py-1 text-xs font-black shadow-[0_2.5px_0_0_#18181B] active:shadow-[0_0.5px_0_0_#18181B] active:translate-y-[2px]"
+                className="neo-btn bg-[#FFDE59] text-black px-3 py-1 text-xs font-black shadow-[0_2.5px_0_0_#18181B] active:shadow-[0_0.5px_0_0_#18181B] active:translate-y-[2px] flex items-center gap-1.5"
               >
-                {showConfig ? 'Hide Customizer' : '⚙️ Adjust Inputs'}
+                <Sliders className="w-3.5 h-3.5 text-black" />
+                <span>{showConfig ? 'Hide Customizer' : 'Adjust Inputs'}</span>
               </button>
             </div>
           )}
@@ -242,9 +251,10 @@ export const StudyPlannerPage = ({ studyPlan, onSavePlan, onToggleDay }) => {
           <div className="flex justify-end gap-2 pt-2 border-t-2 border-black/10 dark:border-white/10">
             <button
               type="submit"
-              className="neo-btn bg-[#FFDE59] text-black px-5 py-2.5 text-xs font-black shadow-[0_3px_0_0_#18181B] active:shadow-[0_0.5px_0_0_#18181B] active:translate-y-[2px]"
+              className="neo-btn bg-[#FFDE59] text-black px-5 py-2.5 text-xs font-black shadow-[0_3px_0_0_#18181B] active:shadow-[0_0.5px_0_0_#18181B] active:translate-y-[2px] flex items-center gap-1.5"
             >
-              🚀 Generate Optimized Plan
+              <Zap className="w-4 h-4 text-black" />
+              <span>Generate Optimized Plan</span>
             </button>
           </div>
         </form>
@@ -367,7 +377,7 @@ export const StudyPlannerPage = ({ studyPlan, onSavePlan, onToggleDay }) => {
                             }`}
                           >
                             {day.isCompleted ? <CheckCircle2 className="w-3 h-3" /> : <Square className="w-3 h-3" />}
-                            <span>{day.isCompleted ? 'Done ✓' : 'Mark Done'}</span>
+                            <span>{day.isCompleted ? 'Done' : 'Mark Done'}</span>
                           </button>
                           {isToday && (
                             <span className="text-[10px] font-black bg-black text-white px-1.5 py-0.2 rounded">

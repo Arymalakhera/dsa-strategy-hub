@@ -16,7 +16,12 @@ import {
   Layers,
   Compass,
   ArrowRight,
-  Video
+  Video,
+  Crown,
+  Lightbulb,
+  Target,
+  Code2,
+  Network
 } from 'lucide-react';
 
 const YoutubeIcon = ({ className = "w-4 h-4" }) => (
@@ -35,37 +40,37 @@ export const ResourcesPage = () => {
   const GOALS = [
     {
       id: 'placement_sde',
-      title: '🎯 Crack SDE Placement',
+      title: 'Crack SDE Placement',
       desc: 'Rigorous SDE sheet & problem-first optimal solutions',
       matchId: 'takeuforward'
     },
     {
       id: 'leetcode_patterns',
-      title: '🚀 Visual LeetCode Patterns',
+      title: 'Visual LeetCode Patterns',
       desc: 'Whiteboard diagrams in Python without fluff',
       matchId: 'neetcode'
     },
     {
       id: 'theory_proofs',
-      title: '🧠 Core Theory & Proofs',
+      title: 'Core Theory & Proofs',
       desc: 'Mathematical intuition on paper for college exams',
       matchId: 'abdul_bari'
     },
     {
       id: 'beginner_hindi',
-      title: '🌱 Absolute Beginner in Hindi',
+      title: 'Absolute Beginner in Hindi',
       desc: 'Friendly handholding starting from programming zero',
       matchId: 'love_babbar'
     },
     {
       id: 'java_dsa',
-      title: '☕ Dedicated Java Track',
+      title: 'Dedicated Java Track',
       desc: 'Complete Java + DSA with open-source assignments',
       matchId: 'kunal_kushwaha'
     },
     {
       id: 'graph_advanced',
-      title: '🕸️ Advanced Graph & Trees',
+      title: 'Advanced Graph & Trees',
       desc: 'Stunning visual algorithmic animations & flow algorithms',
       matchId: 'william_fiset'
     }
@@ -113,15 +118,16 @@ export const ResourcesPage = () => {
       {/* Hero Header */}
       <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#1C1D22] border-2 border-black dark:border-zinc-700 relative overflow-hidden">
         <div className="flex flex-wrap items-center gap-2 mb-3">
-          <span className="neo-pill bg-[#FFDE59] text-black">
-            👑 Handpicked Community Leaders
+          <span className="neo-pill bg-[#FFDE59] text-black flex items-center gap-1.5">
+            <Crown className="w-3.5 h-3.5 text-black" />
+            <span>Handpicked Community Leaders</span>
           </span>
           <span className="neo-pill bg-[#A7F3D0] text-black">
             Free Video Courses & SDE Sheets
           </span>
         </div>
 
-        <div className="max-w-3xl space-y-2">
+        <div className="space-y-2">
           <h1 className="text-2xl sm:text-4xl font-black tracking-tight text-black dark:text-white uppercase flex items-center gap-3">
             <span>Curated DSA Channels & Resources</span>
           </h1>
@@ -233,7 +239,7 @@ export const ResourcesPage = () => {
         </div>
 
         {filteredChannels.length > 0 ? (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-6">
             {filteredChannels.map((channel) => (
               <div
                 key={channel.id}
@@ -298,8 +304,9 @@ export const ResourcesPage = () => {
 
                   {/* Recommended For Callout */}
                   <div className="mt-3 p-3 bg-[#FAF6EE] dark:bg-zinc-800/80 rounded-2xl border border-black/20 dark:border-zinc-700 text-xs">
-                    <span className="font-black text-black dark:text-white block mb-0.5">
-                      💡 Ideal Match:
+                    <span className="font-black text-black dark:text-white flex items-center gap-1.5 mb-0.5">
+                      <Lightbulb className="w-3.5 h-3.5 text-amber-500" />
+                      <span>Ideal Match:</span>
                     </span>
                     <p className="text-slate-800 dark:text-zinc-300 font-medium">
                       {channel.recommendedFor}

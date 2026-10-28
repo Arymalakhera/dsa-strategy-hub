@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Problem, RoadmapItem, ProblemStatus } from '../types';
 import { FIXED_TOPIC_SEQUENCE } from '../lib/roadmapGenerator';
-import { ExternalLink, BrainCircuit, CheckCircle2, Circle, Clock, Plus, Filter, Search, Sparkles, RefreshCw, Trophy, Flame, ChevronLeft, ChevronRight, Sliders, Trash2, Code, Building2, Compass, Layers, Undo2 } from 'lucide-react';
+import { ExternalLink, BrainCircuit, CheckCircle2, Circle, Clock, Plus, Filter, Search, Sparkles, RefreshCw, Trophy, Flame, ChevronLeft, ChevronRight, Sliders, Trash2, Code, Building2, Compass, Layers, Undo2, Star } from 'lucide-react';
 
 interface RoadmapViewProps {
   roadmap: RoadmapItem[];
@@ -207,9 +207,11 @@ export const RoadmapView: React.FC<RoadmapViewProps> = ({
             </p>
 
             <div className="pt-2 flex flex-wrap items-center gap-4">
-              {/* Star Rating Badge (matching image: ★ 4.7 from 1,800+ stays) */}
+              {/* Rating Badge */}
               <div className="flex items-center gap-2 px-4 py-2 rounded-2xl bg-[#062936]/80 border border-cyan-400/30 backdrop-blur-md">
-                <span className="text-amber-400 font-bold text-sm">★ 4.9</span>
+                <span className="text-amber-400 font-bold text-sm flex items-center gap-1">
+                  <Star className="w-3.5 h-3.5 fill-amber-400" /> 4.9
+                </span>
                 <span className="text-xs text-cyan-100/80 font-medium">from 1,800+ Socratic Solved Problems</span>
               </div>
 
@@ -760,7 +762,8 @@ export const RoadmapView: React.FC<RoadmapViewProps> = ({
                           key={comp}
                           className="px-2.5 py-0.5 rounded-full bg-[#00A896]/15 border border-[#00A896]/30 text-[10px] font-bold text-[#008080] flex items-center gap-1"
                         >
-                          🏢 {comp}
+                          <Building2 className="w-2.5 h-2.5 text-[#008080]" />
+                          <span>{comp}</span>
                         </span>
                       ))}
                     </div>
@@ -780,9 +783,9 @@ export const RoadmapView: React.FC<RoadmapViewProps> = ({
                           : 'bg-white border-[#0F7A8D]/25 text-[#3B6674] hover:text-[#072A36]'
                       }`}
                     >
-                      <option value="unsolved" className="bg-white text-[#3B6674] font-bold uppercase">⚪ Unsolved</option>
-                      <option value="attempted" className="bg-white text-[#0F6B7B] font-bold uppercase">🟡 Attempted</option>
-                      <option value="solved" className="bg-white text-[#00A896] font-bold uppercase">🟢 Solved</option>
+                      <option value="unsolved" className="bg-white text-[#3B6674] font-bold uppercase">Unsolved</option>
+                      <option value="attempted" className="bg-white text-[#0F6B7B] font-bold uppercase">Attempted</option>
+                      <option value="solved" className="bg-white text-[#00A896] font-bold uppercase">Solved</option>
                     </select>
 
                     {/* Add / Remove from Roadmap */}

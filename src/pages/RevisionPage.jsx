@@ -6,7 +6,8 @@ import { EmptyState } from '../components/EmptyState';
 import {
   RefreshCw,
   CheckCircle2,
-  RotateCcw
+  RotateCcw,
+  Check
 } from 'lucide-react';
 
 export const RevisionPage = ({
@@ -42,7 +43,7 @@ export const RevisionPage = ({
           </span>
         </div>
 
-        <div className="max-w-3xl space-y-2">
+        <div className="space-y-2">
           <h1 className="text-2xl sm:text-4xl font-black tracking-tight text-black dark:text-white uppercase">
             Spaced Revision Queue
           </h1>
@@ -206,9 +207,10 @@ export const RevisionPage = ({
                         <td className="p-3.5 sm:p-4 text-right space-x-2">
                           <button
                             onClick={() => onResolveRevision(item.problemId, true)}
-                            className="neo-btn bg-[#34D399] text-black px-2.5 py-1 text-xs font-black cursor-pointer"
+                            className="neo-btn bg-[#34D399] text-black px-2.5 py-1 text-xs font-black cursor-pointer flex items-center gap-1"
                           >
-                            Pass ✓
+                            <Check className="w-3.5 h-3.5" />
+                            <span>Pass</span>
                           </button>
                           <button
                             onClick={() => onResolveRevision(item.problemId, false)}

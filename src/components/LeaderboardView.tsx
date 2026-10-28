@@ -35,8 +35,8 @@ const MOCK_LEADERBOARD: LeaderboardEntry[] = [
     currentStreak: 6
   },
   {
-    uid: 'demo-user-123',
-    displayName: 'Alex Rivers (You)',
+    uid: 'guest-user-123',
+    displayName: 'Guest (You)',
     photoURL: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150',
     totalPoints: 245,
     problemsSolved: 11,

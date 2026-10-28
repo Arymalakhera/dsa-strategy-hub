@@ -43,7 +43,7 @@ export class ModelCircuitBreaker {
       this.halfOpenTestInFlight = false;
       this.lastStateChange = now;
       console.log(
-        `[CircuitBreaker:${this.name}] 🔄 Cooldown of ${this.config.cooldownMs / 1000}s elapsed. State transition: OPEN -> HALF-OPEN. Primary model probe permitted.`
+        `[CircuitBreaker:${this.name}] [COOLDOWN] Cooldown of ${this.config.cooldownMs / 1000}s elapsed. State transition: OPEN -> HALF-OPEN. Primary model probe permitted.`
       );
     }
   }
@@ -59,7 +59,7 @@ export class ModelCircuitBreaker {
       if (!this.halfOpenTestInFlight) {
         this.halfOpenTestInFlight = true;
         console.log(
-          `[CircuitBreaker:${this.name}] 🧪 HALF-OPEN probe test request allowed for primary model.`
+          `[CircuitBreaker:${this.name}] [PROBE] HALF-OPEN probe test request allowed for primary model.`
         );
         return true;
       }
@@ -80,7 +80,7 @@ export class ModelCircuitBreaker {
       this.state = 'CLOSED';
       this.lastStateChange = Date.now();
       console.log(
-        `[CircuitBreaker:${this.name}] ✅ Probe test request Succeeded! State transition: ${previousState} -> CLOSED. Primary model restored.`
+        `[CircuitBreaker:${this.name}] [SUCCESS] Probe test request Succeeded! State transition: ${previousState} -> CLOSED. Primary model restored.`
       );
     }
   }
@@ -101,7 +101,7 @@ export class ModelCircuitBreaker {
       this.lastStateChange = now;
       this.halfOpenTestInFlight = false;
       console.warn(
-        `[CircuitBreaker:${this.name}] ❌ Probe test request Failed (${errorMessage}). State transition: HALF-OPEN -> OPEN. Cooldown reset for ${
+        `[CircuitBreaker:${this.name}] [FAIL] Probe test request Failed (${errorMessage}). State transition: HALF-OPEN -> OPEN. Cooldown reset for ${
           this.config.cooldownMs / 1000
         }s.`
       );
@@ -113,7 +113,7 @@ export class ModelCircuitBreaker {
         this.state = 'OPEN';
         this.lastStateChange = now;
         console.warn(
-          `[CircuitBreaker:${this.name}] ⚠️ Failure threshold reached (${this.failureTimestamps.length}/${this.config.failureThreshold} failures in ${
+          `[CircuitBreaker:${this.name}] [THRESHOLD] Failure threshold reached (${this.failureTimestamps.length}/${this.config.failureThreshold} failures in ${
             this.config.windowMs / 1000
           }s). Reason: ${errorMessage}. State transition: CLOSED -> OPEN. Primary model marked temporarily unavailable for ${
             this.config.cooldownMs / 1000

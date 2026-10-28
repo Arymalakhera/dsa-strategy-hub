@@ -254,7 +254,7 @@ User Code snippet (if provided): ${userCode ? `\`\`\`\n${userCode}\n\`\`\`` : 'N
       // If all Gemini models are 503 or 429 rate limited, return fallback Socratic guidance card
       if (lastGeminiError) {
         console.error('All Gemini models failed, serving offline Socratic template');
-        const fallbackReply = `### **💡 Concept & Intuition**\nFor **${problemTitle}**, focus on identifying the core pattern (e.g. Hash Map, Two Pointers, or Frequency Counting) to solve this efficiently.\n\n### **💻 Code & Pseudocode Snippet**\n\`\`\`python\n# Step 1: Initialize data structure\nseen = {}\nfor val in items:\n    # Step 2: Check matching condition\n    if condition(val):\n        return result\n\`\`\`\n\n### **❓ Guiding Next Step**\n*What data structure would allow you to check if an item exists in O(1) time?*`;
+        const fallbackReply = `### **Concept & Intuition**\nFor **${problemTitle}**, focus on identifying the core pattern (e.g. Hash Map, Two Pointers, or Frequency Counting) to solve this efficiently.\n\n### **Code & Pseudocode Snippet**\n\`\`\`python\n# Step 1: Initialize data structure\nseen = {}\nfor val in items:\n    # Step 2: Check matching condition\n    if condition(val):\n        return result\n\`\`\`\n\n### **Guiding Next Step**\n*What data structure would allow you to check if an item exists in O(1) time?*`;
 
         setToCache(cacheKey, { reply: fallbackReply, stage: stageNum, source: 'socratic-fallback-template' });
 

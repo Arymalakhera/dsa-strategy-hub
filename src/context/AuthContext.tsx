@@ -21,10 +21,10 @@ interface AuthContextType {
 }
 
 const DEFAULT_DEMO_PROFILE: UserProfile = {
-  uid: 'demo-user-123',
-  displayName: 'Alex Rivers (Demo)',
-  email: 'alex.demo@dsamentor.app',
-  photoURL: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200',
+  uid: 'guest-user-123',
+  displayName: 'Guest',
+  email: '',
+  photoURL: '',
   currentLevel: 'Intermediate',
   preferences: {
     skillLevel: 'Intermediate',
@@ -79,7 +79,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       } else {
         const newProf: UserProfile = {
           uid: fbUser.uid,
-          displayName: fbUser.displayName || 'DSA Explorer',
+          displayName: fbUser.displayName || 'Guest',
           email: fbUser.email,
           photoURL: fbUser.photoURL,
           currentLevel: 'Beginner',
@@ -129,7 +129,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     } catch (error: any) {
       console.error('Google Sign-In Error:', error);
       if (error.code === 'auth/unauthorized-domain') {
-        setAuthError('Firebase Auth Error: Domain unauthorized. Please add your Vercel domain to Firebase Console -> Auth -> Settings -> Authorized Domains.');
+        const domain = typeof window !== 'undefined' ? window.location.hostname : 'dsa-strategy-hub.netlify.app';
+        setAuthError(`Firebase Auth Error: Domain "${domain}" is not authorized. Please add "${domain}" in Firebase Console -> Authentication -> Settings -> Authorized Domains. In the meantime, you can click "Continue as Guest" to use all features.`);
       } else {
         const message = error.message || 'Google Sign-In failed. Please try again.';
         setAuthError(message);
