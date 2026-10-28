@@ -11,13 +11,15 @@ import { AboutView } from '../components/AboutView';
 import { RoadmapCustomizerModal } from '../components/RoadmapCustomizerModal';
 import { Footer } from '../components/Footer';
 import { SocraticChatModal } from '../components/SocraticChatModal';
+import { BadgeUnlockModal } from '../components/BadgeUnlockModal';
+import { Badge } from '../components/AchievementsView';
 import { Problem, RoadmapItem, ProblemStatus, UserPreferences, Difficulty } from '../types';
 import { fetchProblemBank } from '../lib/problemBankCache';
 import { generatePersonalizedRoadmap } from '../lib/roadmapGenerator';
 import { calculatePoints, updateStreakStats, determineUserRank } from '../lib/scoringEngine';
 import { doc, getDocs, collection, setDoc } from 'firebase/firestore';
 import { db } from '../lib/firebase';
-import { AlertCircle, X } from 'lucide-react';
+import { AlertCircle, X, Award, Flame, Target, BrainCircuit, ShieldAlert, Trophy } from 'lucide-react';
 
 function MainDashboard() {
   const { user, profile, savePreferencesAndInitializeRoadmap, isDemoMode, authError, clearAuthError } = useAuth();
@@ -40,6 +42,40 @@ function MainDashboard() {
     Hard: true
   });
   const [dailyTarget, setDailyTarget] = useState<number>(2);
+  const [themeMode, setThemeMode] = useState<'mint' | 'glass'>(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        const saved = localStorage.getItem('dsa_theme_mode');
+        return (saved as 'mint' | 'glass') || 'mint';
+      } catch (e) {
+        return 'mint';
+      }
+    }
+    return 'mint';
+  });
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        localStorage.setItem('dsa_theme_mode', themeMode);
+      } catch (e) {
+        console.warn('Failed to save themeMode preference:', e);
+      }
+    }
+  }, [themeMode]);
+
+  const [unlockedBadgeModal, setUnlockedBadgeModal] = useState<Badge | null>(null);
+  const [seenBadgeIds, setSeenBadgeIds] = useState<string[]>(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        const saved = localStorage.getItem('dsa_unlocked_badges');
+        return saved ? JSON.parse(saved) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+    return [];
+  });
 
   // Load problem bank and user's roadmap fast without blocking
   useEffect(() => {
@@ -313,6 +349,86 @@ function MainDashboard() {
             console.warn('Firestore sync failed:', e);
           }
         }
+
+        // Check for new badge unlocks
+        const updatedRoadmap = roadmap.map((item) =>
+          item.leetcodeId === leetcodeId ? { ...item, status: newStatus, hintStage } : item
+        );
+        const solvedCount = updatedRoadmap.filter((r) => r.status === 'solved').length;
+        const hardSolvedCount = updatedRoadmap.filter((r) => r.status === 'solved' && r.problem?.difficulty === 'Hard').length;
+
+        const badgeDefinitions: { id: string; badge: Badge }[] = [
+          {
+            id: 'first_step',
+            badge: {
+              id: 'first_step',
+              title: 'First Step',
+              description: 'Solved your very first DSA problem using Socratic guidance.',
+              icon: <Award className="w-8 h-8 text-emerald-400" />,
+              unlocked: true,
+              progress: 100,
+              maxProgress: 1,
+              currentProgress: 1
+            }
+          },
+          {
+            id: 'streak_3d',
+            badge: {
+              id: 'streak_3d',
+              title: 'Streak Master',
+              description: 'Maintained an active problem-solving streak for 3 consecutive days.',
+              icon: <Flame className="w-8 h-8 text-amber-400" />,
+              unlocked: true,
+              progress: 100,
+              maxProgress: 3,
+              currentProgress: 3
+            }
+          },
+          {
+            id: 'slayer_10',
+            badge: {
+              id: 'slayer_10',
+              title: 'Problem Slayer',
+              description: 'Solved 10 LeetCode problems in your active roadmap.',
+              icon: <Target className="w-8 h-8 text-indigo-400" />,
+              unlocked: true,
+              progress: 100,
+              maxProgress: 10,
+              currentProgress: 10
+            }
+          },
+          {
+            id: 'hard_conqueror',
+            badge: {
+              id: 'hard_conqueror',
+              title: 'Hard Conqueror',
+              description: 'Successfully solved at least 1 Hard level LeetCode problem.',
+              icon: <ShieldAlert className="w-8 h-8 text-rose-400" />,
+              unlocked: true,
+              progress: 100,
+              maxProgress: 1,
+              currentProgress: 1
+            }
+          }
+        ];
+
+        for (const def of badgeDefinitions) {
+          let conditionMet = false;
+          if (def.id === 'first_step' && solvedCount >= 1) conditionMet = true;
+          if (def.id === 'streak_3d' && newCurrentStreak >= 3) conditionMet = true;
+          if (def.id === 'slayer_10' && solvedCount >= 10) conditionMet = true;
+          if (def.id === 'hard_conqueror' && hardSolvedCount >= 1) conditionMet = true;
+
+          if (conditionMet && !seenBadgeIds.includes(def.id)) {
+            setSeenBadgeIds((prev) => {
+              const updated = [...prev, def.id];
+              localStorage.setItem('dsa_unlocked_badges', JSON.stringify(updated));
+              return updated;
+            });
+            setUnlockedBadgeModal(def.badge);
+            break;
+          }
+        }
       }
     }
   };
@@ -362,7 +478,13 @@ function MainDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-indigo-500 selection:text-white">
+    <div
+      className={`min-h-screen ${
+        themeMode === 'glass'
+          ? 'glass-theme-bg'
+          : 'bg-[#EBF7F7] bg-warm-radial text-[#072A36]'
+      } flex flex-col font-sans transition-colors duration-500 selection:bg-[#00A896] selection:text-white`}
+    >
       <Navbar
         activeTab={activeTab}
         setActiveTab={(tab) => {
@@ -375,6 +497,8 @@ function MainDashboard() {
             ? Math.max(profile?.currentStreak || 1, Math.min(roadmap.filter((r) => r.status === 'solved').length, 7))
             : 0
         }
+        themeMode={themeMode}
+        setThemeMode={setThemeMode}
       />
 
       {/* Global Connection / API Error Alert Banner */}
@@ -446,9 +570,10 @@ function MainDashboard() {
             onOpenCustomizer={() => setIsCustomizerOpen(true)}
             onToggleRoadmapProblem={handleToggleRoadmapProblem}
             isSyncing={isSyncing}
+            themeMode={themeMode}
           />
         ) : activeTab === 'leaderboard' ? (
-          <LeaderboardView />
+          <LeaderboardView themeMode={themeMode} />
         ) : activeTab === 'achievements' ? (
           <AchievementsView
             roadmap={roadmap}
@@ -457,13 +582,14 @@ function MainDashboard() {
                 ? Math.max(profile?.currentStreak || 1, Math.min(roadmap.filter((r) => r.status === 'solved').length, 7))
                 : 0
             }
+            themeMode={themeMode}
           />
         ) : (
-          <AboutView />
+          <AboutView themeMode={themeMode} />
         )}
       </main>
 
-      <Footer onNavClick={(tab) => setActiveTab(tab)} />
+      <Footer onNavClick={(tab) => setActiveTab(tab)} themeMode={themeMode} />
 
       <OnboardingModal
         isOpen={isOnboardingOpen}
@@ -488,7 +614,16 @@ function MainDashboard() {
         isOpen={isSocraticOpen}
         onClose={() => setIsSocraticOpen(false)}
         currentHintStage={activeHintStage}
+        onStageChange={(id, newStage) => {
+          setActiveHintStage(newStage);
+          handleStatusChange(id, 'attempted', newStage);
+        }}
         onMarkSolved={(id, stage) => handleStatusChange(id, 'solved', stage)}
+      />
+
+      <BadgeUnlockModal
+        badge={unlockedBadgeModal}
+        onClose={() => setUnlockedBadgeModal(null)}
       />
     </div>
   );

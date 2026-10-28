@@ -11,6 +11,7 @@ export interface Problem {
   link: string; // e.g. "https://leetcode.com/problems/two-sum/"
   difficulty: Difficulty;
   topics: string[]; // e.g. ["Array", "Hash Table"]
+  topicOrder?: number; // Fixed sequence order (1..14)
   companyTags?: string[];
   descriptionSnippet?: string;
   exampleTestCase?: string;
@@ -40,6 +41,7 @@ export interface UserProfile {
   currentStreak: number;
   longestStreak: number;
   lastSolvedDate: string | null; // ISO string YYYY-MM-DD
+  currentPhase?: number; // 1..14
   createdAt: string;
 }
 
@@ -51,6 +53,7 @@ export interface RoadmapItem {
   solvedAt: string | null;
   lastAttemptedAt: string | null;
   order: number;
+  topicOrder?: number; // 1..14
   // Denormalized/joined helper properties for client rendering
   problem?: Problem;
 }

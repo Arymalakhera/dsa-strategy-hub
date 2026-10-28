@@ -1,7 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { User as FirebaseUser, signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth';
+import { User as FirebaseUser, signInWithPopup, signInWithRedirect, getRedirectResult, signOut, onAuthStateChanged } from 'firebase/auth';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { auth, googleProvider, db, isFirebaseConfigured } from '../lib/firebase';
 import { UserProfile, UserPreferences } from '../types';
@@ -109,19 +109,31 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setAuthError(null);
     try {
       if (!isFirebaseConfigured) {
-        setAuthError('Firebase API keys not configured in .env.local. Please check your config.');
+        setAuthError('Firebase credentials missing. If deployed on Vercel, please add environment variables & Redeploy.');
         return;
       }
       setIsDemoMode(false);
-      const result = await signInWithPopup(auth, googleProvider);
-      if (result.user) {
-        setUser(result.user);
-        await fetchOrCreateProfile(result.user);
+      try {
+        const result = await signInWithPopup(auth, googleProvider);
+        if (result.user) {
+          setUser(result.user);
+          await fetchOrCreateProfile(result.user);
+        }
+      } catch (popupErr: any) {
+        if (popupErr.code === 'auth/popup-blocked' || popupErr.code === 'auth/popup-closed-by-user') {
+          await signInWithRedirect(auth, googleProvider);
+        } else {
+          throw popupErr;
+        }
       }
     } catch (error: any) {
       console.error('Google Sign-In Error:', error);
-      const message = error.message || 'Google Sign-In failed. Please try again.';
-      setAuthError(message);
+      if (error.code === 'auth/unauthorized-domain') {
+        setAuthError('Firebase Auth Error: Domain unauthorized. Please add your Vercel domain to Firebase Console -> Auth -> Settings -> Authorized Domains.');
+      } else {
+        const message = error.message || 'Google Sign-In failed. Please try again.';
+        setAuthError(message);
+      }
     }
   };
 

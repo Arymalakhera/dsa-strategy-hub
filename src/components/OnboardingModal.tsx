@@ -73,36 +73,36 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({ isOpen, onComp
   return (
     <div
       onClick={onClose}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-md p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-[#05222B]/85 backdrop-blur-md p-4"
     >
       <motion.div
         onClick={(e) => e.stopPropagation()}
         initial={{ opacity: 0, scale: 0.95, y: 10 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95 }}
-        className="w-full max-w-xl rounded-2xl bg-slate-900 border border-slate-800 shadow-2xl overflow-hidden text-slate-100 relative"
+        className="w-full max-w-xl rounded-[2rem] bg-[#EBF7F7] border border-[#70D6D1]/30 shadow-2xl overflow-hidden text-[#072A36] relative warm-card-glow"
       >
         {/* Header */}
-        <div className="bg-gradient-to-r from-indigo-950 via-slate-900 to-purple-950 p-6 border-b border-slate-800 flex items-center justify-between">
+        <div className="bg-gradient-to-r from-[#05222B] via-[#073847] to-[#0B4F6C] p-6 border-b border-[#70D6D1]/20 flex items-center justify-between text-white">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-xl bg-indigo-600/30 text-indigo-400 border border-indigo-500/30">
-              <BrainCircuit className="w-6 h-6 animate-pulse" />
+            <div className="p-2.5 rounded-2xl bg-[#00A896]/20 text-[#70D6D1] border border-[#70D6D1]/30">
+              <BrainCircuit className="w-6 h-6 animate-pulse text-[#70D6D1]" />
             </div>
             <div>
-              <h2 className="text-xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+              <h2 className="text-xl font-black text-white">
                 Personalize Your DSA Roadmap
               </h2>
-              <p className="text-xs text-slate-400">Step {step} of 4 — AI Roadmap Generator</p>
+              <p className="text-xs text-[#C2E8E8]">Step {step} of 4 — AI Roadmap Generator</p>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="hidden sm:flex gap-1">
+            <div className="hidden sm:flex gap-1.5">
               {[1, 2, 3, 4].map((i) => (
                 <div
                   key={i}
-                  className={`h-1.5 w-5 rounded-full transition-colors ${
-                    step >= i ? 'bg-indigo-500' : 'bg-slate-800'
+                  className={`h-1.5 w-6 rounded-full transition-colors ${
+                    step >= i ? 'bg-[#70D6D1]' : 'bg-[#094154]'
                   }`}
                 />
               ))}
@@ -111,7 +111,7 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({ isOpen, onComp
             {onClose && (
               <button
                 onClick={onClose}
-                className="p-1.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+                className="p-2 rounded-full text-[#A2D2D2] hover:text-white hover:bg-white/10 transition-colors"
                 title="Back to Dashboard"
               >
                 <X className="w-5 h-5" />
@@ -125,8 +125,8 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({ isOpen, onComp
           {/* STEP 1: Experience Level */}
           {step === 1 && (
             <div className="space-y-4">
-              <div className="flex items-center gap-2 text-indigo-400 text-sm font-semibold">
-                <Target className="w-4 h-4" /> 1. What is your current DSA experience level?
+              <div className="flex items-center gap-2 text-[#0B4F6C] text-sm font-bold uppercase tracking-wider font-mono">
+                <Target className="w-4 h-4 text-[#00A896]" /> 1. What is your current DSA experience level?
               </div>
 
               <div className="grid grid-cols-1 gap-3">
@@ -150,17 +150,17 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({ isOpen, onComp
                   <button
                     key={item.level}
                     onClick={() => setSkillLevel(item.level)}
-                    className={`p-4 rounded-xl text-left border transition-all ${
+                    className={`p-4 rounded-2xl text-left border transition-all ${
                       skillLevel === item.level
-                        ? 'border-indigo-500 bg-indigo-950/40 text-white shadow-lg shadow-indigo-950/50'
-                        : 'border-slate-800 bg-slate-900/60 text-slate-300 hover:border-slate-700'
+                        ? 'border-[#00A896] bg-[#00A896]/15 text-[#072A36] shadow-md font-bold'
+                        : 'border-[#0F7A8D]/20 bg-white text-[#3B6674] hover:border-[#0F7A8D]/40'
                     }`}
                   >
-                    <div className="font-semibold text-sm flex items-center justify-between">
+                    <div className="font-bold text-sm flex items-center justify-between text-[#072A36]">
                       {item.title}
-                      {skillLevel === item.level && <Check className="w-4 h-4 text-indigo-400" />}
+                      {skillLevel === item.level && <Check className="w-4 h-4 text-[#00A896]" />}
                     </div>
-                    <div className="text-xs text-slate-400 mt-1">{item.desc}</div>
+                    <div className="text-xs text-[#3B6674] mt-1">{item.desc}</div>
                   </button>
                 ))}
               </div>
@@ -170,8 +170,8 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({ isOpen, onComp
           {/* STEP 2: Goal */}
           {step === 2 && (
             <div className="space-y-4">
-              <div className="flex items-center gap-2 text-indigo-400 text-sm font-semibold">
-                <Compass className="w-4 h-4" /> 2. What is your primary learning goal?
+              <div className="flex items-center gap-2 text-[#0B4F6C] text-sm font-bold uppercase tracking-wider font-mono">
+                <Compass className="w-4 h-4 text-[#00A896]" /> 2. What is your primary learning goal?
               </div>
 
               <div className="grid grid-cols-1 gap-3">
@@ -195,17 +195,17 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({ isOpen, onComp
                   <button
                     key={item.val}
                     onClick={() => setGoal(item.val)}
-                    className={`p-4 rounded-xl text-left border transition-all ${
+                    className={`p-4 rounded-2xl text-left border transition-all ${
                       goal === item.val
-                        ? 'border-indigo-500 bg-indigo-950/40 text-white shadow-lg shadow-indigo-950/50'
-                        : 'border-slate-800 bg-slate-900/60 text-slate-300 hover:border-slate-700'
+                        ? 'border-[#00A896] bg-[#00A896]/15 text-[#072A36] shadow-md font-bold'
+                        : 'border-[#0F7A8D]/20 bg-white text-[#3B6674] hover:border-[#0F7A8D]/40'
                     }`}
                   >
-                    <div className="font-semibold text-sm flex items-center justify-between">
+                    <div className="font-bold text-sm flex items-center justify-between text-[#072A36]">
                       {item.title}
-                      {goal === item.val && <Check className="w-4 h-4 text-indigo-400" />}
+                      {goal === item.val && <Check className="w-4 h-4 text-[#00A896]" />}
                     </div>
-                    <div className="text-xs text-slate-400 mt-1">{item.desc}</div>
+                    <div className="text-xs text-[#3B6674] mt-1">{item.desc}</div>
                   </button>
                 ))}
               </div>
@@ -215,8 +215,8 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({ isOpen, onComp
           {/* STEP 3: Time Commitment / Timeline */}
           {step === 3 && (
             <div className="space-y-4">
-              <div className="flex items-center gap-2 text-indigo-400 text-sm font-semibold">
-                <Calendar className="w-4 h-4" /> 3. What is your target preparation timeline?
+              <div className="flex items-center gap-2 text-[#0B4F6C] text-sm font-bold uppercase tracking-wider font-mono">
+                <Calendar className="w-4 h-4 text-[#00A896]" /> 3. What is your target preparation timeline?
               </div>
 
               <div className="grid grid-cols-1 gap-3">
@@ -240,17 +240,17 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({ isOpen, onComp
                   <button
                     key={item.val}
                     onClick={() => setTimeline(item.val)}
-                    className={`p-4 rounded-xl text-left border transition-all ${
+                    className={`p-4 rounded-2xl text-left border transition-all ${
                       timeline === item.val
-                        ? 'border-indigo-500 bg-indigo-950/40 text-white shadow-lg shadow-indigo-950/50'
-                        : 'border-slate-800 bg-slate-900/60 text-slate-300 hover:border-slate-700'
+                        ? 'border-[#00A896] bg-[#00A896]/15 text-[#072A36] shadow-md font-bold'
+                        : 'border-[#0F7A8D]/20 bg-white text-[#3B6674] hover:border-[#0F7A8D]/40'
                     }`}
                   >
-                    <div className="font-semibold text-sm flex items-center justify-between">
+                    <div className="font-bold text-sm flex items-center justify-between text-[#072A36]">
                       {item.title}
-                      {timeline === item.val && <Check className="w-4 h-4 text-indigo-400" />}
+                      {timeline === item.val && <Check className="w-4 h-4 text-[#00A896]" />}
                     </div>
-                    <div className="text-xs text-slate-400 mt-1">{item.desc}</div>
+                    <div className="text-xs text-[#3B6674] mt-1">{item.desc}</div>
                   </button>
                 ))}
               </div>
@@ -261,25 +261,25 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({ isOpen, onComp
           {step === 4 && (
             <div className="space-y-6">
               <div className="space-y-3">
-                <div className="flex items-center gap-2 text-indigo-400 text-sm font-semibold">
-                  <Clock className="w-4 h-4" /> 4. Weekly hours & weak topic practice
+                <div className="flex items-center gap-2 text-[#0B4F6C] text-sm font-bold uppercase tracking-wider font-mono">
+                  <Clock className="w-4 h-4 text-[#00A896]" /> 4. Weekly hours &amp; weak topic practice
                 </div>
 
-                <div className="bg-slate-950/60 p-4 rounded-xl border border-slate-800 space-y-2 text-center">
-                  <div className="text-2xl font-extrabold text-indigo-400">{weeklyHours} hrs / week</div>
+                <div className="bg-white p-5 rounded-2xl border border-[#0F7A8D]/20 space-y-2 text-center shadow-sm">
+                  <div className="text-3xl font-black text-[#00A896]">{weeklyHours} hrs / week</div>
                   <input
                     type="range"
                     min="2"
                     max="25"
                     value={weeklyHours}
                     onChange={(e) => setWeeklyHours(parseInt(e.target.value))}
-                    className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-indigo-500"
+                    className="w-full h-2 bg-[#E0F4F4] rounded-lg appearance-none cursor-pointer accent-[#00A896]"
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <div className="text-xs font-semibold text-slate-300">
+                <div className="text-xs font-bold text-[#072A36]">
                   Select topics you want extra practice on (Weak topics):
                 </div>
 
@@ -290,14 +290,14 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({ isOpen, onComp
                       <button
                         key={topic}
                         onClick={() => toggleTopic(topic, isWeak ? 'strong' : 'weak')}
-                        className={`p-2 text-xs rounded-lg border font-medium transition-all text-left flex items-center justify-between ${
+                        className={`p-2.5 text-xs rounded-xl border font-semibold transition-all text-left flex items-center justify-between ${
                           isWeak
-                            ? 'border-amber-500/60 bg-amber-950/30 text-amber-300'
-                            : 'border-slate-800 bg-slate-900 text-slate-400 hover:border-slate-700'
+                            ? 'border-[#00A896] bg-[#00A896]/15 text-[#008080]'
+                            : 'border-[#0F7A8D]/20 bg-white text-[#3B6674] hover:border-[#0F7A8D]/40'
                         }`}
                       >
                         <span>{topic}</span>
-                        {isWeak && <Check className="w-3 h-3 text-amber-400" />}
+                        {isWeak && <Check className="w-3.5 h-3.5 text-[#00A896]" />}
                       </button>
                     );
                   })}
@@ -308,19 +308,19 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({ isOpen, onComp
         </div>
 
         {/* Footer Navigation */}
-        <div className="p-4 bg-slate-950/60 border-t border-slate-800 flex items-center justify-between">
+        <div className="p-4 bg-[#072C37] border-t border-[#70D6D1]/20 flex items-center justify-between text-white">
           <div className="flex items-center gap-2">
             {step > 1 ? (
               <button
                 onClick={() => setStep((s) => s - 1)}
-                className="px-4 py-2 text-xs font-semibold text-slate-400 hover:text-white transition-colors"
+                className="px-4 py-2 text-xs font-bold text-[#A2D2D2] hover:text-white transition-colors"
               >
                 Back
               </button>
             ) : onClose ? (
               <button
                 onClick={onClose}
-                className="px-4 py-2 text-xs font-semibold text-slate-400 hover:text-white transition-colors"
+                className="px-4 py-2 text-xs font-bold text-[#A2D2D2] hover:text-white transition-colors"
               >
                 Skip for now
               </button>
@@ -330,16 +330,16 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({ isOpen, onComp
           {step < 4 ? (
             <button
               onClick={() => setStep((s) => s + 1)}
-              className="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs flex items-center gap-2 transition-all shadow-lg shadow-indigo-600/30"
+              className="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#00A896] to-[#028090] hover:from-[#00C9A7] hover:to-[#00A896] text-white font-bold text-xs flex items-center gap-2 transition-all shadow-md hover:scale-105"
             >
-              Next Step <ArrowRight className="w-4 h-4" />
+              Next Step <ArrowRight className="w-4 h-4 text-white" />
             </button>
           ) : (
             <button
               onClick={handleSubmit}
-              className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-400 hover:to-purple-500 text-white font-bold text-xs flex items-center gap-2 transition-all shadow-xl shadow-indigo-500/30"
+              className="px-7 py-2.5 rounded-full bg-gradient-to-r from-[#00A896] to-[#028090] hover:from-[#00C9A7] hover:to-[#00A896] text-white font-bold text-xs flex items-center gap-2 transition-all shadow-xl shadow-[#00A896]/30 hover:scale-105"
             >
-              Generate AI Roadmap <Sparkles className="w-4 h-4" />
+              Generate AI Roadmap <Sparkles className="w-4 h-4 text-white" />
             </button>
           )}
         </div>

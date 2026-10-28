@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Sliders, Check, ArrowUp, ArrowDown, Calendar, RefreshCw, Sparkles, Layers, Plus, Trash2 } from 'lucide-react';
-import { TOPIC_CLUSTERS, TopicCluster } from '../lib/roadmapGenerator';
+import { FIXED_TOPIC_SEQUENCE } from '../lib/roadmapGenerator';
 import { Difficulty, Problem, RoadmapItem } from '../types';
 
 interface RoadmapCustomizerModalProps {
@@ -36,11 +36,11 @@ export const RoadmapCustomizerModal: React.FC<RoadmapCustomizerModalProps> = ({
   onSaveCustomization
 }) => {
   const [selectedTopics, setSelectedTopics] = useState<string[]>(
-    initialSelectedTopics.length > 0 ? initialSelectedTopics : TOPIC_CLUSTERS.map((c) => c.name)
+    initialSelectedTopics.length > 0 ? initialSelectedTopics : FIXED_TOPIC_SEQUENCE.map((c) => c.name)
   );
 
   const [topicOrder, setTopicOrder] = useState<string[]>(
-    initialTopicOrder.length > 0 ? initialTopicOrder : TOPIC_CLUSTERS.map((c) => c.name)
+    initialTopicOrder.length > 0 ? initialTopicOrder : FIXED_TOPIC_SEQUENCE.map((c) => c.name)
   );
 
   const [difficultyMix, setDifficultyMix] = useState<Record<Difficulty, boolean>>(
@@ -104,32 +104,32 @@ export const RoadmapCustomizerModal: React.FC<RoadmapCustomizerModalProps> = ({
   return (
     <div
       onClick={onClose}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-md p-4 overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-[#05222B]/85 backdrop-blur-md p-4 overflow-y-auto"
     >
       <motion.div
         onClick={(e) => e.stopPropagation()}
         initial={{ opacity: 0, scale: 0.95, y: 10 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95 }}
-        className="w-full max-w-2xl my-8 rounded-3xl bg-slate-900 border border-slate-800 shadow-2xl overflow-hidden text-slate-100 relative flex flex-col max-h-[90vh]"
+        className="w-full max-w-2xl my-8 rounded-3xl bg-[#EBF7F7] border border-[#70D6D1]/30 shadow-2xl overflow-hidden text-[#072A36] relative flex flex-col max-h-[90vh]"
       >
         {/* Header */}
-        <div className="bg-gradient-to-r from-indigo-950 via-slate-900 to-purple-950 p-6 border-b border-slate-800 flex items-center justify-between shrink-0">
+        <div className="bg-gradient-to-r from-[#05222B] via-[#073847] to-[#0B4F6C] p-6 border-b border-[#70D6D1]/20 flex items-center justify-between shrink-0 text-white">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-2xl bg-indigo-600/30 text-indigo-400 border border-indigo-500/30">
-              <Sliders className="w-6 h-6 animate-pulse" />
+            <div className="p-2.5 rounded-2xl bg-[#00A896]/20 text-[#70D6D1] border border-[#70D6D1]/30">
+              <Sliders className="w-6 h-6 animate-pulse text-[#70D6D1]" />
             </div>
             <div>
-              <h2 className="text-xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+              <h2 className="text-xl font-bold text-white">
                 Customize Your Roadmap
               </h2>
-              <p className="text-xs text-slate-400">Reorder topics, filter difficulty & set daily targets</p>
+              <p className="text-xs text-[#C2E8E8]">Reorder topics, filter difficulty &amp; set daily targets</p>
             </div>
           </div>
 
           <button
             onClick={onClose}
-            className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+            className="p-2 rounded-xl text-[#A2D2D2] hover:text-white hover:bg-white/10 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -138,21 +138,21 @@ export const RoadmapCustomizerModal: React.FC<RoadmapCustomizerModalProps> = ({
         {/* Content Body */}
         <div className="p-6 space-y-6 overflow-y-auto flex-1">
           {/* Estimated Completion Date Calculator */}
-          <div className="bg-gradient-to-r from-slate-950 to-indigo-950/60 p-5 rounded-2xl border border-indigo-900/50 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-lg">
+          <div className="bg-[#072C37] p-5 rounded-2xl border border-[#70D6D1]/30 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-lg text-white">
             <div className="space-y-1 text-center sm:text-left">
-              <div className="flex items-center gap-2 text-indigo-400 text-xs font-bold uppercase tracking-wider">
-                <Calendar className="w-4 h-4" /> Estimated Completion Date
+              <div className="flex items-center gap-2 text-[#70D6D1] text-xs font-bold uppercase tracking-wider">
+                <Calendar className="w-4 h-4 text-[#00A896]" /> Estimated Completion Date
               </div>
               <div className="text-2xl font-black text-white">
-                {formattedEstDate} <span className="text-xs text-slate-400 font-normal">({daysNeeded} days)</span>
+                {formattedEstDate} <span className="text-xs text-[#C2E8E8] font-normal">({daysNeeded} days)</span>
               </div>
-              <div className="text-xs text-slate-400">
+              <div className="text-xs text-[#C2E8E8]">
                 {unsolvedCount} unsolved problems left at your target pace.
               </div>
             </div>
 
-            <div className="flex items-center gap-3 bg-slate-900 px-4 py-2.5 rounded-2xl border border-slate-800 shrink-0">
-              <span className="text-xs text-slate-300 font-bold">Daily Goal:</span>
+            <div className="flex items-center gap-3 bg-[#05222B] px-4 py-2.5 rounded-2xl border border-[#70D6D1]/20 shrink-0">
+              <span className="text-xs text-[#C2E8E8] font-bold">Daily Goal:</span>
               <div className="flex items-center gap-2">
                 {[1, 2, 3, 5].map((num) => (
                   <button
@@ -160,8 +160,8 @@ export const RoadmapCustomizerModal: React.FC<RoadmapCustomizerModalProps> = ({
                     onClick={() => setDailyTarget(num)}
                     className={`w-7 h-7 rounded-lg text-xs font-bold font-mono transition-all ${
                       dailyTarget === num
-                        ? 'bg-indigo-600 text-white border border-indigo-500'
-                        : 'bg-slate-950 border border-slate-800 text-slate-400 hover:text-white'
+                        ? 'bg-[#00A896] text-white border border-[#70D6D1]'
+                        : 'bg-white/10 border border-white/20 text-[#A2D2D2] hover:text-white'
                     }`}
                   >
                     {num}
@@ -173,8 +173,8 @@ export const RoadmapCustomizerModal: React.FC<RoadmapCustomizerModalProps> = ({
 
           {/* Difficulty Mix Selector */}
           <div className="space-y-3">
-            <div className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
-              <Layers className="w-4 h-4 text-indigo-400" /> Difficulty Mix
+            <div className="text-xs font-bold text-[#072A36] uppercase tracking-wider flex items-center gap-2">
+              <Layers className="w-4 h-4 text-[#00A896]" /> Difficulty Mix
             </div>
 
             <div className="grid grid-cols-3 gap-3">
@@ -182,14 +182,14 @@ export const RoadmapCustomizerModal: React.FC<RoadmapCustomizerModalProps> = ({
                 <button
                   key={diff}
                   onClick={() => toggleDifficulty(diff)}
-                  className={`p-3 rounded-xl border text-center font-bold text-xs transition-all flex items-center justify-center gap-2 ${
+                  className={`p-3 rounded-2xl border text-center font-bold text-xs transition-all flex items-center justify-center gap-2 ${
                     difficultyMix[diff]
                       ? diff === 'Easy'
-                        ? 'bg-emerald-950/60 border-emerald-500/60 text-emerald-300 shadow-md shadow-emerald-950'
+                        ? 'bg-[#00A896] border-[#00A896] text-white shadow-md'
                         : diff === 'Medium'
-                        ? 'bg-amber-950/60 border-amber-500/60 text-amber-300 shadow-md shadow-amber-950'
-                        : 'bg-rose-950/60 border-rose-500/60 text-rose-300 shadow-md shadow-rose-950'
-                      : 'bg-slate-950 border-slate-800 text-slate-500 opacity-60'
+                        ? 'bg-[#0F6B7B] border-[#0F6B7B] text-white shadow-md'
+                        : 'bg-[#072A36] border-[#072A36] text-white shadow-md'
+                      : 'bg-white border-[#0F7A8D]/20 text-[#3B6674] opacity-60'
                   }`}
                 >
                   {difficultyMix[diff] && <Check className="w-3.5 h-3.5" />}
@@ -202,11 +202,11 @@ export const RoadmapCustomizerModal: React.FC<RoadmapCustomizerModalProps> = ({
           {/* Topic Selection & Drag/Drop Order */}
           <div className="space-y-3">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-indigo-400" /> Active Topics & Progression Order
+              <span className="text-xs font-bold text-[#072A36] uppercase tracking-wider flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-[#00A896]" /> Active Topics &amp; Progression Order
               </span>
-              <span className="text-xs text-slate-400">
-                {selectedTopics.length} of {TOPIC_CLUSTERS.length} Topics Active
+              <span className="text-xs text-[#3B6674]">
+                {selectedTopics.length} of {FIXED_TOPIC_SEQUENCE.length} Topics Active
               </span>
             </div>
 
@@ -216,38 +216,43 @@ export const RoadmapCustomizerModal: React.FC<RoadmapCustomizerModalProps> = ({
                 return (
                   <div
                     key={clusterName}
-                    className={`p-3 rounded-xl border flex items-center justify-between gap-3 transition-all ${
+                    className={`p-3 rounded-2xl border flex items-center justify-between gap-3 transition-all ${
                       isSelected
-                        ? 'bg-slate-900 border-indigo-500/40 text-slate-100'
-                        : 'bg-slate-950 border-slate-800/80 text-slate-500 opacity-60'
+                        ? 'bg-white border-[#00A896]/40 shadow-sm'
+                        : 'bg-white/60 border-[#0F7A8D]/15 text-[#7A9EA6]'
                     }`}
                   >
-                    <div className="flex items-center gap-3 flex-1">
-                      <input
-                        type="checkbox"
-                        checked={isSelected}
-                        onChange={() => toggleTopic(clusterName)}
-                        className="w-4 h-4 rounded border-slate-700 text-indigo-600 focus:ring-indigo-500 bg-slate-950 cursor-pointer"
-                      />
-                      <span className="text-xs font-bold font-mono text-indigo-400 w-5">{idx + 1}.</span>
-                      <span className="text-xs font-semibold">{clusterName}</span>
+                    <div className="flex items-center gap-3">
+                      <button
+                        onClick={() => toggleTopic(clusterName)}
+                        className={`w-5 h-5 rounded-md border flex items-center justify-center transition-colors ${
+                          isSelected
+                            ? 'bg-[#00A896] border-[#00A896] text-white'
+                            : 'bg-white border-[#0F7A8D]/30'
+                        }`}
+                      >
+                        {isSelected && <Check className="w-3.5 h-3.5" />}
+                      </button>
+
+                      <span className={`text-xs font-bold ${isSelected ? 'text-[#072A36]' : 'text-[#7A9EA6]'}`}>
+                        {clusterName}
+                      </span>
                     </div>
 
-                    {/* Up / Down Order Buttons */}
                     <div className="flex items-center gap-1">
                       <button
-                        disabled={idx === 0}
                         onClick={() => moveTopic(idx, 'up')}
-                        className="p-1 rounded bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-400 disabled:opacity-30"
-                        title="Move Up"
+                        disabled={idx === 0}
+                        className="p-1 rounded-lg text-[#3B6674] hover:text-[#072A36] hover:bg-[#E0F4F4] disabled:opacity-30"
+                        title="Move Up Priority"
                       >
                         <ArrowUp className="w-3.5 h-3.5" />
                       </button>
                       <button
-                        disabled={idx === topicOrder.length - 1}
                         onClick={() => moveTopic(idx, 'down')}
-                        className="p-1 rounded bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-400 disabled:opacity-30"
-                        title="Move Down"
+                        disabled={idx === topicOrder.length - 1}
+                        className="p-1 rounded-lg text-[#3B6674] hover:text-[#072A36] hover:bg-[#E0F4F4] disabled:opacity-30"
+                        title="Move Down Priority"
                       >
                         <ArrowDown className="w-3.5 h-3.5" />
                       </button>
@@ -260,19 +265,19 @@ export const RoadmapCustomizerModal: React.FC<RoadmapCustomizerModalProps> = ({
         </div>
 
         {/* Footer Actions */}
-        <div className="p-4 bg-slate-950/80 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
+        <div className="p-4 bg-[#072C37] border-t border-[#70D6D1]/20 flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0 text-white">
           <button
-            onClick={() => handleSave(false)}
-            className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs transition-colors border border-slate-700"
+            onClick={onClose}
+            className="w-full sm:w-auto px-4 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-[#A2D2D2] hover:text-white font-semibold text-xs transition-colors border border-white/20"
           >
-            Save Preferences Only
+            Cancel
           </button>
 
           <button
             onClick={() => handleSave(true)}
-            className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-400 hover:to-purple-500 text-white font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-lg shadow-indigo-600/30"
+            className="w-full sm:w-auto px-6 py-2.5 rounded-full bg-gradient-to-r from-[#00A896] to-[#028090] hover:from-[#00C9A7] hover:to-[#00A896] text-white font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-md shadow-[#00A896]/30 hover:scale-105"
           >
-            <RefreshCw className="w-4 h-4" /> Save & Reshuffle Unsolved
+            <Sparkles className="w-4 h-4 text-white" /> Save &amp; Reshuffle Unsolved
           </button>
         </div>
       </motion.div>

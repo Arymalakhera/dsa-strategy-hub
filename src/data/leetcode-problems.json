@@ -1,136 +1,3014 @@
 [
-  {"id":"1","title":"Two Sum","slug":"two-sum","link":"https://leetcode.com/problems/two-sum/","difficulty":"Easy","topics":["Array","Hash Table"],"companyTags":["Amazon","Google","Meta"],"descriptionSnippet":"Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.","exampleTestCase":"nums = [2,7,11,15], target = 9 -> Output: [0,1]"},
-  {"id":"217","title":"Contains Duplicate","slug":"contains-duplicate","link":"https://leetcode.com/problems/contains-duplicate/","difficulty":"Easy","topics":["Array","Hash Table"],"companyTags":["Apple","Amazon"],"descriptionSnippet":"Given an integer array nums, return true if any value appears at least twice in the array.","exampleTestCase":"nums = [1,2,3,1] -> Output: true"},
-  {"id":"242","title":"Valid Anagram","slug":"valid-anagram","link":"https://leetcode.com/problems/valid-anagram/","difficulty":"Easy","topics":["String","Hash Table"],"companyTags":["Uber","Google"],"descriptionSnippet":"Given two strings s and t, return true if t is an anagram of s, and false otherwise.","exampleTestCase":"s = \"anagram\", t = \"nagaram\" -> Output: true"},
-  {"id":"49","title":"Group Anagrams","slug":"group-anagrams","link":"https://leetcode.com/problems/group-anagrams/","difficulty":"Medium","topics":["Array","Hash Table","String"],"companyTags":["Amazon","Microsoft"],"descriptionSnippet":"Given an array of strings strs, group the anagrams together. You can return the answer in any order.","exampleTestCase":"strs = [\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"] -> Output: [[\"bat\"],[\"nat\",\"tan\"],[\"ate\",\"eat\",\"tea\"]]"},
-  {"id":"347","title":"Top K Frequent Elements","slug":"top-k-frequent-elements","link":"https://leetcode.com/problems/top-k-frequent-elements/","difficulty":"Medium","topics":["Array","Hash Table","Heap"],"companyTags":["Amazon","Meta"],"descriptionSnippet":"Given an integer array nums and an integer k, return the k most frequent elements.","exampleTestCase":"nums = [1,1,1,2,2,3], k = 2 -> Output: [1,2]"},
-  {"id":"238","title":"Product of Array Except Self","slug":"product-of-array-except-self","link":"https://leetcode.com/problems/product-of-array-except-self/","difficulty":"Medium","topics":["Array","Prefix Sum"],"companyTags":["Amazon","Apple","Meta"],"descriptionSnippet":"Given an integer array nums, return an array answer such that answer[i] is equal to the product of all elements of nums except nums[i].","exampleTestCase":"nums = [1,2,3,4] -> Output: [24,12,8,6]"},
-  {"id":"36","title":"Valid Sudoku","slug":"valid-sudoku","link":"https://leetcode.com/problems/valid-sudoku/","difficulty":"Medium","topics":["Array","Hash Table","Matrix"],"companyTags":["Amazon","Apple"],"descriptionSnippet":"Determine if a 9 x 9 Sudoku board is valid according to the standard rules.","exampleTestCase":"board = [[\"5\",\"3\",\".\",...]] -> Output: true"},
-  {"id":"128","title":"Longest Consecutive Sequence","slug":"longest-consecutive-sequence","link":"https://leetcode.com/problems/longest-consecutive-sequence/","difficulty":"Medium","topics":["Array","Hash Table","Union Find"],"companyTags":["Google","Amazon"],"descriptionSnippet":"Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence.","exampleTestCase":"nums = [100,4,200,1,3,2] -> Output: 4"},
-  {"id":"75","title":"Sort Colors","slug":"sort-colors","link":"https://leetcode.com/problems/sort-colors/","difficulty":"Medium","topics":["Array","Two Pointers","Sorting"],"companyTags":["Amazon","Microsoft"],"descriptionSnippet":"Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects of the same color are adjacent.","exampleTestCase":"nums = [2,0,2,1,1,0] -> Output: [0,0,1,1,2,2]"},
-  {"id":"169","title":"Majority Element","slug":"majority-element","link":"https://leetcode.com/problems/majority-element/","difficulty":"Easy","topics":["Array","Hash Table","Sorting"],"companyTags":["Amazon","Google"],"descriptionSnippet":"Given an array nums of size n, return the majority element.", "exampleTestCase":"nums = [3,2,3] -> Output: 3"},
-  {"id":"283","title":"Move Zeroes","slug":"move-zeroes","link":"https://leetcode.com/problems/move-zeroes/","difficulty":"Easy","topics":["Array","Two Pointers"],"companyTags":["Meta","Apple"],"descriptionSnippet":"Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.","exampleTestCase":"nums = [0,1,0,3,12] -> Output: [1,3,12,0,0]"},
-  {"id":"560","title":"Subarray Sum Equals K","slug":"subarray-sum-equals-k","link":"https://leetcode.com/problems/subarray-sum-equals-k/","difficulty":"Medium","topics":["Array","Hash Table","Prefix Sum"],"companyTags":["Meta","Amazon"],"descriptionSnippet":"Given an array of integers nums and an integer k, return the total number of subarrays whose sum equals to k.","exampleTestCase":"nums = [1,1,1], k = 2 -> Output: 2"},
-  {"id":"125","title":"Valid Palindrome","slug":"valid-palindrome","link":"https://leetcode.com/problems/valid-palindrome/","difficulty":"Easy","topics":["Two Pointers","String"],"companyTags":["Meta","Microsoft"],"descriptionSnippet":"A phrase is a palindrome if, after converting all uppercase letters into lowercase and removing non-alphanumeric characters, it reads the same.","exampleTestCase":"s = \"A man, a plan, a canal: Panama\" -> Output: true"},
-  {"id":"167","title":"Two Sum II - Input Array Is Sorted","slug":"two-sum-ii-input-array-is-sorted","link":"https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/","difficulty":"Medium","topics":["Two Pointers","Array","Binary Search"],"companyTags":["Amazon","Google"],"descriptionSnippet":"Given a 1-indexed array of integers numbers that is already sorted in non-decreasing order, find two numbers that add up to target.","exampleTestCase":"numbers = [2,7,11,15], target = 9 -> Output: [1,2]"},
-  {"id":"15","title":"3Sum","slug":"3sum","link":"https://leetcode.com/problems/3sum/","difficulty":"Medium","topics":["Two Pointers","Array","Sorting"],"companyTags":["Meta","Amazon","Google"],"descriptionSnippet":"Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that they add up to 0.","exampleTestCase":"nums = [-1,0,1,2,-1,-4] -> Output: [[-1,-1,2],[-1,0,1]]"},
-  {"id":"11","title":"Container With Most Water","slug":"container-with-most-water","link":"https://leetcode.com/problems/container-with-most-water/","difficulty":"Medium","topics":["Two Pointers","Array","Greedy"],"companyTags":["Google","Meta"],"descriptionSnippet":"Find two lines that together with the x-axis form a container, such that the container contains the most water.","exampleTestCase":"height = [1,8,6,2,5,4,8,3,7] -> Output: 49"},
-  {"id":"42","title":"Trapping Rain Water","slug":"trapping-rain-water","link":"https://leetcode.com/problems/trapping-rain-water/","difficulty":"Hard","topics":["Two Pointers","Stack","Array","Dynamic Programming"],"companyTags":["Amazon","Google"],"descriptionSnippet":"Given n non-negative integers representing an elevation map, compute how much water it can trap after raining.","exampleTestCase":"height = [0,1,0,2,1,0,1,3,2,1,2,1] -> Output: 6"},
-  {"id":"18","title":"4Sum","slug":"4sum","link":"https://leetcode.com/problems/4sum/","difficulty":"Medium","topics":["Two Pointers","Array","Sorting"],"companyTags":["Amazon"],"descriptionSnippet":"Given an array nums of n integers, return an array of all unique quadruplets [nums[a], nums[b], nums[c], nums[d]] that sum to target.","exampleTestCase":"nums = [1,0,-1,0,-2,2], target = 0 -> Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]"},
-  {"id":"88","title":"Merge Sorted Array","slug":"merge-sorted-array","link":"https://leetcode.com/problems/merge-sorted-array/","difficulty":"Easy","topics":["Two Pointers","Array","Sorting"],"companyTags":["Meta","Microsoft"],"descriptionSnippet":"Merge nums2 into nums1 as one sorted array.","exampleTestCase":"nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3 -> Output: [1,2,2,3,5,6]"},
-  {"id":"344","title":"Reverse String","slug":"reverse-string","link":"https://leetcode.com/problems/reverse-string/","difficulty":"Easy","topics":["Two Pointers","String"],"companyTags":["Apple"],"descriptionSnippet":"Write a function that reverses a string. The input string is given as an array of characters s.","exampleTestCase":"s = [\"h\",\"e\",\"l\",\"l\",\"o\"] -> Output: [\"o\",\"l\",\"l\",\"e\",\"h\"]"},
-  {"id":"977","title":"Squares of a Sorted Array","slug":"squares-of-a-sorted-array","link":"https://leetcode.com/problems/squares-of-a-sorted-array/","difficulty":"Easy","topics":["Two Pointers","Array","Sorting"],"companyTags":["Amazon"],"descriptionSnippet":"Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.","exampleTestCase":"nums = [-4,-1,0,3,10] -> Output: [0,1,9,16,100]"},
-  {"id":"121","title":"Best Time to Buy and Sell Stock","slug":"best-time-to-buy-and-sell-stock","link":"https://leetcode.com/problems/best-time-to-buy-and-sell-stock/","difficulty":"Easy","topics":["Array","Dynamic Programming","Sliding Window"],"companyTags":["Amazon","Apple","Meta"],"descriptionSnippet":"Maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell.","exampleTestCase":"prices = [7,1,5,3,6,4] -> Output: 5"},
-  {"id":"3","title":"Longest Substring Without Repeating Characters","slug":"longest-substring-without-repeating-characters","link":"https://leetcode.com/problems/longest-substring-without-repeating-characters/","difficulty":"Medium","topics":["Sliding Window","Hash Table","String"],"companyTags":["Amazon","Google","Meta"],"descriptionSnippet":"Given a string s, find the length of the longest substring without repeating characters.","exampleTestCase":"s = \"abcabcbb\" -> Output: 3"},
-  {"id":"424","title":"Longest Repeating Character Replacement","slug":"longest-repeating-character-replacement","link":"https://leetcode.com/problems/longest-repeating-character-replacement/","difficulty":"Medium","topics":["Sliding Window","Hash Table","String"],"companyTags":["Amazon","Google"],"descriptionSnippet":"Given a string s and an integer k, choose any character and change it to any other uppercase English character at most k times.","exampleTestCase":"s = \"ABAB\", k = 2 -> Output: 4"},
-  {"id":"567","title":"Permutation in String","slug":"permutation-in-string","link":"https://leetcode.com/problems/permutation-in-string/","difficulty":"Medium","topics":["Sliding Window","Hash Table","Two Pointers","String"],"companyTags":["Amazon","Microsoft"],"descriptionSnippet":"Given two strings s1 and s2, return true if s2 contains a permutation of s1.","exampleTestCase":"s1 = \"ab\", s2 = \"eidbaooo\" -> Output: true"},
-  {"id":"76","title":"Minimum Window Substring","slug":"minimum-window-substring","link":"https://leetcode.com/problems/minimum-window-substring/","difficulty":"Hard","topics":["Sliding Window","Hash Table","String"],"companyTags":["Meta","Google","Uber"],"descriptionSnippet":"Given two strings s and t, return the minimum window substring of s such that every character in t is included.","exampleTestCase":"s = \"ADOBECODEBANC\", t = \"ABC\" -> Output: \"BANC\""},
-  {"id":"239","title":"Sliding Window Maximum","slug":"sliding-window-maximum","link":"https://leetcode.com/problems/sliding-window-maximum/","difficulty":"Hard","topics":["Sliding Window","Heap","Monotonic Queue"],"companyTags":["Amazon","Google"],"descriptionSnippet":"Given an array nums and a sliding window of size k, return the max sliding window.","exampleTestCase":"nums = [1,3,-1,-3,5,3,6,7], k = 3 -> Output: [3,3,5,5,6,7]"},
-  {"id":"20","title":"Valid Parentheses","slug":"valid-parentheses","link":"https://leetcode.com/problems/valid-parentheses/","difficulty":"Easy","topics":["Stack","String"],"companyTags":["Amazon","Meta","Google"],"descriptionSnippet":"Determine if the input string containing parentheses characters is valid.","exampleTestCase":"s = \"()[]{}\" -> Output: true"},
-  {"id":"155","title":"Min Stack","slug":"min-stack","link":"https://leetcode.com/problems/min-stack/","difficulty":"Medium","topics":["Stack","Design"],"companyTags":["Amazon","Microsoft"],"descriptionSnippet":"Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.","exampleTestCase":"push(-2), push(0), push(-3), getMin() -> -3"},
-  {"id":"150","title":"Evaluate Reverse Polish Notation","slug":"evaluate-reverse-polish-notation","link":"https://leetcode.com/problems/evaluate-reverse-polish-notation/","difficulty":"Medium","topics":["Stack","Array","Math"],"companyTags":["Amazon","Google"],"descriptionSnippet":"Evaluate the value of an arithmetic expression in Reverse Polish Notation.","exampleTestCase":"tokens = [\"2\",\"1\",\"+\",\"3\",\"*\"] -> Output: 9"},
-  {"id":"22","title":"Generate Parentheses","slug":"generate-parentheses","link":"https://leetcode.com/problems/generate-parentheses/","difficulty":"Medium","topics":["Backtracking","Stack","String"],"companyTags":["Amazon","Meta"],"descriptionSnippet":"Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.","exampleTestCase":"n = 3 -> Output: [\"((()))\",\"(()())\",\"(())()\",\"()(())\",\"()()()\"]"},
-  {"id":"739","title":"Daily Temperatures","slug":"daily-temperatures","link":"https://leetcode.com/problems/daily-temperatures/","difficulty":"Medium","topics":["Stack","Monotonic Stack","Array"],"companyTags":["Amazon","Meta"],"descriptionSnippet":"Return an array answer such that answer[i] is the number of days you have to wait after the ith day to get a warmer temperature.","exampleTestCase":"temperatures = [73,74,75,71,69,72,76,73] -> Output: [1,1,4,2,1,1,0,0]"},
-  {"id":"853","title":"Car Fleet","slug":"car-fleet","link":"https://leetcode.com/problems/car-fleet/","difficulty":"Medium","topics":["Stack","Array","Sorting"],"companyTags":["Google"],"descriptionSnippet":"Calculate how many car fleets will arrive at the destination target.","exampleTestCase":"target = 12, position = [10,8,0,5,3], speed = [2,4,1,1,3] -> Output: 3"},
-  {"id":"84","title":"Largest Rectangle in Histogram","slug":"largest-rectangle-in-histogram","link":"https://leetcode.com/problems/largest-rectangle-in-histogram/","difficulty":"Hard","topics":["Stack","Monotonic Stack","Array"],"companyTags":["Amazon","Google"],"descriptionSnippet":"Given an array of integers heights representing the histogram bar height, return the area of the largest rectangle.","exampleTestCase":"heights = [2,1,5,6,2,3] -> Output: 10"},
-  {"id":"704","title":"Binary Search","slug":"binary-search","link":"https://leetcode.com/problems/binary-search/","difficulty":"Easy","topics":["Binary Search","Array"],"companyTags":["Google","Apple"],"descriptionSnippet":"Given an array of integers nums which is sorted in ascending order, search for target in nums.","exampleTestCase":"nums = [-1,0,3,5,9,12], target = 9 -> Output: 4"},
-  {"id":"74","title":"Search a 2D Matrix","slug":"search-a-2d-matrix","link":"https://leetcode.com/problems/search-a-2d-matrix/","difficulty":"Medium","topics":["Binary Search","Matrix","Array"],"companyTags":["Amazon","Microsoft"],"descriptionSnippet":"Write an efficient algorithm that searches for a value target in an m x n integer matrix.","exampleTestCase":"matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3 -> Output: true"},
-  {"id":"875","title":"Koko Eating Bananas","slug":"koko-eating-bananas","link":"https://leetcode.com/problems/koko-eating-bananas/","difficulty":"Medium","topics":["Binary Search","Array"],"companyTags":["Airbnb","Google"],"descriptionSnippet":"Return the minimum integer k such that Koko can eat all the bananas within h hours.","exampleTestCase":"piles = [3,6,7,11], h = 8 -> Output: 4"},
-  {"id":"153","title":"Find Minimum in Rotated Sorted Array","slug":"find-minimum-in-rotated-sorted-array","link":"https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/","difficulty":"Medium","topics":["Binary Search","Array"],"companyTags":["Amazon","Google"],"descriptionSnippet":"Given the sorted rotated array nums of unique elements, return the minimum element of this array.","exampleTestCase":"nums = [3,4,5,1,2] -> Output: 1"},
-  {"id":"33","title":"Search in Rotated Sorted Array","slug":"search-in-rotated-sorted-array","link":"https://leetcode.com/problems/search-in-rotated-sorted-array/","difficulty":"Medium","topics":["Binary Search","Array"],"companyTags":["Amazon","Meta"],"descriptionSnippet":"Given the array nums after rotation and an integer target, return the index of target if it is in nums.","exampleTestCase":"nums = [4,5,6,7,0,1,2], target = 0 -> Output: 4"},
-  {"id":"981","title":"Time Based Key-Value Store","slug":"time-based-key-value-store","link":"https://leetcode.com/problems/time-based-key-value-store/","difficulty":"Medium","topics":["Binary Search","Hash Table","Design"],"companyTags":["Lyft","Google"],"descriptionSnippet":"Design a time-based key-value data structure that can store multiple values for the same key at different timestamps.","exampleTestCase":"set(\"foo\", \"bar\", 1), get(\"foo\", 1) -> \"bar\""},
-  {"id":"4","title":"Median of Two Sorted Arrays","slug":"median-of-two-sorted-arrays","link":"https://leetcode.com/problems/median-of-two-sorted-arrays/","difficulty":"Hard","topics":["Binary Search","Array","Divide and Conquer"],"companyTags":["Google","Amazon"],"descriptionSnippet":"Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.","exampleTestCase":"nums1 = [1,3], nums2 = [2] -> Output: 2.0"},
-  {"id":"206","title":"Reverse Linked List","slug":"reverse-linked-list","link":"https://leetcode.com/problems/reverse-linked-list/","difficulty":"Easy","topics":["Linked List","Recursion"],"companyTags":["Amazon","Meta","Apple"],"descriptionSnippet":"Given the head of a singly linked list, reverse the list, and return the reversed list.","exampleTestCase":"head = [1,2,3,4,5] -> Output: [5,4,3,2,1]"},
-  {"id":"21","title":"Merge Two Sorted Lists","slug":"merge-two-sorted-lists","link":"https://leetcode.com/problems/merge-two-sorted-lists/","difficulty":"Easy","topics":["Linked List","Recursion"],"companyTags":["Amazon","Microsoft"],"descriptionSnippet":"Merge two sorted linked lists into one sorted list.","exampleTestCase":"l1 = [1,2,4], l2 = [1,3,4] -> Output: [1,1,2,3,4,4]"},
-  {"id":"141","title":"Linked List Cycle","slug":"linked-list-cycle","link":"https://leetcode.com/problems/linked-list-cycle/","difficulty":"Easy","topics":["Linked List","Two Pointers"],"companyTags":["Amazon","Meta"],"descriptionSnippet":"Given head, the head of a linked list, determine if the linked list has a cycle in it.","exampleTestCase":"head = [3,2,0,-4], pos = 1 -> Output: true"},
-  {"id":"143","title":"Reorder List","slug":"reorder-list","link":"https://leetcode.com/problems/reorder-list/","difficulty":"Medium","topics":["Linked List","Two Pointers","Stack"],"companyTags":["Amazon","Meta"],"descriptionSnippet":"Reorder the list to be on the form L0 -> Ln -> L1 -> Ln-1 -> L2 -> Ln-2...","exampleTestCase":"head = [1,2,3,4] -> Output: [1,4,2,3]"},
-  {"id":"19","title":"Remove Nth Node From End of List","slug":"remove-nth-node-from-end-of-list","link":"https://leetcode.com/problems/remove-nth-node-from-end-of-list/","difficulty":"Medium","topics":["Linked List","Two Pointers"],"companyTags":["Amazon","Google"],"descriptionSnippet":"Remove the nth node from the end of the list and return its head.","exampleTestCase":"head = [1,2,3,4,5], n = 2 -> Output: [1,2,3,5]"},
-  {"id":"138","title":"Copy List with Random Pointer","slug":"copy-list-with-random-pointer","link":"https://leetcode.com/problems/copy-list-with-random-pointer/","difficulty":"Medium","topics":["Linked List","Hash Table"],"companyTags":["Amazon","Meta"],"descriptionSnippet":"Construct a deep copy of the list where each node contains an additional random pointer.","exampleTestCase":"head = [[7,null],[13,0],[11,4]] -> Output: [[7,null],[13,0],[11,4]]"},
-  {"id":"2","title":"Add Two Numbers","slug":"add-two-numbers","link":"https://leetcode.com/problems/add-two-numbers/","difficulty":"Medium","topics":["Linked List","Math","Recursion"],"companyTags":["Amazon","Google","Meta"],"descriptionSnippet":"Add two numbers represented as linked lists stored in reverse order.","exampleTestCase":"l1 = [2,4,3], l2 = [5,6,4] -> Output: [7,0,8]"},
-  {"id":"146","title":"LRU Cache","slug":"lru-cache","link":"https://leetcode.com/problems/lru-cache/","difficulty":"Medium","topics":["Linked List","Hash Table","Design"],"companyTags":["Amazon","Google","Meta","Apple"],"descriptionSnippet":"Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.","exampleTestCase":"put(1,1), put(2,2), get(1) -> 1, put(3,3), get(2) -> -1"},
-  {"id":"23","title":"Merge k Sorted Lists","slug":"merge-k-sorted-lists","link":"https://leetcode.com/problems/merge-k-sorted-lists/","difficulty":"Hard","topics":["Linked List","Divide and Conquer","Heap"],"companyTags":["Amazon","Google","Meta"],"descriptionSnippet":"Merge k sorted linked-lists into one sorted linked-list.","exampleTestCase":"lists = [[1,4,5],[1,3,4],[2,6]] -> Output: [1,1,2,3,4,4,5,6]"},
-  {"id":"25","title":"Reverse Nodes in k-Group","slug":"reverse-nodes-in-k-group","link":"https://leetcode.com/problems/reverse-nodes-in-k-group/","difficulty":"Hard","topics":["Linked List","Recursion"],"companyTags":["Amazon","Microsoft"],"descriptionSnippet":"Given the head of a linked list, reverse the nodes of a list k at a time, and return the modified list.","exampleTestCase":"head = [1,2,3,4,5], k = 2 -> Output: [2,1,4,3,5]"},
-  {"id":"234","title":"Palindrome Linked List","slug":"palindrome-linked-list","link":"https://leetcode.com/problems/palindrome-linked-list/","difficulty":"Easy","topics":["Linked List","Two Pointers","Stack"],"companyTags":["Amazon","Meta"],"descriptionSnippet":"Given the head of a singly linked list, return true if it is a palindrome or false otherwise.","exampleTestCase":"head = [1,2,2,1] -> Output: true"},
-  {"id":"226","title":"Invert Binary Tree","slug":"invert-binary-tree","link":"https://leetcode.com/problems/invert-binary-tree/","difficulty":"Easy","topics":["Tree","Binary Tree","DFS","BFS"],"companyTags":["Google","Amazon"],"descriptionSnippet":"Given the root of a binary tree, invert the tree, and return its root.","exampleTestCase":"root = [4,2,7,1,3,6,9] -> Output: [4,7,2,9,6,3,1]"},
-  {"id":"104","title":"Maximum Depth of Binary Tree","slug":"maximum-depth-of-binary-tree","link":"https://leetcode.com/problems/maximum-depth-of-binary-tree/","difficulty":"Easy","topics":["Tree","Binary Tree","DFS"],"companyTags":["Google","Meta"],"descriptionSnippet":"Given the root of a binary tree, return its maximum depth.","exampleTestCase":"root = [3,9,20,null,null,15,7] -> Output: 3"},
-  {"id":"543","title":"Diameter of Binary Tree","slug":"diameter-of-binary-tree","link":"https://leetcode.com/problems/diameter-of-binary-tree/","difficulty":"Easy","topics":["Tree","Binary Tree","DFS"],"companyTags":["Meta","Amazon"],"descriptionSnippet":"Given the root of a binary tree, return the length of the diameter of the tree.","exampleTestCase":"root = [1,2,3,4,5] -> Output: 3"},
-  {"id":"110","title":"Balanced Binary Tree","slug":"balanced-binary-tree","link":"https://leetcode.com/problems/balanced-binary-tree/","difficulty":"Easy","topics":["Tree","Binary Tree","DFS"],"companyTags":["Amazon","Google"],"descriptionSnippet":"Given a binary tree, determine if it is height-balanced.","exampleTestCase":"root = [3,9,20,null,null,15,7] -> Output: true"},
-  {"id":"100","title":"Same Tree","slug":"same-tree","link":"https://leetcode.com/problems/same-tree/","difficulty":"Easy","topics":["Tree","Binary Tree","DFS"],"companyTags":["Amazon","Google"],"descriptionSnippet":"Check if two binary trees are identical in structure and values.","exampleTestCase":"p = [1,2,3], q = [1,2,3] -> Output: true"},
-  {"id":"572","title":"Subtree of Another Tree","slug":"subtree-of-another-tree","link":"https://leetcode.com/problems/subtree-of-another-tree/","difficulty":"Easy","topics":["Tree","Binary Tree","DFS"],"companyTags":["Amazon","Google"],"descriptionSnippet":"Check if a binary tree subRoot is a subtree of another binary tree root.","exampleTestCase":"root = [3,4,5,1,2], subRoot = [4,1,2] -> Output: true"},
-  {"id":"235","title":"Lowest Common Ancestor of a Binary Search Tree","slug":"lowest-common-ancestor-of-a-binary-search-tree","link":"https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/","difficulty":"Medium","topics":["Tree","Binary Search Tree","DFS"],"companyTags":["Amazon","Meta"],"descriptionSnippet":"Find the lowest common ancestor node of two given nodes in a BST.","exampleTestCase":"root = [6,2,8,0,4,7,9], p = 2, q = 8 -> Output: 6"},
-  {"id":"102","title":"Binary Tree Level Order Traversal","slug":"binary-tree-level-order-traversal","link":"https://leetcode.com/problems/binary-tree-level-order-traversal/","difficulty":"Medium","topics":["Tree","Binary Tree","BFS"],"companyTags":["Amazon","Meta"],"descriptionSnippet":"Given the root of a binary tree, return the level order traversal of its nodes values.","exampleTestCase":"root = [3,9,20,null,null,15,7] -> Output: [[3],[9,20],[15,7]]"},
-  {"id":"199","title":"Binary Tree Right Side View","slug":"binary-tree-right-side-view","link":"https://leetcode.com/problems/binary-tree-right-side-view/","difficulty":"Medium","topics":["Tree","Binary Tree","BFS","DFS"],"companyTags":["Meta","Amazon"],"descriptionSnippet":"Imagine yourself standing on the right side of a binary tree, return the values of the nodes you can see ordered from top to bottom.","exampleTestCase":"root = [1,2,3,null,5,null,4] -> Output: [1,3,4]"},
-  {"id":"1448","title":"Count Good Nodes in Binary Tree","slug":"count-good-nodes-in-binary-tree","link":"https://leetcode.com/problems/count-good-nodes-in-binary-tree/","difficulty":"Medium","topics":["Tree","Binary Tree","DFS"],"companyTags":["Microsoft"],"descriptionSnippet":"Given a binary tree root, a node X in the tree is named good if in the path from root to X there are no nodes with a value greater than X.","exampleTestCase":"root = [3,1,4,3,null,1,5] -> Output: 4"},
-  {"id":"98","title":"Validate Binary Search Tree","slug":"validate-binary-search-tree","link":"https://leetcode.com/problems/validate-binary-search-tree/","difficulty":"Medium","topics":["Tree","Binary Search Tree","DFS"],"companyTags":["Amazon","Meta"],"descriptionSnippet":"Determine if a binary tree is a valid binary search tree (BST).","exampleTestCase":"root = [2,1,3] -> Output: true"},
-  {"id":"230","title":"Kth Smallest Element in a BST","slug":"kth-smallest-element-in-a-bst","link":"https://leetcode.com/problems/kth-smallest-element-in-a-bst/","difficulty":"Medium","topics":["Tree","Binary Search Tree","DFS"],"companyTags":["Amazon","Google"],"descriptionSnippet":"Return the kth smallest value (1-indexed) of all the values of the nodes in a BST.","exampleTestCase":"root = [3,1,4,null,2], k = 1 -> Output: 1"},
-  {"id":"105","title":"Construct Binary Tree from Preorder and Inorder Traversal","slug":"construct-binary-tree-from-preorder-and-inorder-traversal","link":"https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/","difficulty":"Medium","topics":["Tree","Binary Tree","Array","Hash Table"],"companyTags":["Amazon","Microsoft"],"descriptionSnippet":"Given two integer arrays preorder and inorder, construct and return the binary tree.","exampleTestCase":"preorder = [3,9,20,15,7], inorder = [9,3,15,20,7] -> Output: [3,9,20,null,null,15,7]"},
-  {"id":"124","title":"Binary Tree Maximum Path Sum","slug":"binary-tree-maximum-path-sum","link":"https://leetcode.com/problems/binary-tree-maximum-path-sum/","difficulty":"Hard","topics":["Tree","Binary Tree","DFS","Dynamic Programming"],"companyTags":["Meta","Amazon","Google"],"descriptionSnippet":"Return the maximum path sum of any non-empty path in a binary tree.","exampleTestCase":"root = [-10,9,20,null,null,15,7] -> Output: 42"},
-  {"id":"297","title":"Serialize and Deserialize Binary Tree","slug":"serialize-and-deserialize-binary-tree","link":"https://leetcode.com/problems/serialize-and-deserialize-binary-tree/","difficulty":"Hard","topics":["Tree","Binary Tree","BFS","DFS","Design"],"companyTags":["Amazon","Meta","Google"],"descriptionSnippet":"Design an algorithm to serialize and deserialize a binary tree.","exampleTestCase":"root = [1,2,3,null,null,4,5] -> Output: [1,2,3,null,null,4,5]"},
-  {"id":"208","title":"Implement Trie (Prefix Tree)","slug":"implement-trie-prefix-tree","link":"https://leetcode.com/problems/implement-trie-prefix-tree/","difficulty":"Medium","topics":["Trie","Design","Hash Table"],"companyTags":["Amazon","Google"],"descriptionSnippet":"Implement a trie data structure with insert, search, and startsWith methods.","exampleTestCase":"insert(\"apple\"), search(\"apple\") -> true"},
-  {"id":"211","title":"Design Add and Search Words Data Structure","slug":"design-add-and-search-words-data-structure","link":"https://leetcode.com/problems/design-add-and-search-words-data-structure/","difficulty":"Medium","topics":["Trie","DFS","Design"],"companyTags":["Meta","Amazon"],"descriptionSnippet":"Design a data structure that supports adding new words and searching with dots as wildcards.","exampleTestCase":"addWord(\"bad\"), search(\".ad\") -> true"},
-  {"id":"212","title":"Word Search II","slug":"word-search-ii","link":"https://leetcode.com/problems/word-search-ii/","difficulty":"Hard","topics":["Trie","Backtracking","Matrix"],"companyTags":["Amazon","Google","Meta"],"descriptionSnippet":"Given an m x n board of characters and a list of strings words, return all words on the board.","exampleTestCase":"board = [[\"o\",\"a\",\"a\",\"n\"],[\"e\",\"t\",\"a\",\"e\"],[\"i\",\"h\",\"k\",\"r\"],[\"i\",\"f\",\"l\",\"v\"]], words = [\"oath\",\"pea\",\"eat\",\"rain\"] -> Output: [\"eat\",\"oath\"]"},
-  {"id":"703","title":"Kth Largest Element in a Stream","slug":"kth-largest-element-in-a-stream","link":"https://leetcode.com/problems/kth-largest-element-in-a-stream/","difficulty":"Easy","topics":["Heap","Data Stream","Design"],"companyTags":["Amazon"],"descriptionSnippet":"Design a class to find the kth largest element in a stream.","exampleTestCase":"k = 3, nums = [4, 5, 8, 2], add(3) -> 4"},
-  {"id":"1046","title":"Last Stone Weight","slug":"last-stone-weight","link":"https://leetcode.com/problems/last-stone-weight/","difficulty":"Easy","topics":["Heap","Array"],"companyTags":["Amazon"],"descriptionSnippet":"Smash the two heaviest stones together until at most one stone remains.","exampleTestCase":"stones = [2,7,4,1,8,1] -> Output: 1"},
-  {"id":"973","title":"K Closest Points to Origin","slug":"k-closest-points-to-origin","link":"https://leetcode.com/problems/k-closest-points-to-origin/","difficulty":"Medium","topics":["Heap","Geometry","Sorting"],"companyTags":["Amazon","Meta"],"descriptionSnippet":"Return the k closest points to the origin (0, 0) on the 2D plane.","exampleTestCase":"points = [[1,3],[-2,2]], k = 1 -> Output: [[-2,2]]"},
-  {"id":"215","title":"Kth Largest Element in an Array","slug":"kth-largest-element-in-an-array","link":"https://leetcode.com/problems/kth-largest-element-in-an-array/","difficulty":"Medium","topics":["Heap","Divide and Conquer","Quickselect"],"companyTags":["Meta","Amazon"],"descriptionSnippet":"Given an integer array nums and an integer k, return the kth largest element.","exampleTestCase":"nums = [3,2,1,5,6,4], k = 2 -> Output: 5"},
-  {"id":"621","title":"Task Scheduler","slug":"task-scheduler","link":"https://leetcode.com/problems/task-scheduler/","difficulty":"Medium","topics":["Heap","Greedy","Array"],"companyTags":["Meta","Amazon"],"descriptionSnippet":"Given a characters array tasks, return the minimum number of units of times that the machine will take to finish all tasks.","exampleTestCase":"tasks = [\"A\",\"A\",\"A\",\"B\",\"B\",\"B\"], n = 2 -> Output: 8"},
-  {"id":"355","title":"Design Twitter","slug":"design-twitter","link":"https://leetcode.com/problems/design-twitter/","difficulty":"Medium","topics":["Heap","Design","Hash Table"],"companyTags":["Twitter","Amazon"],"descriptionSnippet":"Design a simplified version of Twitter where users can post tweets, follow/unfollow another user and is able to see 10 most recent tweets.","exampleTestCase":"postTweet(1, 5), getNewsFeed(1) -> [5]"},
-  {"id":"295","title":"Find Median from Data Stream","slug":"find-median-from-data-stream","link":"https://leetcode.com/problems/find-median-from-data-stream/","difficulty":"Hard","topics":["Heap","Two Pointers","Design"],"companyTags":["Amazon","Google","Meta"],"descriptionSnippet":"Design a data structure that supports adding numbers and finding the median.","exampleTestCase":"addNum(1), addNum(2), findMedian() -> 1.5"},
-  {"id":"78","title":"Subsets","slug":"subsets","link":"https://leetcode.com/problems/subsets/","difficulty":"Medium","topics":["Backtracking","Array","Bit Manipulation"],"companyTags":["Amazon","Meta"],"descriptionSnippet":"Return all possible subsets (the power set) of an integer array of unique elements.","exampleTestCase":"nums = [1,2,3] -> Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]"},
-  {"id":"39","title":"Combination Sum","slug":"combination-sum","link":"https://leetcode.com/problems/combination-sum/","difficulty":"Medium","topics":["Backtracking","Array"],"companyTags":["Amazon","Airbnb"],"descriptionSnippet":"Return a list of all unique combinations of candidates where the chosen numbers sum to target.","exampleTestCase":"candidates = [2,3,6,7], target = 7 -> Output: [[2,2,3],[7]]"},
-  {"id":"46","title":"Permutations","slug":"permutations","link":"https://leetcode.com/problems/permutations/","difficulty":"Medium","topics":["Backtracking","Array"],"companyTags":["Amazon","Google"],"descriptionSnippet":"Given an array nums of distinct integers, return all the possible permutations.","exampleTestCase":"nums = [1,2,3] -> Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]"},
-  {"id":"90","title":"Subsets II","slug":"subsets-ii","link":"https://leetcode.com/problems/subsets-ii/","difficulty":"Medium","topics":["Backtracking","Array","Bit Manipulation"],"companyTags":["Amazon"],"descriptionSnippet":"Given an integer array nums that may contain duplicates, return all possible subsets (the power set).","exampleTestCase":"nums = [1,2,2] -> Output: [[],[1],[1,2],[1,2,2],[2],[2,2]]"},
-  {"id":"40","title":"Combination Sum II","slug":"combination-sum-ii","link":"https://leetcode.com/problems/combination-sum-ii/","difficulty":"Medium","topics":["Backtracking","Array"],"companyTags":["Amazon"],"descriptionSnippet":"Find all unique combinations in candidates where the candidate numbers sum to target (each number used once).","exampleTestCase":"candidates = [10,1,2,7,6,1,5], target = 8 -> Output: [[1,1,6],[1,2,5],[1,7],[2,6]]"},
-  {"id":"79","title":"Word Search","slug":"word-search","link":"https://leetcode.com/problems/word-search/","difficulty":"Medium","topics":["Backtracking","Matrix","DFS"],"companyTags":["Amazon","Microsoft"],"descriptionSnippet":"Return true if a word exists in an m x n grid of characters.","exampleTestCase":"board = [[\"A\",\"B\",\"C\",\"E\"],[\"S\",\"F\",\"C\",\"S\"],[\"A\",\"D\",\"E\",\"E\"]], word = \"ABCCED\" -> Output: true"},
-  {"id":"131","title":"Palindrome Partitioning","slug":"palindrome-partitioning","link":"https://leetcode.com/problems/palindrome-partitioning/","difficulty":"Medium","topics":["Backtracking","String","Dynamic Programming"],"companyTags":["Amazon","Google"],"descriptionSnippet":"Partition string s such that every substring of the partition is a palindrome.","exampleTestCase":"s = \"aab\" -> Output: [[\"a\",\"a\",\"b\"],[\"aa\",\"b\"]]"},
-  {"id":"17","title":"Letter Combinations of a Phone Number","slug":"letter-combinations-of-a-phone-number","link":"https://leetcode.com/problems/letter-combinations-of-a-phone-number/","difficulty":"Medium","topics":["Backtracking","String","Hash Table"],"companyTags":["Amazon","Meta"],"descriptionSnippet":"Return all possible letter combinations that the number digits on a phone keypad could represent.","exampleTestCase":"digits = \"23\" -> Output: [\"ad\",\"ae\",\"af\",\"bd\",\"be\",\"bf\",\"cd\",\"ce\",\"cf\"]"},
-  {"id":"51","title":"N-Queens","slug":"n-queens","link":"https://leetcode.com/problems/n-queens/","difficulty":"Hard","topics":["Backtracking","Array"],"companyTags":["Amazon","Meta"],"descriptionSnippet":"Place n queens on an n x n chessboard such that no two queens attack each other.","exampleTestCase":"n = 4 -> Output: [[\".Q..\",\"...Q\",\"Q...\",\"..Q.\"],[\"..Q.\",\"Q...\",\"...Q\",\".Q..\"]]"},
-  {"id":"200","title":"Number of Islands","slug":"number-of-islands","link":"https://leetcode.com/problems/number-of-islands/","difficulty":"Medium","topics":["Graph","BFS","DFS","Matrix"],"companyTags":["Amazon","Google","Meta"],"descriptionSnippet":"Given an m x n 2D binary grid, return the number of islands.","exampleTestCase":"grid = [[\"1\",\"1\",\"0\"],[\"1\",\"1\",\"0\"],[\"0\",\"0\",\"1\"]] -> Output: 2"},
-  {"id":"133","title":"Clone Graph","slug":"clone-graph","link":"https://leetcode.com/problems/clone-graph/","difficulty":"Medium","topics":["Graph","BFS","DFS","Hash Table"],"companyTags":["Meta","Amazon"],"descriptionSnippet":"Return a deep copy (clone) of a connected undirected graph.","exampleTestCase":"adjList = [[2,4],[1,3],[2,4],[1,3]] -> Output: [[2,4],[1,3],[2,4],[1,3]]"},
-  {"id":"695","title":"Max Area of Island","slug":"max-area-of-island","link":"https://leetcode.com/problems/max-area-of-island/","difficulty":"Medium","topics":["Graph","BFS","DFS","Matrix"],"companyTags":["Amazon","Meta"],"descriptionSnippet":"Return the maximum area of an island in a 2D binary grid.","exampleTestCase":"grid = [[0,0,1,0,0],[0,0,0,0,0],[0,1,1,0,1]] -> Output: 2"},
-  {"id":"417","title":"Pacific Atlantic Water Flow","slug":"pacific-atlantic-water-flow","link":"https://leetcode.com/problems/pacific-atlantic-water-flow/","difficulty":"Medium","topics":["Graph","BFS","DFS","Matrix"],"companyTags":["Google","Amazon"],"descriptionSnippet":"Find grid coordinates where water can flow to both Pacific and Atlantic oceans.","exampleTestCase":"heights = [[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]] -> Output: [[0,4],[1,3],[1,4],[2,2],[3,0],[3,1],[4,0]]"},
-  {"id":"130","title":"Surrounded Regions","slug":"surrounded-regions","link":"https://leetcode.com/problems/surrounded-regions/","difficulty":"Medium","topics":["Graph","BFS","DFS","Matrix"],"companyTags":["Amazon"],"descriptionSnippet":"Capture all regions that are 4-directionally surrounded by 'X'.","exampleTestCase":"board = [[\"X\",\"X\",\"X\",\"X\"],[\"X\",\"O\",\"O\",\"X\"],[\"X\",\"X\",\"O\",\"X\"],[\"X\",\"O\",\"X\",\"X\"]] -> Output: [[\"X\",\"X\",\"X\",\"X\"],[\"X\",\"X\",\"X\",\"X\"],[\"X\",\"X\",\"X\",\"X\"],[\"X\",\"O\",\"X\",\"X\"]]"},
-  {"id":"994","title":"Rotting Oranges","slug":"rotting-oranges","link":"https://leetcode.com/problems/rotting-oranges/","difficulty":"Medium","topics":["Graph","BFS","Matrix"],"companyTags":["Amazon","Google"],"descriptionSnippet":"Return the minimum minutes until no cell has a fresh orange.","exampleTestCase":"grid = [[2,1,1],[1,1,0],[0,1,1]] -> Output: 4"},
-  {"id":"207","title":"Course Schedule","slug":"course-schedule","link":"https://leetcode.com/problems/course-schedule/","difficulty":"Medium","topics":["Graph","Topological Sort","DFS"],"companyTags":["Amazon","Google"],"descriptionSnippet":"Determine if you can finish all courses given prerequisite dependencies.","exampleTestCase":"numCourses = 2, prerequisites = [[1,0]] -> Output: true"},
-  {"id":"210","title":"Course Schedule II","slug":"course-schedule-ii","link":"https://leetcode.com/problems/course-schedule-ii/","difficulty":"Medium","topics":["Graph","Topological Sort","BFS"],"companyTags":["Amazon","Google"],"descriptionSnippet":"Return the ordering of courses you should take to finish all courses.","exampleTestCase":"numCourses = 2, prerequisites = [[1,0]] -> Output: [0,1]"},
-  {"id":"684","title":"Redundant Connection","slug":"redundant-connection","link":"https://leetcode.com/problems/redundant-connection/","difficulty":"Medium","topics":["Graph","Union Find","DFS"],"companyTags":["Amazon"],"descriptionSnippet":"Return an edge that can be removed so that the graph becomes a tree of n nodes.","exampleTestCase":"edges = [[1,2],[1,3],[2,3]] -> Output: [2,3]"},
-  {"id":"127","title":"Word Ladder","slug":"word-ladder","link":"https://leetcode.com/problems/word-ladder/","difficulty":"Hard","topics":["Graph","BFS","Hash Table","String"],"companyTags":["Amazon","Google"],"descriptionSnippet":"Return the number of words in the shortest transformation sequence from beginWord to endWord.","exampleTestCase":"beginWord = \"hit\", endWord = \"cog\", wordList = [\"hot\",\"dot\",\"dog\",\"lot\",\"log\",\"cog\"] -> Output: 5"},
-  {"id":"70","title":"Climbing Stairs","slug":"climbing-stairs","link":"https://leetcode.com/problems/climbing-stairs/","difficulty":"Easy","topics":["Dynamic Programming","Memoization"],"companyTags":["Amazon","Google"],"descriptionSnippet":"How many distinct ways can you climb n steps to the top?","exampleTestCase":"n = 3 -> Output: 3"},
-  {"id":"746","title":"Min Cost Climbing Stairs","slug":"min-cost-climbing-stairs","link":"https://leetcode.com/problems/min-cost-climbing-stairs/","difficulty":"Easy","topics":["Dynamic Programming","Array"],"companyTags":["Amazon"],"descriptionSnippet":"Return the minimum cost to reach the top of the floor.","exampleTestCase":"cost = [10,15,20] -> Output: 15"},
-  {"id":"198","title":"House Robber","slug":"house-robber","link":"https://leetcode.com/problems/house-robber/","difficulty":"Medium","topics":["Dynamic Programming","Array"],"companyTags":["Amazon","Google"],"descriptionSnippet":"Return maximum money you can rob without alerting police (no adjacent houses).","exampleTestCase":"nums = [1,2,3,1] -> Output: 4"},
-  {"id":"213","title":"House Robber II","slug":"house-robber-ii","link":"https://leetcode.com/problems/house-robber-ii/","difficulty":"Medium","topics":["Dynamic Programming","Array"],"companyTags":["Amazon","Google"],"descriptionSnippet":"Houses are arranged in a circle. Return maximum money you can rob.","exampleTestCase":"nums = [2,3,2] -> Output: 3"},
-  {"id":"5","title":"Longest Palindromic Substring","slug":"longest-palindromic-substring","link":"https://leetcode.com/problems/longest-palindromic-substring/","difficulty":"Medium","topics":["Dynamic Programming","String","Two Pointers"],"companyTags":["Amazon","Google","Microsoft"],"descriptionSnippet":"Given a string s, return the longest palindromic substring in s.","exampleTestCase":"s = \"babad\" -> Output: \"bab\""},
-  {"id":"647","title":"Palindromic Substrings","slug":"palindromic-substrings","link":"https://leetcode.com/problems/palindromic-substrings/","difficulty":"Medium","topics":["Dynamic Programming","String","Two Pointers"],"companyTags":["Meta","Amazon"],"descriptionSnippet":"Given a string s, return the number of palindromic substrings in it.","exampleTestCase":"s = \"abc\" -> Output: 3"},
-  {"id":"91","title":"Decode Ways","slug":"decode-ways","link":"https://leetcode.com/problems/decode-ways/","difficulty":"Medium","topics":["Dynamic Programming","String"],"companyTags":["Amazon","Google"],"descriptionSnippet":"Return the number of ways to decode a message containing digit mappings A->1...Z->26.","exampleTestCase":"s = \"226\" -> Output: 3"},
-  {"id":"322","title":"Coin Change","slug":"coin-change","link":"https://leetcode.com/problems/coin-change/","difficulty":"Medium","topics":["Dynamic Programming","BFS"],"companyTags":["Amazon","Meta"],"descriptionSnippet":"Return fewest number of coins needed to make up the target amount.","exampleTestCase":"coins = [1,2,5], amount = 11 -> Output: 3"},
-  {"id":"152","title":"Maximum Product Subarray","slug":"maximum-product-subarray","link":"https://leetcode.com/problems/maximum-product-subarray/","difficulty":"Medium","topics":["Dynamic Programming","Array"],"companyTags":["Amazon","Google"],"descriptionSnippet":"Find a contiguous non-empty subarray that has the largest product.","exampleTestCase":"nums = [2,3,-2,4] -> Output: 6"},
-  {"id":"139","title":"Word Break","slug":"word-break","link":"https://leetcode.com/problems/word-break/","difficulty":"Medium","topics":["Dynamic Programming","Trie","Hash Table","String"],"companyTags":["Amazon","Meta","Google"],"descriptionSnippet":"Return true if s can be segmented into a space-separated sequence of dictionary words.","exampleTestCase":"s = \"leetcode\", wordDict = [\"leet\",\"code\"] -> Output: true"},
-  {"id":"300","title":"Longest Increasing Subsequence","slug":"longest-increasing-subsequence","link":"https://leetcode.com/problems/longest-increasing-subsequence/","difficulty":"Medium","topics":["Dynamic Programming","Binary Search"],"companyTags":["Google","Meta"],"descriptionSnippet":"Return the length of the longest strictly increasing subsequence.","exampleTestCase":"nums = [10,9,2,5,3,7,101,18] -> Output: 4"},
-  {"id":"416","title":"Partition Equal Subset Sum","slug":"partition-equal-subset-sum","link":"https://leetcode.com/problems/partition-equal-subset-sum/","difficulty":"Medium","topics":["Dynamic Programming","Array"],"companyTags":["Amazon"],"descriptionSnippet":"Determine if array nums can be partitioned into two subsets with equal sum.","exampleTestCase":"nums = [1,5,11,5] -> Output: true"},
-  {"id":"62","title":"Unique Paths","slug":"unique-paths","link":"https://leetcode.com/problems/unique-paths/","difficulty":"Medium","topics":["Dynamic Programming","Math","Combinatorics"],"companyTags":["Amazon","Google"],"descriptionSnippet":"Return the number of possible unique paths from top-left to bottom-right in an m x n grid.","exampleTestCase":"m = 3, n = 7 -> Output: 28"},
-  {"id":"1143","title":"Longest Common Subsequence","slug":"longest-common-subsequence","link":"https://leetcode.com/problems/longest-common-subsequence/","difficulty":"Medium","topics":["Dynamic Programming","String"],"companyTags":["Amazon","Google"],"descriptionSnippet":"Return the length of the longest common subsequence of two strings.","exampleTestCase":"text1 = \"abcde\", text2 = \"ace\" -> Output: 3"},
-  {"id":"518","title":"Coin Change II","slug":"coin-change-ii","link":"https://leetcode.com/problems/coin-change-ii/","difficulty":"Medium","topics":["Dynamic Programming","Array"],"companyTags":["Amazon"],"descriptionSnippet":"Return the number of combinations that make up target amount using coins.","exampleTestCase":"amount = 5, coins = [1,2,5] -> Output: 4"},
-  {"id":"494","title":"Target Sum","slug":"target-sum","link":"https://leetcode.com/problems/target-sum/","difficulty":"Medium","topics":["Dynamic Programming","Backtracking"],"companyTags":["Meta","Amazon"],"descriptionSnippet":"Return number of ways to assign + and - symbols to nums so that sum equals target.","exampleTestCase":"nums = [1,1,1,1,1], target = 3 -> Output: 5"},
-  {"id":"72","title":"Edit Distance","slug":"edit-distance","link":"https://leetcode.com/problems/edit-distance/","difficulty":"Medium","topics":["Dynamic Programming","String"],"companyTags":["Google","Amazon"],"descriptionSnippet":"Return minimum operations to convert word1 to word2 (insert, delete, replace).","exampleTestCase":"word1 = \"horse\", word2 = \"ros\" -> Output: 3"},
-  {"id":"53","title":"Maximum Subarray","slug":"maximum-subarray","link":"https://leetcode.com/problems/maximum-subarray/","difficulty":"Medium","topics":["Array","Dynamic Programming","Divide and Conquer"],"companyTags":["Amazon","Meta"],"descriptionSnippet":"Find contiguous subarray with largest sum and return its sum.","exampleTestCase":"nums = [-2,1,-3,4,-1,2,1,-5,4] -> Output: 6"},
-  {"id":"55","title":"Jump Game","slug":"jump-game","link":"https://leetcode.com/problems/jump-game/","difficulty":"Medium","topics":["Greedy","Array","Dynamic Programming"],"companyTags":["Amazon","Google"],"descriptionSnippet":"Return true if you can reach the last index of array nums.","exampleTestCase":"nums = [2,3,1,1,4] -> Output: true"},
-  {"id":"45","title":"Jump Game II","slug":"jump-game-ii","link":"https://leetcode.com/problems/jump-game-ii/","difficulty":"Medium","topics":["Greedy","Array","Dynamic Programming"],"companyTags":["Amazon"],"descriptionSnippet":"Return the minimum number of jumps to reach the last index.","exampleTestCase":"nums = [2,3,1,1,4] -> Output: 2"},
-  {"id":"134","title":"Gas Station","slug":"gas-station","link":"https://leetcode.com/problems/gas-station/","difficulty":"Medium","topics":["Greedy","Array"],"companyTags":["Amazon","Google"],"descriptionSnippet":"Return starting gas station index if you can travel around circuit once.","exampleTestCase":"gas = [1,2,3,4,5], cost = [3,4,5,1,2] -> Output: 3"},
-  {"id":"763","title":"Partition Labels","slug":"partition-labels","link":"https://leetcode.com/problems/partition-labels/","difficulty":"Medium","topics":["Greedy","Hash Table","Two Pointers","String"],"companyTags":["Amazon"],"descriptionSnippet":"Partition string into as many parts as possible so each letter appears in at most one part.","exampleTestCase":"s = \"ababcbacadefegdehijhklij\" -> Output: [9,7,8]"},
-  {"id":"57","title":"Insert Interval","slug":"insert-interval","link":"https://leetcode.com/problems/insert-interval/","difficulty":"Medium","topics":["Array","Sorting"],"companyTags":["Google","Meta"],"descriptionSnippet":"Insert newInterval into sorted non-overlapping intervals.","exampleTestCase":"intervals = [[1,3],[6,9]], newInterval = [2,5] -> Output: [[1,5],[6,9]]"},
-  {"id":"56","title":"Merge Intervals","slug":"merge-intervals","link":"https://leetcode.com/problems/merge-intervals/","difficulty":"Medium","topics":["Array","Sorting"],"companyTags":["Amazon","Meta","Google"],"descriptionSnippet":"Merge all overlapping intervals.","exampleTestCase":"intervals = [[1,3],[2,6],[8,10],[15,18]] -> Output: [[1,6],[8,10],[15,18]]"},
-  {"id":"435","title":"Non-overlapping Intervals","slug":"non-overlapping-intervals","link":"https://leetcode.com/problems/non-overlapping-intervals/","difficulty":"Medium","topics":["Greedy","Array","Sorting"],"companyTags":["Amazon"],"descriptionSnippet":"Return minimum number of intervals to remove to make the rest non-overlapping.","exampleTestCase":"intervals = [[1,2],[2,3],[3,4],[1,3]] -> Output: 1"},
-  {"id":"48","title":"Rotate Image","slug":"rotate-image","link":"https://leetcode.com/problems/rotate-image/","difficulty":"Medium","topics":["Array","Math","Matrix"],"companyTags":["Amazon","Microsoft","Apple"],"descriptionSnippet":"Rotate an n x n 2D image matrix 90 degrees clockwise in-place.","exampleTestCase":"matrix = [[1,2,3],[4,5,6],[7,8,9]] -> Output: [[7,4,1],[8,5,2],[9,6,3]]"},
-  {"id":"54","title":"Spiral Matrix","slug":"spiral-matrix","link":"https://leetcode.com/problems/spiral-matrix/","difficulty":"Medium","topics":["Array","Matrix","Simulation"],"companyTags":["Amazon","Microsoft"],"descriptionSnippet":"Return all elements of m x n matrix in spiral order.","exampleTestCase":"matrix = [[1,2,3],[4,5,6],[7,8,9]] -> Output: [1,2,3,6,9,8,7,4,5]"},
-  {"id":"73","title":"Set Matrix Zeroes","slug":"set-matrix-zeroes","link":"https://leetcode.com/problems/set-matrix-zeroes/","difficulty":"Medium","topics":["Array","Matrix","Hash Table"],"companyTags":["Amazon","Meta"],"descriptionSnippet":"If an element is 0, set its entire row and column to 0 in-place.","exampleTestCase":"matrix = [[1,1,1],[1,0,1],[1,1,1]] -> Output: [[1,0,1],[0,0,0],[1,0,1]]"},
-  {"id":"202","title":"Happy Number","slug":"happy-number","link":"https://leetcode.com/problems/happy-number/","difficulty":"Easy","topics":["Hash Table","Two Pointers","Math"],"companyTags":["Amazon","Google"],"descriptionSnippet":"Determine if a number n is happy.","exampleTestCase":"n = 19 -> Output: true"},
-  {"id":"66","title":"Plus One","slug":"plus-one","link":"https://leetcode.com/problems/plus-one/","difficulty":"Easy","topics":["Array","Math"],"companyTags":["Google"],"descriptionSnippet":"Increment large integer represented as digits array by one.","exampleTestCase":"digits = [1,2,3] -> Output: [1,2,4]"},
-  {"id":"50","title":"Pow(x, n)","slug":"powx-n","link":"https://leetcode.com/problems/powx-n/","difficulty":"Medium","topics":["Math","Recursion"],"companyTags":["Meta","Amazon"],"descriptionSnippet":"Calculate x raised to the power n (x^n).","exampleTestCase":"x = 2.00000, n = 10 -> Output: 1024.00000"},
-  {"id":"136","title":"Single Number","slug":"single-number","link":"https://leetcode.com/problems/single-number/","difficulty":"Easy","topics":["Bit Manipulation","Array"],"companyTags":["Amazon","Apple"],"descriptionSnippet":"Find single element that appears only once in array where every other element appears twice.","exampleTestCase":"nums = [2,2,1] -> Output: 1"},
-  {"id":"191","title":"Number of 1 Bits","slug":"number-of-1-bits","link":"https://leetcode.com/problems/number-of-1-bits/","difficulty":"Easy","topics":["Bit Manipulation"],"companyTags":["Apple","Microsoft"],"descriptionSnippet":"Return number of set bits (hamming weight) in 32-bit integer.","exampleTestCase":"n = 11 -> Output: 3"},
-  {"id":"338","title":"Counting Bits","slug":"counting-bits","link":"https://leetcode.com/problems/counting-bits/","difficulty":"Easy","topics":["Bit Manipulation","Dynamic Programming"],"companyTags":["Amazon"],"descriptionSnippet":"Return array of length n + 1 containing count of 1s for numbers 0 to n.","exampleTestCase":"n = 5 -> Output: [0,1,1,2,1,2]"},
-  {"id":"190","title":"Reverse Bits","slug":"reverse-bits","link":"https://leetcode.com/problems/reverse-bits/","difficulty":"Easy","topics":["Bit Manipulation"],"companyTags":["Apple"],"descriptionSnippet":"Reverse bits of a given 32-bit unsigned integer.","exampleTestCase":"n = 43261596 -> Output: 964176192"},
-  {"id":"268","title":"Missing Number","slug":"missing-number","link":"https://leetcode.com/problems/missing-number/","difficulty":"Easy","topics":["Array","Bit Manipulation","Math"],"companyTags":["Amazon","Microsoft"],"descriptionSnippet":"Return only missing number from range [0, n].","exampleTestCase":"nums = [3,0,1] -> Output: 2"},
-  {"id":"371","title":"Sum of Two Integers","slug":"sum-of-two-integers","link":"https://leetcode.com/problems/sum-of-two-integers/","difficulty":"Medium","topics":["Bit Manipulation","Math"],"companyTags":["Meta","Amazon"],"descriptionSnippet":"Return sum of two integers without using + or - operators.","exampleTestCase":"a = 1, b = 2 -> Output: 3"},
-  {"id":"7","title":"Reverse Integer","slug":"reverse-integer","link":"https://leetcode.com/problems/reverse-integer/","difficulty":"Medium","topics":["Math"],"companyTags":["Amazon","Apple"],"descriptionSnippet":"Given a signed 32-bit integer x, return x with its digits reversed.","exampleTestCase":"x = 123 -> Output: 321"}
+  {
+    "id": "1",
+    "title": "Two Sum",
+    "slug": "two-sum",
+    "link": "https://leetcode.com/problems/two-sum/",
+    "difficulty": "Easy",
+    "topics": [
+      "Array",
+      "Hash Table"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google",
+      "Meta"
+    ],
+    "descriptionSnippet": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.",
+    "exampleTestCase": "nums = [2,7,11,15], target = 9 -> Output: [0,1]",
+    "topicOrder": 2
+  },
+  {
+    "id": "217",
+    "title": "Contains Duplicate",
+    "slug": "contains-duplicate",
+    "link": "https://leetcode.com/problems/contains-duplicate/",
+    "difficulty": "Easy",
+    "topics": [
+      "Array",
+      "Hash Table"
+    ],
+    "companyTags": [
+      "Apple",
+      "Amazon"
+    ],
+    "descriptionSnippet": "Given an integer array nums, return true if any value appears at least twice in the array.",
+    "exampleTestCase": "nums = [1,2,3,1] -> Output: true",
+    "topicOrder": 2
+  },
+  {
+    "id": "242",
+    "title": "Valid Anagram",
+    "slug": "valid-anagram",
+    "link": "https://leetcode.com/problems/valid-anagram/",
+    "difficulty": "Easy",
+    "topics": [
+      "String",
+      "Hash Table"
+    ],
+    "companyTags": [
+      "Uber",
+      "Google"
+    ],
+    "descriptionSnippet": "Given two strings s and t, return true if t is an anagram of s, and false otherwise.",
+    "exampleTestCase": "s = \"anagram\", t = \"nagaram\" -> Output: true",
+    "topicOrder": 2
+  },
+  {
+    "id": "49",
+    "title": "Group Anagrams",
+    "slug": "group-anagrams",
+    "link": "https://leetcode.com/problems/group-anagrams/",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Hash Table",
+      "String"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "descriptionSnippet": "Given an array of strings strs, group the anagrams together. You can return the answer in any order.",
+    "exampleTestCase": "strs = [\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"] -> Output: [[\"bat\"],[\"nat\",\"tan\"],[\"ate\",\"eat\",\"tea\"]]",
+    "topicOrder": 2
+  },
+  {
+    "id": "347",
+    "title": "Top K Frequent Elements",
+    "slug": "top-k-frequent-elements",
+    "link": "https://leetcode.com/problems/top-k-frequent-elements/",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Hash Table",
+      "Heap"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Meta"
+    ],
+    "descriptionSnippet": "Given an integer array nums and an integer k, return the k most frequent elements.",
+    "exampleTestCase": "nums = [1,1,1,2,2,3], k = 2 -> Output: [1,2]",
+    "topicOrder": 11
+  },
+  {
+    "id": "238",
+    "title": "Product of Array Except Self",
+    "slug": "product-of-array-except-self",
+    "link": "https://leetcode.com/problems/product-of-array-except-self/",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Prefix Sum"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Apple",
+      "Meta"
+    ],
+    "descriptionSnippet": "Given an integer array nums, return an array answer such that answer[i] is equal to the product of all elements of nums except nums[i].",
+    "exampleTestCase": "nums = [1,2,3,4] -> Output: [24,12,8,6]",
+    "topicOrder": 1
+  },
+  {
+    "id": "36",
+    "title": "Valid Sudoku",
+    "slug": "valid-sudoku",
+    "link": "https://leetcode.com/problems/valid-sudoku/",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Hash Table",
+      "Matrix"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Apple"
+    ],
+    "descriptionSnippet": "Determine if a 9 x 9 Sudoku board is valid according to the standard rules.",
+    "exampleTestCase": "board = [[\"5\",\"3\",\".\",...]] -> Output: true",
+    "topicOrder": 2
+  },
+  {
+    "id": "128",
+    "title": "Longest Consecutive Sequence",
+    "slug": "longest-consecutive-sequence",
+    "link": "https://leetcode.com/problems/longest-consecutive-sequence/",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Hash Table",
+      "Union Find"
+    ],
+    "companyTags": [
+      "Google",
+      "Amazon"
+    ],
+    "descriptionSnippet": "Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence.",
+    "exampleTestCase": "nums = [100,4,200,1,3,2] -> Output: 4",
+    "topicOrder": 14
+  },
+  {
+    "id": "75",
+    "title": "Sort Colors",
+    "slug": "sort-colors",
+    "link": "https://leetcode.com/problems/sort-colors/",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Two Pointers",
+      "Sorting"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "descriptionSnippet": "Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects of the same color are adjacent.",
+    "exampleTestCase": "nums = [2,0,2,1,1,0] -> Output: [0,0,1,1,2,2]",
+    "topicOrder": 3
+  },
+  {
+    "id": "169",
+    "title": "Majority Element",
+    "slug": "majority-element",
+    "link": "https://leetcode.com/problems/majority-element/",
+    "difficulty": "Easy",
+    "topics": [
+      "Array",
+      "Hash Table",
+      "Sorting"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Given an array nums of size n, return the majority element.",
+    "exampleTestCase": "nums = [3,2,3] -> Output: 3",
+    "topicOrder": 2
+  },
+  {
+    "id": "283",
+    "title": "Move Zeroes",
+    "slug": "move-zeroes",
+    "link": "https://leetcode.com/problems/move-zeroes/",
+    "difficulty": "Easy",
+    "topics": [
+      "Array",
+      "Two Pointers"
+    ],
+    "companyTags": [
+      "Meta",
+      "Apple"
+    ],
+    "descriptionSnippet": "Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.",
+    "exampleTestCase": "nums = [0,1,0,3,12] -> Output: [1,3,12,0,0]",
+    "topicOrder": 3
+  },
+  {
+    "id": "560",
+    "title": "Subarray Sum Equals K",
+    "slug": "subarray-sum-equals-k",
+    "link": "https://leetcode.com/problems/subarray-sum-equals-k/",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Hash Table",
+      "Prefix Sum"
+    ],
+    "companyTags": [
+      "Meta",
+      "Amazon"
+    ],
+    "descriptionSnippet": "Given an array of integers nums and an integer k, return the total number of subarrays whose sum equals to k.",
+    "exampleTestCase": "nums = [1,1,1], k = 2 -> Output: 2",
+    "topicOrder": 2
+  },
+  {
+    "id": "125",
+    "title": "Valid Palindrome",
+    "slug": "valid-palindrome",
+    "link": "https://leetcode.com/problems/valid-palindrome/",
+    "difficulty": "Easy",
+    "topics": [
+      "Two Pointers",
+      "String"
+    ],
+    "companyTags": [
+      "Meta",
+      "Microsoft"
+    ],
+    "descriptionSnippet": "A phrase is a palindrome if, after converting all uppercase letters into lowercase and removing non-alphanumeric characters, it reads the same.",
+    "exampleTestCase": "s = \"A man, a plan, a canal: Panama\" -> Output: true",
+    "topicOrder": 3
+  },
+  {
+    "id": "167",
+    "title": "Two Sum II - Input Array Is Sorted",
+    "slug": "two-sum-ii-input-array-is-sorted",
+    "link": "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/",
+    "difficulty": "Medium",
+    "topics": [
+      "Two Pointers",
+      "Array",
+      "Binary Search"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Given a 1-indexed array of integers numbers that is already sorted in non-decreasing order, find two numbers that add up to target.",
+    "exampleTestCase": "numbers = [2,7,11,15], target = 9 -> Output: [1,2]",
+    "topicOrder": 7
+  },
+  {
+    "id": "15",
+    "title": "3Sum",
+    "slug": "3sum",
+    "link": "https://leetcode.com/problems/3sum/",
+    "difficulty": "Medium",
+    "topics": [
+      "Two Pointers",
+      "Array",
+      "Sorting"
+    ],
+    "companyTags": [
+      "Meta",
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that they add up to 0.",
+    "exampleTestCase": "nums = [-1,0,1,2,-1,-4] -> Output: [[-1,-1,2],[-1,0,1]]",
+    "topicOrder": 3
+  },
+  {
+    "id": "11",
+    "title": "Container With Most Water",
+    "slug": "container-with-most-water",
+    "link": "https://leetcode.com/problems/container-with-most-water/",
+    "difficulty": "Medium",
+    "topics": [
+      "Two Pointers",
+      "Array",
+      "Greedy"
+    ],
+    "companyTags": [
+      "Google",
+      "Meta"
+    ],
+    "descriptionSnippet": "Find two lines that together with the x-axis form a container, such that the container contains the most water.",
+    "exampleTestCase": "height = [1,8,6,2,5,4,8,3,7] -> Output: 49",
+    "topicOrder": 13
+  },
+  {
+    "id": "42",
+    "title": "Trapping Rain Water",
+    "slug": "trapping-rain-water",
+    "link": "https://leetcode.com/problems/trapping-rain-water/",
+    "difficulty": "Hard",
+    "topics": [
+      "Two Pointers",
+      "Stack",
+      "Array",
+      "Dynamic Programming"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Given n non-negative integers representing an elevation map, compute how much water it can trap after raining.",
+    "exampleTestCase": "height = [0,1,0,2,1,0,1,3,2,1,2,1] -> Output: 6",
+    "topicOrder": 12
+  },
+  {
+    "id": "18",
+    "title": "4Sum",
+    "slug": "4sum",
+    "link": "https://leetcode.com/problems/4sum/",
+    "difficulty": "Medium",
+    "topics": [
+      "Two Pointers",
+      "Array",
+      "Sorting"
+    ],
+    "companyTags": [
+      "Amazon"
+    ],
+    "descriptionSnippet": "Given an array nums of n integers, return an array of all unique quadruplets [nums[a], nums[b], nums[c], nums[d]] that sum to target.",
+    "exampleTestCase": "nums = [1,0,-1,0,-2,2], target = 0 -> Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]",
+    "topicOrder": 3
+  },
+  {
+    "id": "88",
+    "title": "Merge Sorted Array",
+    "slug": "merge-sorted-array",
+    "link": "https://leetcode.com/problems/merge-sorted-array/",
+    "difficulty": "Easy",
+    "topics": [
+      "Two Pointers",
+      "Array",
+      "Sorting"
+    ],
+    "companyTags": [
+      "Meta",
+      "Microsoft"
+    ],
+    "descriptionSnippet": "Merge nums2 into nums1 as one sorted array.",
+    "exampleTestCase": "nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3 -> Output: [1,2,2,3,5,6]",
+    "topicOrder": 3
+  },
+  {
+    "id": "344",
+    "title": "Reverse String",
+    "slug": "reverse-string",
+    "link": "https://leetcode.com/problems/reverse-string/",
+    "difficulty": "Easy",
+    "topics": [
+      "Two Pointers",
+      "String"
+    ],
+    "companyTags": [
+      "Apple"
+    ],
+    "descriptionSnippet": "Write a function that reverses a string. The input string is given as an array of characters s.",
+    "exampleTestCase": "s = [\"h\",\"e\",\"l\",\"l\",\"o\"] -> Output: [\"o\",\"l\",\"l\",\"e\",\"h\"]",
+    "topicOrder": 3
+  },
+  {
+    "id": "977",
+    "title": "Squares of a Sorted Array",
+    "slug": "squares-of-a-sorted-array",
+    "link": "https://leetcode.com/problems/squares-of-a-sorted-array/",
+    "difficulty": "Easy",
+    "topics": [
+      "Two Pointers",
+      "Array",
+      "Sorting"
+    ],
+    "companyTags": [
+      "Amazon"
+    ],
+    "descriptionSnippet": "Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.",
+    "exampleTestCase": "nums = [-4,-1,0,3,10] -> Output: [0,1,9,16,100]",
+    "topicOrder": 3
+  },
+  {
+    "id": "121",
+    "title": "Best Time to Buy and Sell Stock",
+    "slug": "best-time-to-buy-and-sell-stock",
+    "link": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+    "difficulty": "Easy",
+    "topics": [
+      "Array",
+      "Dynamic Programming",
+      "Sliding Window"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Apple",
+      "Meta"
+    ],
+    "descriptionSnippet": "Maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell.",
+    "exampleTestCase": "prices = [7,1,5,3,6,4] -> Output: 5",
+    "topicOrder": 12
+  },
+  {
+    "id": "3",
+    "title": "Longest Substring Without Repeating Characters",
+    "slug": "longest-substring-without-repeating-characters",
+    "link": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+    "difficulty": "Medium",
+    "topics": [
+      "Sliding Window",
+      "Hash Table",
+      "String"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google",
+      "Meta"
+    ],
+    "descriptionSnippet": "Given a string s, find the length of the longest substring without repeating characters.",
+    "exampleTestCase": "s = \"abcabcbb\" -> Output: 3",
+    "topicOrder": 4
+  },
+  {
+    "id": "424",
+    "title": "Longest Repeating Character Replacement",
+    "slug": "longest-repeating-character-replacement",
+    "link": "https://leetcode.com/problems/longest-repeating-character-replacement/",
+    "difficulty": "Medium",
+    "topics": [
+      "Sliding Window",
+      "Hash Table",
+      "String"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Given a string s and an integer k, choose any character and change it to any other uppercase English character at most k times.",
+    "exampleTestCase": "s = \"ABAB\", k = 2 -> Output: 4",
+    "topicOrder": 4
+  },
+  {
+    "id": "567",
+    "title": "Permutation in String",
+    "slug": "permutation-in-string",
+    "link": "https://leetcode.com/problems/permutation-in-string/",
+    "difficulty": "Medium",
+    "topics": [
+      "Sliding Window",
+      "Hash Table",
+      "Two Pointers",
+      "String"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "descriptionSnippet": "Given two strings s1 and s2, return true if s2 contains a permutation of s1.",
+    "exampleTestCase": "s1 = \"ab\", s2 = \"eidbaooo\" -> Output: true",
+    "topicOrder": 4
+  },
+  {
+    "id": "76",
+    "title": "Minimum Window Substring",
+    "slug": "minimum-window-substring",
+    "link": "https://leetcode.com/problems/minimum-window-substring/",
+    "difficulty": "Hard",
+    "topics": [
+      "Sliding Window",
+      "Hash Table",
+      "String"
+    ],
+    "companyTags": [
+      "Meta",
+      "Google",
+      "Uber"
+    ],
+    "descriptionSnippet": "Given two strings s and t, return the minimum window substring of s such that every character in t is included.",
+    "exampleTestCase": "s = \"ADOBECODEBANC\", t = \"ABC\" -> Output: \"BANC\"",
+    "topicOrder": 4
+  },
+  {
+    "id": "239",
+    "title": "Sliding Window Maximum",
+    "slug": "sliding-window-maximum",
+    "link": "https://leetcode.com/problems/sliding-window-maximum/",
+    "difficulty": "Hard",
+    "topics": [
+      "Sliding Window",
+      "Heap",
+      "Monotonic Queue"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Given an array nums and a sliding window of size k, return the max sliding window.",
+    "exampleTestCase": "nums = [1,3,-1,-3,5,3,6,7], k = 3 -> Output: [3,3,5,5,6,7]",
+    "topicOrder": 11
+  },
+  {
+    "id": "20",
+    "title": "Valid Parentheses",
+    "slug": "valid-parentheses",
+    "link": "https://leetcode.com/problems/valid-parentheses/",
+    "difficulty": "Easy",
+    "topics": [
+      "Stack",
+      "String"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Meta",
+      "Google"
+    ],
+    "descriptionSnippet": "Determine if the input string containing parentheses characters is valid.",
+    "exampleTestCase": "s = \"()[]{}\" -> Output: true",
+    "topicOrder": 6
+  },
+  {
+    "id": "155",
+    "title": "Min Stack",
+    "slug": "min-stack",
+    "link": "https://leetcode.com/problems/min-stack/",
+    "difficulty": "Medium",
+    "topics": [
+      "Stack",
+      "Design"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "descriptionSnippet": "Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.",
+    "exampleTestCase": "push(-2), push(0), push(-3), getMin() -> -3",
+    "topicOrder": 6
+  },
+  {
+    "id": "150",
+    "title": "Evaluate Reverse Polish Notation",
+    "slug": "evaluate-reverse-polish-notation",
+    "link": "https://leetcode.com/problems/evaluate-reverse-polish-notation/",
+    "difficulty": "Medium",
+    "topics": [
+      "Stack",
+      "Array",
+      "Math"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Evaluate the value of an arithmetic expression in Reverse Polish Notation.",
+    "exampleTestCase": "tokens = [\"2\",\"1\",\"+\",\"3\",\"*\"] -> Output: 9",
+    "topicOrder": 6
+  },
+  {
+    "id": "22",
+    "title": "Generate Parentheses",
+    "slug": "generate-parentheses",
+    "link": "https://leetcode.com/problems/generate-parentheses/",
+    "difficulty": "Medium",
+    "topics": [
+      "Backtracking",
+      "Stack",
+      "String"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Meta"
+    ],
+    "descriptionSnippet": "Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.",
+    "exampleTestCase": "n = 3 -> Output: [\"((()))\",\"(()())\",\"(())()\",\"()(())\",\"()()()\"]",
+    "topicOrder": 8
+  },
+  {
+    "id": "739",
+    "title": "Daily Temperatures",
+    "slug": "daily-temperatures",
+    "link": "https://leetcode.com/problems/daily-temperatures/",
+    "difficulty": "Medium",
+    "topics": [
+      "Stack",
+      "Monotonic Stack",
+      "Array"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Meta"
+    ],
+    "descriptionSnippet": "Return an array answer such that answer[i] is the number of days you have to wait after the ith day to get a warmer temperature.",
+    "exampleTestCase": "temperatures = [73,74,75,71,69,72,76,73] -> Output: [1,1,4,2,1,1,0,0]",
+    "topicOrder": 6
+  },
+  {
+    "id": "853",
+    "title": "Car Fleet",
+    "slug": "car-fleet",
+    "link": "https://leetcode.com/problems/car-fleet/",
+    "difficulty": "Medium",
+    "topics": [
+      "Stack",
+      "Array",
+      "Sorting"
+    ],
+    "companyTags": [
+      "Google"
+    ],
+    "descriptionSnippet": "Calculate how many car fleets will arrive at the destination target.",
+    "exampleTestCase": "target = 12, position = [10,8,0,5,3], speed = [2,4,1,1,3] -> Output: 3",
+    "topicOrder": 6
+  },
+  {
+    "id": "84",
+    "title": "Largest Rectangle in Histogram",
+    "slug": "largest-rectangle-in-histogram",
+    "link": "https://leetcode.com/problems/largest-rectangle-in-histogram/",
+    "difficulty": "Hard",
+    "topics": [
+      "Stack",
+      "Monotonic Stack",
+      "Array"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Given an array of integers heights representing the histogram bar height, return the area of the largest rectangle.",
+    "exampleTestCase": "heights = [2,1,5,6,2,3] -> Output: 10",
+    "topicOrder": 6
+  },
+  {
+    "id": "704",
+    "title": "Binary Search",
+    "slug": "binary-search",
+    "link": "https://leetcode.com/problems/binary-search/",
+    "difficulty": "Easy",
+    "topics": [
+      "Binary Search",
+      "Array"
+    ],
+    "companyTags": [
+      "Google",
+      "Apple"
+    ],
+    "descriptionSnippet": "Given an array of integers nums which is sorted in ascending order, search for target in nums.",
+    "exampleTestCase": "nums = [-1,0,3,5,9,12], target = 9 -> Output: 4",
+    "topicOrder": 7
+  },
+  {
+    "id": "74",
+    "title": "Search a 2D Matrix",
+    "slug": "search-a-2d-matrix",
+    "link": "https://leetcode.com/problems/search-a-2d-matrix/",
+    "difficulty": "Medium",
+    "topics": [
+      "Binary Search",
+      "Matrix",
+      "Array"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "descriptionSnippet": "Write an efficient algorithm that searches for a value target in an m x n integer matrix.",
+    "exampleTestCase": "matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3 -> Output: true",
+    "topicOrder": 7
+  },
+  {
+    "id": "875",
+    "title": "Koko Eating Bananas",
+    "slug": "koko-eating-bananas",
+    "link": "https://leetcode.com/problems/koko-eating-bananas/",
+    "difficulty": "Medium",
+    "topics": [
+      "Binary Search",
+      "Array"
+    ],
+    "companyTags": [
+      "Airbnb",
+      "Google"
+    ],
+    "descriptionSnippet": "Return the minimum integer k such that Koko can eat all the bananas within h hours.",
+    "exampleTestCase": "piles = [3,6,7,11], h = 8 -> Output: 4",
+    "topicOrder": 7
+  },
+  {
+    "id": "153",
+    "title": "Find Minimum in Rotated Sorted Array",
+    "slug": "find-minimum-in-rotated-sorted-array",
+    "link": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/",
+    "difficulty": "Medium",
+    "topics": [
+      "Binary Search",
+      "Array"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Given the sorted rotated array nums of unique elements, return the minimum element of this array.",
+    "exampleTestCase": "nums = [3,4,5,1,2] -> Output: 1",
+    "topicOrder": 7
+  },
+  {
+    "id": "33",
+    "title": "Search in Rotated Sorted Array",
+    "slug": "search-in-rotated-sorted-array",
+    "link": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+    "difficulty": "Medium",
+    "topics": [
+      "Binary Search",
+      "Array"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Meta"
+    ],
+    "descriptionSnippet": "Given the array nums after rotation and an integer target, return the index of target if it is in nums.",
+    "exampleTestCase": "nums = [4,5,6,7,0,1,2], target = 0 -> Output: 4",
+    "topicOrder": 7
+  },
+  {
+    "id": "981",
+    "title": "Time Based Key-Value Store",
+    "slug": "time-based-key-value-store",
+    "link": "https://leetcode.com/problems/time-based-key-value-store/",
+    "difficulty": "Medium",
+    "topics": [
+      "Binary Search",
+      "Hash Table",
+      "Design"
+    ],
+    "companyTags": [
+      "Lyft",
+      "Google"
+    ],
+    "descriptionSnippet": "Design a time-based key-value data structure that can store multiple values for the same key at different timestamps.",
+    "exampleTestCase": "set(\"foo\", \"bar\", 1), get(\"foo\", 1) -> \"bar\"",
+    "topicOrder": 7
+  },
+  {
+    "id": "4",
+    "title": "Median of Two Sorted Arrays",
+    "slug": "median-of-two-sorted-arrays",
+    "link": "https://leetcode.com/problems/median-of-two-sorted-arrays/",
+    "difficulty": "Hard",
+    "topics": [
+      "Binary Search",
+      "Array",
+      "Divide and Conquer"
+    ],
+    "companyTags": [
+      "Google",
+      "Amazon"
+    ],
+    "descriptionSnippet": "Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.",
+    "exampleTestCase": "nums1 = [1,3], nums2 = [2] -> Output: 2.0",
+    "topicOrder": 7
+  },
+  {
+    "id": "206",
+    "title": "Reverse Linked List",
+    "slug": "reverse-linked-list",
+    "link": "https://leetcode.com/problems/reverse-linked-list/",
+    "difficulty": "Easy",
+    "topics": [
+      "Linked List",
+      "Recursion"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Meta",
+      "Apple"
+    ],
+    "descriptionSnippet": "Given the head of a singly linked list, reverse the list, and return the reversed list.",
+    "exampleTestCase": "head = [1,2,3,4,5] -> Output: [5,4,3,2,1]",
+    "topicOrder": 8
+  },
+  {
+    "id": "21",
+    "title": "Merge Two Sorted Lists",
+    "slug": "merge-two-sorted-lists",
+    "link": "https://leetcode.com/problems/merge-two-sorted-lists/",
+    "difficulty": "Easy",
+    "topics": [
+      "Linked List",
+      "Recursion"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "descriptionSnippet": "Merge two sorted linked lists into one sorted list.",
+    "exampleTestCase": "l1 = [1,2,4], l2 = [1,3,4] -> Output: [1,1,2,3,4,4]",
+    "topicOrder": 8
+  },
+  {
+    "id": "141",
+    "title": "Linked List Cycle",
+    "slug": "linked-list-cycle",
+    "link": "https://leetcode.com/problems/linked-list-cycle/",
+    "difficulty": "Easy",
+    "topics": [
+      "Linked List",
+      "Two Pointers"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Meta"
+    ],
+    "descriptionSnippet": "Given head, the head of a linked list, determine if the linked list has a cycle in it.",
+    "exampleTestCase": "head = [3,2,0,-4], pos = 1 -> Output: true",
+    "topicOrder": 5
+  },
+  {
+    "id": "143",
+    "title": "Reorder List",
+    "slug": "reorder-list",
+    "link": "https://leetcode.com/problems/reorder-list/",
+    "difficulty": "Medium",
+    "topics": [
+      "Linked List",
+      "Two Pointers",
+      "Stack"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Meta"
+    ],
+    "descriptionSnippet": "Reorder the list to be on the form L0 -> Ln -> L1 -> Ln-1 -> L2 -> Ln-2...",
+    "exampleTestCase": "head = [1,2,3,4] -> Output: [1,4,2,3]",
+    "topicOrder": 6
+  },
+  {
+    "id": "19",
+    "title": "Remove Nth Node From End of List",
+    "slug": "remove-nth-node-from-end-of-list",
+    "link": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/",
+    "difficulty": "Medium",
+    "topics": [
+      "Linked List",
+      "Two Pointers"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Remove the nth node from the end of the list and return its head.",
+    "exampleTestCase": "head = [1,2,3,4,5], n = 2 -> Output: [1,2,3,5]",
+    "topicOrder": 5
+  },
+  {
+    "id": "138",
+    "title": "Copy List with Random Pointer",
+    "slug": "copy-list-with-random-pointer",
+    "link": "https://leetcode.com/problems/copy-list-with-random-pointer/",
+    "difficulty": "Medium",
+    "topics": [
+      "Linked List",
+      "Hash Table"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Meta"
+    ],
+    "descriptionSnippet": "Construct a deep copy of the list where each node contains an additional random pointer.",
+    "exampleTestCase": "head = [[7,null],[13,0],[11,4]] -> Output: [[7,null],[13,0],[11,4]]",
+    "topicOrder": 5
+  },
+  {
+    "id": "2",
+    "title": "Add Two Numbers",
+    "slug": "add-two-numbers",
+    "link": "https://leetcode.com/problems/add-two-numbers/",
+    "difficulty": "Medium",
+    "topics": [
+      "Linked List",
+      "Math",
+      "Recursion"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google",
+      "Meta"
+    ],
+    "descriptionSnippet": "Add two numbers represented as linked lists stored in reverse order.",
+    "exampleTestCase": "l1 = [2,4,3], l2 = [5,6,4] -> Output: [7,0,8]",
+    "topicOrder": 8
+  },
+  {
+    "id": "146",
+    "title": "LRU Cache",
+    "slug": "lru-cache",
+    "link": "https://leetcode.com/problems/lru-cache/",
+    "difficulty": "Medium",
+    "topics": [
+      "Linked List",
+      "Hash Table",
+      "Design"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google",
+      "Meta",
+      "Apple"
+    ],
+    "descriptionSnippet": "Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.",
+    "exampleTestCase": "put(1,1), put(2,2), get(1) -> 1, put(3,3), get(2) -> -1",
+    "topicOrder": 5
+  },
+  {
+    "id": "23",
+    "title": "Merge k Sorted Lists",
+    "slug": "merge-k-sorted-lists",
+    "link": "https://leetcode.com/problems/merge-k-sorted-lists/",
+    "difficulty": "Hard",
+    "topics": [
+      "Linked List",
+      "Divide and Conquer",
+      "Heap"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google",
+      "Meta"
+    ],
+    "descriptionSnippet": "Merge k sorted linked-lists into one sorted linked-list.",
+    "exampleTestCase": "lists = [[1,4,5],[1,3,4],[2,6]] -> Output: [1,1,2,3,4,4,5,6]",
+    "topicOrder": 11
+  },
+  {
+    "id": "25",
+    "title": "Reverse Nodes in k-Group",
+    "slug": "reverse-nodes-in-k-group",
+    "link": "https://leetcode.com/problems/reverse-nodes-in-k-group/",
+    "difficulty": "Hard",
+    "topics": [
+      "Linked List",
+      "Recursion"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "descriptionSnippet": "Given the head of a linked list, reverse the nodes of a list k at a time, and return the modified list.",
+    "exampleTestCase": "head = [1,2,3,4,5], k = 2 -> Output: [2,1,4,3,5]",
+    "topicOrder": 8
+  },
+  {
+    "id": "234",
+    "title": "Palindrome Linked List",
+    "slug": "palindrome-linked-list",
+    "link": "https://leetcode.com/problems/palindrome-linked-list/",
+    "difficulty": "Easy",
+    "topics": [
+      "Linked List",
+      "Two Pointers",
+      "Stack"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Meta"
+    ],
+    "descriptionSnippet": "Given the head of a singly linked list, return true if it is a palindrome or false otherwise.",
+    "exampleTestCase": "head = [1,2,2,1] -> Output: true",
+    "topicOrder": 6
+  },
+  {
+    "id": "226",
+    "title": "Invert Binary Tree",
+    "slug": "invert-binary-tree",
+    "link": "https://leetcode.com/problems/invert-binary-tree/",
+    "difficulty": "Easy",
+    "topics": [
+      "Tree",
+      "Binary Tree",
+      "DFS",
+      "BFS"
+    ],
+    "companyTags": [
+      "Google",
+      "Amazon"
+    ],
+    "descriptionSnippet": "Given the root of a binary tree, invert the tree, and return its root.",
+    "exampleTestCase": "root = [4,2,7,1,3,6,9] -> Output: [4,7,2,9,6,3,1]",
+    "topicOrder": 9
+  },
+  {
+    "id": "104",
+    "title": "Maximum Depth of Binary Tree",
+    "slug": "maximum-depth-of-binary-tree",
+    "link": "https://leetcode.com/problems/maximum-depth-of-binary-tree/",
+    "difficulty": "Easy",
+    "topics": [
+      "Tree",
+      "Binary Tree",
+      "DFS"
+    ],
+    "companyTags": [
+      "Google",
+      "Meta"
+    ],
+    "descriptionSnippet": "Given the root of a binary tree, return its maximum depth.",
+    "exampleTestCase": "root = [3,9,20,null,null,15,7] -> Output: 3",
+    "topicOrder": 9
+  },
+  {
+    "id": "543",
+    "title": "Diameter of Binary Tree",
+    "slug": "diameter-of-binary-tree",
+    "link": "https://leetcode.com/problems/diameter-of-binary-tree/",
+    "difficulty": "Easy",
+    "topics": [
+      "Tree",
+      "Binary Tree",
+      "DFS"
+    ],
+    "companyTags": [
+      "Meta",
+      "Amazon"
+    ],
+    "descriptionSnippet": "Given the root of a binary tree, return the length of the diameter of the tree.",
+    "exampleTestCase": "root = [1,2,3,4,5] -> Output: 3",
+    "topicOrder": 9
+  },
+  {
+    "id": "110",
+    "title": "Balanced Binary Tree",
+    "slug": "balanced-binary-tree",
+    "link": "https://leetcode.com/problems/balanced-binary-tree/",
+    "difficulty": "Easy",
+    "topics": [
+      "Tree",
+      "Binary Tree",
+      "DFS"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Given a binary tree, determine if it is height-balanced.",
+    "exampleTestCase": "root = [3,9,20,null,null,15,7] -> Output: true",
+    "topicOrder": 9
+  },
+  {
+    "id": "100",
+    "title": "Same Tree",
+    "slug": "same-tree",
+    "link": "https://leetcode.com/problems/same-tree/",
+    "difficulty": "Easy",
+    "topics": [
+      "Tree",
+      "Binary Tree",
+      "DFS"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Check if two binary trees are identical in structure and values.",
+    "exampleTestCase": "p = [1,2,3], q = [1,2,3] -> Output: true",
+    "topicOrder": 9
+  },
+  {
+    "id": "572",
+    "title": "Subtree of Another Tree",
+    "slug": "subtree-of-another-tree",
+    "link": "https://leetcode.com/problems/subtree-of-another-tree/",
+    "difficulty": "Easy",
+    "topics": [
+      "Tree",
+      "Binary Tree",
+      "DFS"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Check if a binary tree subRoot is a subtree of another binary tree root.",
+    "exampleTestCase": "root = [3,4,5,1,2], subRoot = [4,1,2] -> Output: true",
+    "topicOrder": 9
+  },
+  {
+    "id": "235",
+    "title": "Lowest Common Ancestor of a Binary Search Tree",
+    "slug": "lowest-common-ancestor-of-a-binary-search-tree",
+    "link": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/",
+    "difficulty": "Medium",
+    "topics": [
+      "Tree",
+      "Binary Search Tree",
+      "DFS"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Meta"
+    ],
+    "descriptionSnippet": "Find the lowest common ancestor node of two given nodes in a BST.",
+    "exampleTestCase": "root = [6,2,8,0,4,7,9], p = 2, q = 8 -> Output: 6",
+    "topicOrder": 9
+  },
+  {
+    "id": "102",
+    "title": "Binary Tree Level Order Traversal",
+    "slug": "binary-tree-level-order-traversal",
+    "link": "https://leetcode.com/problems/binary-tree-level-order-traversal/",
+    "difficulty": "Medium",
+    "topics": [
+      "Tree",
+      "Binary Tree",
+      "BFS"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Meta"
+    ],
+    "descriptionSnippet": "Given the root of a binary tree, return the level order traversal of its nodes values.",
+    "exampleTestCase": "root = [3,9,20,null,null,15,7] -> Output: [[3],[9,20],[15,7]]",
+    "topicOrder": 9
+  },
+  {
+    "id": "199",
+    "title": "Binary Tree Right Side View",
+    "slug": "binary-tree-right-side-view",
+    "link": "https://leetcode.com/problems/binary-tree-right-side-view/",
+    "difficulty": "Medium",
+    "topics": [
+      "Tree",
+      "Binary Tree",
+      "BFS",
+      "DFS"
+    ],
+    "companyTags": [
+      "Meta",
+      "Amazon"
+    ],
+    "descriptionSnippet": "Imagine yourself standing on the right side of a binary tree, return the values of the nodes you can see ordered from top to bottom.",
+    "exampleTestCase": "root = [1,2,3,null,5,null,4] -> Output: [1,3,4]",
+    "topicOrder": 9
+  },
+  {
+    "id": "1448",
+    "title": "Count Good Nodes in Binary Tree",
+    "slug": "count-good-nodes-in-binary-tree",
+    "link": "https://leetcode.com/problems/count-good-nodes-in-binary-tree/",
+    "difficulty": "Medium",
+    "topics": [
+      "Tree",
+      "Binary Tree",
+      "DFS"
+    ],
+    "companyTags": [
+      "Microsoft"
+    ],
+    "descriptionSnippet": "Given a binary tree root, a node X in the tree is named good if in the path from root to X there are no nodes with a value greater than X.",
+    "exampleTestCase": "root = [3,1,4,3,null,1,5] -> Output: 4",
+    "topicOrder": 9
+  },
+  {
+    "id": "98",
+    "title": "Validate Binary Search Tree",
+    "slug": "validate-binary-search-tree",
+    "link": "https://leetcode.com/problems/validate-binary-search-tree/",
+    "difficulty": "Medium",
+    "topics": [
+      "Tree",
+      "Binary Search Tree",
+      "DFS"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Meta"
+    ],
+    "descriptionSnippet": "Determine if a binary tree is a valid binary search tree (BST).",
+    "exampleTestCase": "root = [2,1,3] -> Output: true",
+    "topicOrder": 9
+  },
+  {
+    "id": "230",
+    "title": "Kth Smallest Element in a BST",
+    "slug": "kth-smallest-element-in-a-bst",
+    "link": "https://leetcode.com/problems/kth-smallest-element-in-a-bst/",
+    "difficulty": "Medium",
+    "topics": [
+      "Tree",
+      "Binary Search Tree",
+      "DFS"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Return the kth smallest value (1-indexed) of all the values of the nodes in a BST.",
+    "exampleTestCase": "root = [3,1,4,null,2], k = 1 -> Output: 1",
+    "topicOrder": 9
+  },
+  {
+    "id": "105",
+    "title": "Construct Binary Tree from Preorder and Inorder Traversal",
+    "slug": "construct-binary-tree-from-preorder-and-inorder-traversal",
+    "link": "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/",
+    "difficulty": "Medium",
+    "topics": [
+      "Tree",
+      "Binary Tree",
+      "Array",
+      "Hash Table"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "descriptionSnippet": "Given two integer arrays preorder and inorder, construct and return the binary tree.",
+    "exampleTestCase": "preorder = [3,9,20,15,7], inorder = [9,3,15,20,7] -> Output: [3,9,20,null,null,15,7]",
+    "topicOrder": 9
+  },
+  {
+    "id": "124",
+    "title": "Binary Tree Maximum Path Sum",
+    "slug": "binary-tree-maximum-path-sum",
+    "link": "https://leetcode.com/problems/binary-tree-maximum-path-sum/",
+    "difficulty": "Hard",
+    "topics": [
+      "Tree",
+      "Binary Tree",
+      "DFS",
+      "Dynamic Programming"
+    ],
+    "companyTags": [
+      "Meta",
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Return the maximum path sum of any non-empty path in a binary tree.",
+    "exampleTestCase": "root = [-10,9,20,null,null,15,7] -> Output: 42",
+    "topicOrder": 12
+  },
+  {
+    "id": "297",
+    "title": "Serialize and Deserialize Binary Tree",
+    "slug": "serialize-and-deserialize-binary-tree",
+    "link": "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/",
+    "difficulty": "Hard",
+    "topics": [
+      "Tree",
+      "Binary Tree",
+      "BFS",
+      "DFS",
+      "Design"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Meta",
+      "Google"
+    ],
+    "descriptionSnippet": "Design an algorithm to serialize and deserialize a binary tree.",
+    "exampleTestCase": "root = [1,2,3,null,null,4,5] -> Output: [1,2,3,null,null,4,5]",
+    "topicOrder": 9
+  },
+  {
+    "id": "208",
+    "title": "Implement Trie (Prefix Tree)",
+    "slug": "implement-trie-prefix-tree",
+    "link": "https://leetcode.com/problems/implement-trie-prefix-tree/",
+    "difficulty": "Medium",
+    "topics": [
+      "Trie",
+      "Design",
+      "Hash Table"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Implement a trie data structure with insert, search, and startsWith methods.",
+    "exampleTestCase": "insert(\"apple\"), search(\"apple\") -> true",
+    "topicOrder": 14
+  },
+  {
+    "id": "211",
+    "title": "Design Add and Search Words Data Structure",
+    "slug": "design-add-and-search-words-data-structure",
+    "link": "https://leetcode.com/problems/design-add-and-search-words-data-structure/",
+    "difficulty": "Medium",
+    "topics": [
+      "Trie",
+      "DFS",
+      "Design"
+    ],
+    "companyTags": [
+      "Meta",
+      "Amazon"
+    ],
+    "descriptionSnippet": "Design a data structure that supports adding new words and searching with dots as wildcards.",
+    "exampleTestCase": "addWord(\"bad\"), search(\".ad\") -> true",
+    "topicOrder": 14
+  },
+  {
+    "id": "212",
+    "title": "Word Search II",
+    "slug": "word-search-ii",
+    "link": "https://leetcode.com/problems/word-search-ii/",
+    "difficulty": "Hard",
+    "topics": [
+      "Trie",
+      "Backtracking",
+      "Matrix"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google",
+      "Meta"
+    ],
+    "descriptionSnippet": "Given an m x n board of characters and a list of strings words, return all words on the board.",
+    "exampleTestCase": "board = [[\"o\",\"a\",\"a\",\"n\"],[\"e\",\"t\",\"a\",\"e\"],[\"i\",\"h\",\"k\",\"r\"],[\"i\",\"f\",\"l\",\"v\"]], words = [\"oath\",\"pea\",\"eat\",\"rain\"] -> Output: [\"eat\",\"oath\"]",
+    "topicOrder": 14
+  },
+  {
+    "id": "703",
+    "title": "Kth Largest Element in a Stream",
+    "slug": "kth-largest-element-in-a-stream",
+    "link": "https://leetcode.com/problems/kth-largest-element-in-a-stream/",
+    "difficulty": "Easy",
+    "topics": [
+      "Heap",
+      "Data Stream",
+      "Design"
+    ],
+    "companyTags": [
+      "Amazon"
+    ],
+    "descriptionSnippet": "Design a class to find the kth largest element in a stream.",
+    "exampleTestCase": "k = 3, nums = [4, 5, 8, 2], add(3) -> 4",
+    "topicOrder": 11
+  },
+  {
+    "id": "1046",
+    "title": "Last Stone Weight",
+    "slug": "last-stone-weight",
+    "link": "https://leetcode.com/problems/last-stone-weight/",
+    "difficulty": "Easy",
+    "topics": [
+      "Heap",
+      "Array"
+    ],
+    "companyTags": [
+      "Amazon"
+    ],
+    "descriptionSnippet": "Smash the two heaviest stones together until at most one stone remains.",
+    "exampleTestCase": "stones = [2,7,4,1,8,1] -> Output: 1",
+    "topicOrder": 11
+  },
+  {
+    "id": "973",
+    "title": "K Closest Points to Origin",
+    "slug": "k-closest-points-to-origin",
+    "link": "https://leetcode.com/problems/k-closest-points-to-origin/",
+    "difficulty": "Medium",
+    "topics": [
+      "Heap",
+      "Geometry",
+      "Sorting"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Meta"
+    ],
+    "descriptionSnippet": "Return the k closest points to the origin (0, 0) on the 2D plane.",
+    "exampleTestCase": "points = [[1,3],[-2,2]], k = 1 -> Output: [[-2,2]]",
+    "topicOrder": 11
+  },
+  {
+    "id": "215",
+    "title": "Kth Largest Element in an Array",
+    "slug": "kth-largest-element-in-an-array",
+    "link": "https://leetcode.com/problems/kth-largest-element-in-an-array/",
+    "difficulty": "Medium",
+    "topics": [
+      "Heap",
+      "Divide and Conquer",
+      "Quickselect"
+    ],
+    "companyTags": [
+      "Meta",
+      "Amazon"
+    ],
+    "descriptionSnippet": "Given an integer array nums and an integer k, return the kth largest element.",
+    "exampleTestCase": "nums = [3,2,1,5,6,4], k = 2 -> Output: 5",
+    "topicOrder": 11
+  },
+  {
+    "id": "621",
+    "title": "Task Scheduler",
+    "slug": "task-scheduler",
+    "link": "https://leetcode.com/problems/task-scheduler/",
+    "difficulty": "Medium",
+    "topics": [
+      "Heap",
+      "Greedy",
+      "Array"
+    ],
+    "companyTags": [
+      "Meta",
+      "Amazon"
+    ],
+    "descriptionSnippet": "Given a characters array tasks, return the minimum number of units of times that the machine will take to finish all tasks.",
+    "exampleTestCase": "tasks = [\"A\",\"A\",\"A\",\"B\",\"B\",\"B\"], n = 2 -> Output: 8",
+    "topicOrder": 13
+  },
+  {
+    "id": "355",
+    "title": "Design Twitter",
+    "slug": "design-twitter",
+    "link": "https://leetcode.com/problems/design-twitter/",
+    "difficulty": "Medium",
+    "topics": [
+      "Heap",
+      "Design",
+      "Hash Table"
+    ],
+    "companyTags": [
+      "Twitter",
+      "Amazon"
+    ],
+    "descriptionSnippet": "Design a simplified version of Twitter where users can post tweets, follow/unfollow another user and is able to see 10 most recent tweets.",
+    "exampleTestCase": "postTweet(1, 5), getNewsFeed(1) -> [5]",
+    "topicOrder": 11
+  },
+  {
+    "id": "295",
+    "title": "Find Median from Data Stream",
+    "slug": "find-median-from-data-stream",
+    "link": "https://leetcode.com/problems/find-median-from-data-stream/",
+    "difficulty": "Hard",
+    "topics": [
+      "Heap",
+      "Two Pointers",
+      "Design"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google",
+      "Meta"
+    ],
+    "descriptionSnippet": "Design a data structure that supports adding numbers and finding the median.",
+    "exampleTestCase": "addNum(1), addNum(2), findMedian() -> 1.5",
+    "topicOrder": 11
+  },
+  {
+    "id": "78",
+    "title": "Subsets",
+    "slug": "subsets",
+    "link": "https://leetcode.com/problems/subsets/",
+    "difficulty": "Medium",
+    "topics": [
+      "Backtracking",
+      "Array",
+      "Bit Manipulation"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Meta"
+    ],
+    "descriptionSnippet": "Return all possible subsets (the power set) of an integer array of unique elements.",
+    "exampleTestCase": "nums = [1,2,3] -> Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]",
+    "topicOrder": 8
+  },
+  {
+    "id": "39",
+    "title": "Combination Sum",
+    "slug": "combination-sum",
+    "link": "https://leetcode.com/problems/combination-sum/",
+    "difficulty": "Medium",
+    "topics": [
+      "Backtracking",
+      "Array"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Airbnb"
+    ],
+    "descriptionSnippet": "Return a list of all unique combinations of candidates where the chosen numbers sum to target.",
+    "exampleTestCase": "candidates = [2,3,6,7], target = 7 -> Output: [[2,2,3],[7]]",
+    "topicOrder": 8
+  },
+  {
+    "id": "46",
+    "title": "Permutations",
+    "slug": "permutations",
+    "link": "https://leetcode.com/problems/permutations/",
+    "difficulty": "Medium",
+    "topics": [
+      "Backtracking",
+      "Array"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Given an array nums of distinct integers, return all the possible permutations.",
+    "exampleTestCase": "nums = [1,2,3] -> Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]",
+    "topicOrder": 8
+  },
+  {
+    "id": "90",
+    "title": "Subsets II",
+    "slug": "subsets-ii",
+    "link": "https://leetcode.com/problems/subsets-ii/",
+    "difficulty": "Medium",
+    "topics": [
+      "Backtracking",
+      "Array",
+      "Bit Manipulation"
+    ],
+    "companyTags": [
+      "Amazon"
+    ],
+    "descriptionSnippet": "Given an integer array nums that may contain duplicates, return all possible subsets (the power set).",
+    "exampleTestCase": "nums = [1,2,2] -> Output: [[],[1],[1,2],[1,2,2],[2],[2,2]]",
+    "topicOrder": 8
+  },
+  {
+    "id": "40",
+    "title": "Combination Sum II",
+    "slug": "combination-sum-ii",
+    "link": "https://leetcode.com/problems/combination-sum-ii/",
+    "difficulty": "Medium",
+    "topics": [
+      "Backtracking",
+      "Array"
+    ],
+    "companyTags": [
+      "Amazon"
+    ],
+    "descriptionSnippet": "Find all unique combinations in candidates where the candidate numbers sum to target (each number used once).",
+    "exampleTestCase": "candidates = [10,1,2,7,6,1,5], target = 8 -> Output: [[1,1,6],[1,2,5],[1,7],[2,6]]",
+    "topicOrder": 8
+  },
+  {
+    "id": "79",
+    "title": "Word Search",
+    "slug": "word-search",
+    "link": "https://leetcode.com/problems/word-search/",
+    "difficulty": "Medium",
+    "topics": [
+      "Backtracking",
+      "Matrix",
+      "DFS"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "descriptionSnippet": "Return true if a word exists in an m x n grid of characters.",
+    "exampleTestCase": "board = [[\"A\",\"B\",\"C\",\"E\"],[\"S\",\"F\",\"C\",\"S\"],[\"A\",\"D\",\"E\",\"E\"]], word = \"ABCCED\" -> Output: true",
+    "topicOrder": 10
+  },
+  {
+    "id": "131",
+    "title": "Palindrome Partitioning",
+    "slug": "palindrome-partitioning",
+    "link": "https://leetcode.com/problems/palindrome-partitioning/",
+    "difficulty": "Medium",
+    "topics": [
+      "Backtracking",
+      "String",
+      "Dynamic Programming"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Partition string s such that every substring of the partition is a palindrome.",
+    "exampleTestCase": "s = \"aab\" -> Output: [[\"a\",\"a\",\"b\"],[\"aa\",\"b\"]]",
+    "topicOrder": 12
+  },
+  {
+    "id": "17",
+    "title": "Letter Combinations of a Phone Number",
+    "slug": "letter-combinations-of-a-phone-number",
+    "link": "https://leetcode.com/problems/letter-combinations-of-a-phone-number/",
+    "difficulty": "Medium",
+    "topics": [
+      "Backtracking",
+      "String",
+      "Hash Table"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Meta"
+    ],
+    "descriptionSnippet": "Return all possible letter combinations that the number digits on a phone keypad could represent.",
+    "exampleTestCase": "digits = \"23\" -> Output: [\"ad\",\"ae\",\"af\",\"bd\",\"be\",\"bf\",\"cd\",\"ce\",\"cf\"]",
+    "topicOrder": 8
+  },
+  {
+    "id": "51",
+    "title": "N-Queens",
+    "slug": "n-queens",
+    "link": "https://leetcode.com/problems/n-queens/",
+    "difficulty": "Hard",
+    "topics": [
+      "Backtracking",
+      "Array"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Meta"
+    ],
+    "descriptionSnippet": "Place n queens on an n x n chessboard such that no two queens attack each other.",
+    "exampleTestCase": "n = 4 -> Output: [[\".Q..\",\"...Q\",\"Q...\",\"..Q.\"],[\"..Q.\",\"Q...\",\"...Q\",\".Q..\"]]",
+    "topicOrder": 8
+  },
+  {
+    "id": "200",
+    "title": "Number of Islands",
+    "slug": "number-of-islands",
+    "link": "https://leetcode.com/problems/number-of-islands/",
+    "difficulty": "Medium",
+    "topics": [
+      "Graph",
+      "BFS",
+      "DFS",
+      "Matrix"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google",
+      "Meta"
+    ],
+    "descriptionSnippet": "Given an m x n 2D binary grid, return the number of islands.",
+    "exampleTestCase": "grid = [[\"1\",\"1\",\"0\"],[\"1\",\"1\",\"0\"],[\"0\",\"0\",\"1\"]] -> Output: 2",
+    "topicOrder": 10
+  },
+  {
+    "id": "133",
+    "title": "Clone Graph",
+    "slug": "clone-graph",
+    "link": "https://leetcode.com/problems/clone-graph/",
+    "difficulty": "Medium",
+    "topics": [
+      "Graph",
+      "BFS",
+      "DFS",
+      "Hash Table"
+    ],
+    "companyTags": [
+      "Meta",
+      "Amazon"
+    ],
+    "descriptionSnippet": "Return a deep copy (clone) of a connected undirected graph.",
+    "exampleTestCase": "adjList = [[2,4],[1,3],[2,4],[1,3]] -> Output: [[2,4],[1,3],[2,4],[1,3]]",
+    "topicOrder": 10
+  },
+  {
+    "id": "695",
+    "title": "Max Area of Island",
+    "slug": "max-area-of-island",
+    "link": "https://leetcode.com/problems/max-area-of-island/",
+    "difficulty": "Medium",
+    "topics": [
+      "Graph",
+      "BFS",
+      "DFS",
+      "Matrix"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Meta"
+    ],
+    "descriptionSnippet": "Return the maximum area of an island in a 2D binary grid.",
+    "exampleTestCase": "grid = [[0,0,1,0,0],[0,0,0,0,0],[0,1,1,0,1]] -> Output: 2",
+    "topicOrder": 10
+  },
+  {
+    "id": "417",
+    "title": "Pacific Atlantic Water Flow",
+    "slug": "pacific-atlantic-water-flow",
+    "link": "https://leetcode.com/problems/pacific-atlantic-water-flow/",
+    "difficulty": "Medium",
+    "topics": [
+      "Graph",
+      "BFS",
+      "DFS",
+      "Matrix"
+    ],
+    "companyTags": [
+      "Google",
+      "Amazon"
+    ],
+    "descriptionSnippet": "Find grid coordinates where water can flow to both Pacific and Atlantic oceans.",
+    "exampleTestCase": "heights = [[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]] -> Output: [[0,4],[1,3],[1,4],[2,2],[3,0],[3,1],[4,0]]",
+    "topicOrder": 10
+  },
+  {
+    "id": "130",
+    "title": "Surrounded Regions",
+    "slug": "surrounded-regions",
+    "link": "https://leetcode.com/problems/surrounded-regions/",
+    "difficulty": "Medium",
+    "topics": [
+      "Graph",
+      "BFS",
+      "DFS",
+      "Matrix"
+    ],
+    "companyTags": [
+      "Amazon"
+    ],
+    "descriptionSnippet": "Capture all regions that are 4-directionally surrounded by 'X'.",
+    "exampleTestCase": "board = [[\"X\",\"X\",\"X\",\"X\"],[\"X\",\"O\",\"O\",\"X\"],[\"X\",\"X\",\"O\",\"X\"],[\"X\",\"O\",\"X\",\"X\"]] -> Output: [[\"X\",\"X\",\"X\",\"X\"],[\"X\",\"X\",\"X\",\"X\"],[\"X\",\"X\",\"X\",\"X\"],[\"X\",\"O\",\"X\",\"X\"]]",
+    "topicOrder": 10
+  },
+  {
+    "id": "994",
+    "title": "Rotting Oranges",
+    "slug": "rotting-oranges",
+    "link": "https://leetcode.com/problems/rotting-oranges/",
+    "difficulty": "Medium",
+    "topics": [
+      "Graph",
+      "BFS",
+      "Matrix"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Return the minimum minutes until no cell has a fresh orange.",
+    "exampleTestCase": "grid = [[2,1,1],[1,1,0],[0,1,1]] -> Output: 4",
+    "topicOrder": 10
+  },
+  {
+    "id": "207",
+    "title": "Course Schedule",
+    "slug": "course-schedule",
+    "link": "https://leetcode.com/problems/course-schedule/",
+    "difficulty": "Medium",
+    "topics": [
+      "Graph",
+      "Topological Sort",
+      "DFS"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Determine if you can finish all courses given prerequisite dependencies.",
+    "exampleTestCase": "numCourses = 2, prerequisites = [[1,0]] -> Output: true",
+    "topicOrder": 10
+  },
+  {
+    "id": "210",
+    "title": "Course Schedule II",
+    "slug": "course-schedule-ii",
+    "link": "https://leetcode.com/problems/course-schedule-ii/",
+    "difficulty": "Medium",
+    "topics": [
+      "Graph",
+      "Topological Sort",
+      "BFS"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Return the ordering of courses you should take to finish all courses.",
+    "exampleTestCase": "numCourses = 2, prerequisites = [[1,0]] -> Output: [0,1]",
+    "topicOrder": 10
+  },
+  {
+    "id": "684",
+    "title": "Redundant Connection",
+    "slug": "redundant-connection",
+    "link": "https://leetcode.com/problems/redundant-connection/",
+    "difficulty": "Medium",
+    "topics": [
+      "Graph",
+      "Union Find",
+      "DFS"
+    ],
+    "companyTags": [
+      "Amazon"
+    ],
+    "descriptionSnippet": "Return an edge that can be removed so that the graph becomes a tree of n nodes.",
+    "exampleTestCase": "edges = [[1,2],[1,3],[2,3]] -> Output: [2,3]",
+    "topicOrder": 14
+  },
+  {
+    "id": "127",
+    "title": "Word Ladder",
+    "slug": "word-ladder",
+    "link": "https://leetcode.com/problems/word-ladder/",
+    "difficulty": "Hard",
+    "topics": [
+      "Graph",
+      "BFS",
+      "Hash Table",
+      "String"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Return the number of words in the shortest transformation sequence from beginWord to endWord.",
+    "exampleTestCase": "beginWord = \"hit\", endWord = \"cog\", wordList = [\"hot\",\"dot\",\"dog\",\"lot\",\"log\",\"cog\"] -> Output: 5",
+    "topicOrder": 10
+  },
+  {
+    "id": "70",
+    "title": "Climbing Stairs",
+    "slug": "climbing-stairs",
+    "link": "https://leetcode.com/problems/climbing-stairs/",
+    "difficulty": "Easy",
+    "topics": [
+      "Dynamic Programming",
+      "Memoization"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "How many distinct ways can you climb n steps to the top?",
+    "exampleTestCase": "n = 3 -> Output: 3",
+    "topicOrder": 12
+  },
+  {
+    "id": "746",
+    "title": "Min Cost Climbing Stairs",
+    "slug": "min-cost-climbing-stairs",
+    "link": "https://leetcode.com/problems/min-cost-climbing-stairs/",
+    "difficulty": "Easy",
+    "topics": [
+      "Dynamic Programming",
+      "Array"
+    ],
+    "companyTags": [
+      "Amazon"
+    ],
+    "descriptionSnippet": "Return the minimum cost to reach the top of the floor.",
+    "exampleTestCase": "cost = [10,15,20] -> Output: 15",
+    "topicOrder": 12
+  },
+  {
+    "id": "198",
+    "title": "House Robber",
+    "slug": "house-robber",
+    "link": "https://leetcode.com/problems/house-robber/",
+    "difficulty": "Medium",
+    "topics": [
+      "Dynamic Programming",
+      "Array"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Return maximum money you can rob without alerting police (no adjacent houses).",
+    "exampleTestCase": "nums = [1,2,3,1] -> Output: 4",
+    "topicOrder": 12
+  },
+  {
+    "id": "213",
+    "title": "House Robber II",
+    "slug": "house-robber-ii",
+    "link": "https://leetcode.com/problems/house-robber-ii/",
+    "difficulty": "Medium",
+    "topics": [
+      "Dynamic Programming",
+      "Array"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Houses are arranged in a circle. Return maximum money you can rob.",
+    "exampleTestCase": "nums = [2,3,2] -> Output: 3",
+    "topicOrder": 12
+  },
+  {
+    "id": "5",
+    "title": "Longest Palindromic Substring",
+    "slug": "longest-palindromic-substring",
+    "link": "https://leetcode.com/problems/longest-palindromic-substring/",
+    "difficulty": "Medium",
+    "topics": [
+      "Dynamic Programming",
+      "String",
+      "Two Pointers"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google",
+      "Microsoft"
+    ],
+    "descriptionSnippet": "Given a string s, return the longest palindromic substring in s.",
+    "exampleTestCase": "s = \"babad\" -> Output: \"bab\"",
+    "topicOrder": 12
+  },
+  {
+    "id": "647",
+    "title": "Palindromic Substrings",
+    "slug": "palindromic-substrings",
+    "link": "https://leetcode.com/problems/palindromic-substrings/",
+    "difficulty": "Medium",
+    "topics": [
+      "Dynamic Programming",
+      "String",
+      "Two Pointers"
+    ],
+    "companyTags": [
+      "Meta",
+      "Amazon"
+    ],
+    "descriptionSnippet": "Given a string s, return the number of palindromic substrings in it.",
+    "exampleTestCase": "s = \"abc\" -> Output: 3",
+    "topicOrder": 12
+  },
+  {
+    "id": "91",
+    "title": "Decode Ways",
+    "slug": "decode-ways",
+    "link": "https://leetcode.com/problems/decode-ways/",
+    "difficulty": "Medium",
+    "topics": [
+      "Dynamic Programming",
+      "String"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Return the number of ways to decode a message containing digit mappings A->1...Z->26.",
+    "exampleTestCase": "s = \"226\" -> Output: 3",
+    "topicOrder": 12
+  },
+  {
+    "id": "322",
+    "title": "Coin Change",
+    "slug": "coin-change",
+    "link": "https://leetcode.com/problems/coin-change/",
+    "difficulty": "Medium",
+    "topics": [
+      "Dynamic Programming",
+      "BFS"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Meta"
+    ],
+    "descriptionSnippet": "Return fewest number of coins needed to make up the target amount.",
+    "exampleTestCase": "coins = [1,2,5], amount = 11 -> Output: 3",
+    "topicOrder": 12
+  },
+  {
+    "id": "152",
+    "title": "Maximum Product Subarray",
+    "slug": "maximum-product-subarray",
+    "link": "https://leetcode.com/problems/maximum-product-subarray/",
+    "difficulty": "Medium",
+    "topics": [
+      "Dynamic Programming",
+      "Array"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Find a contiguous non-empty subarray that has the largest product.",
+    "exampleTestCase": "nums = [2,3,-2,4] -> Output: 6",
+    "topicOrder": 12
+  },
+  {
+    "id": "139",
+    "title": "Word Break",
+    "slug": "word-break",
+    "link": "https://leetcode.com/problems/word-break/",
+    "difficulty": "Medium",
+    "topics": [
+      "Dynamic Programming",
+      "Trie",
+      "Hash Table",
+      "String"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Meta",
+      "Google"
+    ],
+    "descriptionSnippet": "Return true if s can be segmented into a space-separated sequence of dictionary words.",
+    "exampleTestCase": "s = \"leetcode\", wordDict = [\"leet\",\"code\"] -> Output: true",
+    "topicOrder": 14
+  },
+  {
+    "id": "300",
+    "title": "Longest Increasing Subsequence",
+    "slug": "longest-increasing-subsequence",
+    "link": "https://leetcode.com/problems/longest-increasing-subsequence/",
+    "difficulty": "Medium",
+    "topics": [
+      "Dynamic Programming",
+      "Binary Search"
+    ],
+    "companyTags": [
+      "Google",
+      "Meta"
+    ],
+    "descriptionSnippet": "Return the length of the longest strictly increasing subsequence.",
+    "exampleTestCase": "nums = [10,9,2,5,3,7,101,18] -> Output: 4",
+    "topicOrder": 12
+  },
+  {
+    "id": "416",
+    "title": "Partition Equal Subset Sum",
+    "slug": "partition-equal-subset-sum",
+    "link": "https://leetcode.com/problems/partition-equal-subset-sum/",
+    "difficulty": "Medium",
+    "topics": [
+      "Dynamic Programming",
+      "Array"
+    ],
+    "companyTags": [
+      "Amazon"
+    ],
+    "descriptionSnippet": "Determine if array nums can be partitioned into two subsets with equal sum.",
+    "exampleTestCase": "nums = [1,5,11,5] -> Output: true",
+    "topicOrder": 12
+  },
+  {
+    "id": "62",
+    "title": "Unique Paths",
+    "slug": "unique-paths",
+    "link": "https://leetcode.com/problems/unique-paths/",
+    "difficulty": "Medium",
+    "topics": [
+      "Dynamic Programming",
+      "Math",
+      "Combinatorics"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Return the number of possible unique paths from top-left to bottom-right in an m x n grid.",
+    "exampleTestCase": "m = 3, n = 7 -> Output: 28",
+    "topicOrder": 12
+  },
+  {
+    "id": "1143",
+    "title": "Longest Common Subsequence",
+    "slug": "longest-common-subsequence",
+    "link": "https://leetcode.com/problems/longest-common-subsequence/",
+    "difficulty": "Medium",
+    "topics": [
+      "Dynamic Programming",
+      "String"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Return the length of the longest common subsequence of two strings.",
+    "exampleTestCase": "text1 = \"abcde\", text2 = \"ace\" -> Output: 3",
+    "topicOrder": 12
+  },
+  {
+    "id": "518",
+    "title": "Coin Change II",
+    "slug": "coin-change-ii",
+    "link": "https://leetcode.com/problems/coin-change-ii/",
+    "difficulty": "Medium",
+    "topics": [
+      "Dynamic Programming",
+      "Array"
+    ],
+    "companyTags": [
+      "Amazon"
+    ],
+    "descriptionSnippet": "Return the number of combinations that make up target amount using coins.",
+    "exampleTestCase": "amount = 5, coins = [1,2,5] -> Output: 4",
+    "topicOrder": 12
+  },
+  {
+    "id": "494",
+    "title": "Target Sum",
+    "slug": "target-sum",
+    "link": "https://leetcode.com/problems/target-sum/",
+    "difficulty": "Medium",
+    "topics": [
+      "Dynamic Programming",
+      "Backtracking"
+    ],
+    "companyTags": [
+      "Meta",
+      "Amazon"
+    ],
+    "descriptionSnippet": "Return number of ways to assign + and - symbols to nums so that sum equals target.",
+    "exampleTestCase": "nums = [1,1,1,1,1], target = 3 -> Output: 5",
+    "topicOrder": 12
+  },
+  {
+    "id": "72",
+    "title": "Edit Distance",
+    "slug": "edit-distance",
+    "link": "https://leetcode.com/problems/edit-distance/",
+    "difficulty": "Medium",
+    "topics": [
+      "Dynamic Programming",
+      "String"
+    ],
+    "companyTags": [
+      "Google",
+      "Amazon"
+    ],
+    "descriptionSnippet": "Return minimum operations to convert word1 to word2 (insert, delete, replace).",
+    "exampleTestCase": "word1 = \"horse\", word2 = \"ros\" -> Output: 3",
+    "topicOrder": 12
+  },
+  {
+    "id": "53",
+    "title": "Maximum Subarray",
+    "slug": "maximum-subarray",
+    "link": "https://leetcode.com/problems/maximum-subarray/",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Dynamic Programming",
+      "Divide and Conquer"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Meta"
+    ],
+    "descriptionSnippet": "Find contiguous subarray with largest sum and return its sum.",
+    "exampleTestCase": "nums = [-2,1,-3,4,-1,2,1,-5,4] -> Output: 6",
+    "topicOrder": 12
+  },
+  {
+    "id": "55",
+    "title": "Jump Game",
+    "slug": "jump-game",
+    "link": "https://leetcode.com/problems/jump-game/",
+    "difficulty": "Medium",
+    "topics": [
+      "Greedy",
+      "Array",
+      "Dynamic Programming"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Return true if you can reach the last index of array nums.",
+    "exampleTestCase": "nums = [2,3,1,1,4] -> Output: true",
+    "topicOrder": 13
+  },
+  {
+    "id": "45",
+    "title": "Jump Game II",
+    "slug": "jump-game-ii",
+    "link": "https://leetcode.com/problems/jump-game-ii/",
+    "difficulty": "Medium",
+    "topics": [
+      "Greedy",
+      "Array",
+      "Dynamic Programming"
+    ],
+    "companyTags": [
+      "Amazon"
+    ],
+    "descriptionSnippet": "Return the minimum number of jumps to reach the last index.",
+    "exampleTestCase": "nums = [2,3,1,1,4] -> Output: 2",
+    "topicOrder": 13
+  },
+  {
+    "id": "134",
+    "title": "Gas Station",
+    "slug": "gas-station",
+    "link": "https://leetcode.com/problems/gas-station/",
+    "difficulty": "Medium",
+    "topics": [
+      "Greedy",
+      "Array"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Return starting gas station index if you can travel around circuit once.",
+    "exampleTestCase": "gas = [1,2,3,4,5], cost = [3,4,5,1,2] -> Output: 3",
+    "topicOrder": 13
+  },
+  {
+    "id": "763",
+    "title": "Partition Labels",
+    "slug": "partition-labels",
+    "link": "https://leetcode.com/problems/partition-labels/",
+    "difficulty": "Medium",
+    "topics": [
+      "Greedy",
+      "Hash Table",
+      "Two Pointers",
+      "String"
+    ],
+    "companyTags": [
+      "Amazon"
+    ],
+    "descriptionSnippet": "Partition string into as many parts as possible so each letter appears in at most one part.",
+    "exampleTestCase": "s = \"ababcbacadefegdehijhklij\" -> Output: [9,7,8]",
+    "topicOrder": 13
+  },
+  {
+    "id": "57",
+    "title": "Insert Interval",
+    "slug": "insert-interval",
+    "link": "https://leetcode.com/problems/insert-interval/",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Sorting"
+    ],
+    "companyTags": [
+      "Google",
+      "Meta"
+    ],
+    "descriptionSnippet": "Insert newInterval into sorted non-overlapping intervals.",
+    "exampleTestCase": "intervals = [[1,3],[6,9]], newInterval = [2,5] -> Output: [[1,5],[6,9]]",
+    "topicOrder": 1
+  },
+  {
+    "id": "56",
+    "title": "Merge Intervals",
+    "slug": "merge-intervals",
+    "link": "https://leetcode.com/problems/merge-intervals/",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Sorting"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Meta",
+      "Google"
+    ],
+    "descriptionSnippet": "Merge all overlapping intervals.",
+    "exampleTestCase": "intervals = [[1,3],[2,6],[8,10],[15,18]] -> Output: [[1,6],[8,10],[15,18]]",
+    "topicOrder": 1
+  },
+  {
+    "id": "435",
+    "title": "Non-overlapping Intervals",
+    "slug": "non-overlapping-intervals",
+    "link": "https://leetcode.com/problems/non-overlapping-intervals/",
+    "difficulty": "Medium",
+    "topics": [
+      "Greedy",
+      "Array",
+      "Sorting"
+    ],
+    "companyTags": [
+      "Amazon"
+    ],
+    "descriptionSnippet": "Return minimum number of intervals to remove to make the rest non-overlapping.",
+    "exampleTestCase": "intervals = [[1,2],[2,3],[3,4],[1,3]] -> Output: 1",
+    "topicOrder": 13
+  },
+  {
+    "id": "48",
+    "title": "Rotate Image",
+    "slug": "rotate-image",
+    "link": "https://leetcode.com/problems/rotate-image/",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Math",
+      "Matrix"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Microsoft",
+      "Apple"
+    ],
+    "descriptionSnippet": "Rotate an n x n 2D image matrix 90 degrees clockwise in-place.",
+    "exampleTestCase": "matrix = [[1,2,3],[4,5,6],[7,8,9]] -> Output: [[7,4,1],[8,5,2],[9,6,3]]",
+    "topicOrder": 1
+  },
+  {
+    "id": "54",
+    "title": "Spiral Matrix",
+    "slug": "spiral-matrix",
+    "link": "https://leetcode.com/problems/spiral-matrix/",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Matrix",
+      "Simulation"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "descriptionSnippet": "Return all elements of m x n matrix in spiral order.",
+    "exampleTestCase": "matrix = [[1,2,3],[4,5,6],[7,8,9]] -> Output: [1,2,3,6,9,8,7,4,5]",
+    "topicOrder": 1
+  },
+  {
+    "id": "73",
+    "title": "Set Matrix Zeroes",
+    "slug": "set-matrix-zeroes",
+    "link": "https://leetcode.com/problems/set-matrix-zeroes/",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Matrix",
+      "Hash Table"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Meta"
+    ],
+    "descriptionSnippet": "If an element is 0, set its entire row and column to 0 in-place.",
+    "exampleTestCase": "matrix = [[1,1,1],[1,0,1],[1,1,1]] -> Output: [[1,0,1],[0,0,0],[1,0,1]]",
+    "topicOrder": 2
+  },
+  {
+    "id": "202",
+    "title": "Happy Number",
+    "slug": "happy-number",
+    "link": "https://leetcode.com/problems/happy-number/",
+    "difficulty": "Easy",
+    "topics": [
+      "Hash Table",
+      "Two Pointers",
+      "Math"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Determine if a number n is happy.",
+    "exampleTestCase": "n = 19 -> Output: true",
+    "topicOrder": 3
+  },
+  {
+    "id": "66",
+    "title": "Plus One",
+    "slug": "plus-one",
+    "link": "https://leetcode.com/problems/plus-one/",
+    "difficulty": "Easy",
+    "topics": [
+      "Array",
+      "Math"
+    ],
+    "companyTags": [
+      "Google"
+    ],
+    "descriptionSnippet": "Increment large integer represented as digits array by one.",
+    "exampleTestCase": "digits = [1,2,3] -> Output: [1,2,4]",
+    "topicOrder": 1
+  },
+  {
+    "id": "50",
+    "title": "Pow(x, n)",
+    "slug": "powx-n",
+    "link": "https://leetcode.com/problems/powx-n/",
+    "difficulty": "Medium",
+    "topics": [
+      "Math",
+      "Recursion"
+    ],
+    "companyTags": [
+      "Meta",
+      "Amazon"
+    ],
+    "descriptionSnippet": "Calculate x raised to the power n (x^n).",
+    "exampleTestCase": "x = 2.00000, n = 10 -> Output: 1024.00000",
+    "topicOrder": 8
+  },
+  {
+    "id": "136",
+    "title": "Single Number",
+    "slug": "single-number",
+    "link": "https://leetcode.com/problems/single-number/",
+    "difficulty": "Easy",
+    "topics": [
+      "Bit Manipulation",
+      "Array"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Apple"
+    ],
+    "descriptionSnippet": "Find single element that appears only once in array where every other element appears twice.",
+    "exampleTestCase": "nums = [2,2,1] -> Output: 1",
+    "topicOrder": 1
+  },
+  {
+    "id": "191",
+    "title": "Number of 1 Bits",
+    "slug": "number-of-1-bits",
+    "link": "https://leetcode.com/problems/number-of-1-bits/",
+    "difficulty": "Easy",
+    "topics": [
+      "Bit Manipulation"
+    ],
+    "companyTags": [
+      "Apple",
+      "Microsoft"
+    ],
+    "descriptionSnippet": "Return number of set bits (hamming weight) in 32-bit integer.",
+    "exampleTestCase": "n = 11 -> Output: 3",
+    "topicOrder": 1
+  },
+  {
+    "id": "338",
+    "title": "Counting Bits",
+    "slug": "counting-bits",
+    "link": "https://leetcode.com/problems/counting-bits/",
+    "difficulty": "Easy",
+    "topics": [
+      "Bit Manipulation",
+      "Dynamic Programming"
+    ],
+    "companyTags": [
+      "Amazon"
+    ],
+    "descriptionSnippet": "Return array of length n + 1 containing count of 1s for numbers 0 to n.",
+    "exampleTestCase": "n = 5 -> Output: [0,1,1,2,1,2]",
+    "topicOrder": 12
+  },
+  {
+    "id": "190",
+    "title": "Reverse Bits",
+    "slug": "reverse-bits",
+    "link": "https://leetcode.com/problems/reverse-bits/",
+    "difficulty": "Easy",
+    "topics": [
+      "Bit Manipulation"
+    ],
+    "companyTags": [
+      "Apple"
+    ],
+    "descriptionSnippet": "Reverse bits of a given 32-bit unsigned integer.",
+    "exampleTestCase": "n = 43261596 -> Output: 964176192",
+    "topicOrder": 1
+  },
+  {
+    "id": "268",
+    "title": "Missing Number",
+    "slug": "missing-number",
+    "link": "https://leetcode.com/problems/missing-number/",
+    "difficulty": "Easy",
+    "topics": [
+      "Array",
+      "Bit Manipulation",
+      "Math"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "descriptionSnippet": "Return only missing number from range [0, n].",
+    "exampleTestCase": "nums = [3,0,1] -> Output: 2",
+    "topicOrder": 1
+  },
+  {
+    "id": "371",
+    "title": "Sum of Two Integers",
+    "slug": "sum-of-two-integers",
+    "link": "https://leetcode.com/problems/sum-of-two-integers/",
+    "difficulty": "Medium",
+    "topics": [
+      "Bit Manipulation",
+      "Math"
+    ],
+    "companyTags": [
+      "Meta",
+      "Amazon"
+    ],
+    "descriptionSnippet": "Return sum of two integers without using + or - operators.",
+    "exampleTestCase": "a = 1, b = 2 -> Output: 3",
+    "topicOrder": 1
+  },
+  {
+    "id": "7",
+    "title": "Reverse Integer",
+    "slug": "reverse-integer",
+    "link": "https://leetcode.com/problems/reverse-integer/",
+    "difficulty": "Medium",
+    "topics": [
+      "Math"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Apple"
+    ],
+    "descriptionSnippet": "Given a signed 32-bit integer x, return x with its digits reversed.",
+    "exampleTestCase": "x = 123 -> Output: 321",
+    "topicOrder": 1
+  },
+  {
+    "id": "160",
+    "title": "Intersection of Two Linked Lists",
+    "slug": "intersection-of-two-linked-lists",
+    "link": "https://leetcode.com/problems/intersection-of-two-linked-lists/",
+    "difficulty": "Easy",
+    "topics": [
+      "Linked List",
+      "Two Pointers"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "descriptionSnippet": "Return the node at which the two singly linked lists intersect.",
+    "exampleTestCase": "intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5] -> Output: Reference to node 8",
+    "topicOrder": 5
+  },
+  {
+    "id": "142",
+    "title": "Linked List Cycle II",
+    "slug": "linked-list-cycle-ii",
+    "link": "https://leetcode.com/problems/linked-list-cycle-ii/",
+    "difficulty": "Medium",
+    "topics": [
+      "Linked List",
+      "Two Pointers",
+      "Hash Table"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Meta"
+    ],
+    "descriptionSnippet": "Given the head of a linked list, return the node where the cycle begins. If there is no cycle, return null.",
+    "exampleTestCase": "head = [3,2,0,-4], pos = 1 -> Output: Reference to node index 1",
+    "topicOrder": 5
+  },
+  {
+    "id": "148",
+    "title": "Sort List",
+    "slug": "sort-list",
+    "link": "https://leetcode.com/problems/sort-list/",
+    "difficulty": "Medium",
+    "topics": [
+      "Linked List",
+      "Two Pointers",
+      "Divide and Conquer",
+      "Sorting"
+    ],
+    "companyTags": [
+      "Meta",
+      "Amazon"
+    ],
+    "descriptionSnippet": "Given the head of a linked list, return the list after sorting it in ascending order in O(n log n) time.",
+    "exampleTestCase": "head = [4,2,1,3] -> Output: [1,2,3,4]",
+    "topicOrder": 5
+  },
+  {
+    "id": "328",
+    "title": "Odd Even Linked List",
+    "slug": "odd-even-linked-list",
+    "link": "https://leetcode.com/problems/odd-even-linked-list/",
+    "difficulty": "Medium",
+    "topics": [
+      "Linked List"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Group all the nodes with odd indices together followed by nodes with even indices.",
+    "exampleTestCase": "head = [1,2,3,4,5] -> Output: [1,3,5,2,4]",
+    "topicOrder": 5
+  },
+  {
+    "id": "101",
+    "title": "Symmetric Tree",
+    "slug": "symmetric-tree",
+    "link": "https://leetcode.com/problems/symmetric-tree/",
+    "difficulty": "Easy",
+    "topics": [
+      "Tree",
+      "Binary Tree",
+      "BFS",
+      "DFS"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).",
+    "exampleTestCase": "root = [1,2,2,3,4,4,3] -> Output: true",
+    "topicOrder": 9
+  },
+  {
+    "id": "103",
+    "title": "Binary Tree Zigzag Level Order Traversal",
+    "slug": "binary-tree-zigzag-level-order-traversal",
+    "link": "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/",
+    "difficulty": "Medium",
+    "topics": [
+      "Tree",
+      "Binary Tree",
+      "BFS"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Meta"
+    ],
+    "descriptionSnippet": "Return the zigzag level order traversal of its nodes' values (alternating left to right then right to left).",
+    "exampleTestCase": "root = [3,9,20,null,null,15,7] -> Output: [[3],[20,9],[15,7]]",
+    "topicOrder": 9
+  },
+  {
+    "id": "112",
+    "title": "Path Sum",
+    "slug": "path-sum",
+    "link": "https://leetcode.com/problems/path-sum/",
+    "difficulty": "Easy",
+    "topics": [
+      "Tree",
+      "Binary Tree",
+      "DFS"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "descriptionSnippet": "Return true if the tree has a root-to-leaf path such that adding up all values along the path equals targetSum.",
+    "exampleTestCase": "root = [5,4,8,11,null,13,4,7,2,null,null,null,1], targetSum = 22 -> Output: true",
+    "topicOrder": 9
+  },
+  {
+    "id": "113",
+    "title": "Path Sum II",
+    "slug": "path-sum-ii",
+    "link": "https://leetcode.com/problems/path-sum-ii/",
+    "difficulty": "Medium",
+    "topics": [
+      "Tree",
+      "Binary Tree",
+      "Backtracking",
+      "DFS"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Meta"
+    ],
+    "descriptionSnippet": "Return all root-to-leaf paths where the sum of the node values in the path equals targetSum.",
+    "exampleTestCase": "root = [5,4,8,11,null,13,4,7,2,null,null,5,1], targetSum = 22 -> Output: [[5,4,11,2],[5,8,4,5]]",
+    "topicOrder": 9
+  },
+  {
+    "id": "236",
+    "title": "Lowest Common Ancestor of a Binary Tree",
+    "slug": "lowest-common-ancestor-of-a-binary-tree",
+    "link": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/",
+    "difficulty": "Medium",
+    "topics": [
+      "Tree",
+      "Binary Tree",
+      "DFS"
+    ],
+    "companyTags": [
+      "Meta",
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Find the lowest common ancestor (LCA) of two given nodes p and q in a binary tree.",
+    "exampleTestCase": "root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1 -> Output: 3",
+    "topicOrder": 9
+  },
+  {
+    "id": "542",
+    "title": "01 Matrix",
+    "slug": "01-matrix",
+    "link": "https://leetcode.com/problems/01-matrix/",
+    "difficulty": "Medium",
+    "topics": [
+      "Graph",
+      "BFS",
+      "Dynamic Programming",
+      "Matrix"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Given an m x n binary matrix mat, return the distance of the nearest 0 for each cell.",
+    "exampleTestCase": "mat = [[0,0,0],[0,1,0],[0,0,0]] -> Output: [[0,0,0],[0,1,0],[0,0,0]]",
+    "topicOrder": 12
+  },
+  {
+    "id": "785",
+    "title": "Is Graph Bipartite?",
+    "slug": "is-graph-bipartite",
+    "link": "https://leetcode.com/problems/is-graph-bipartite/",
+    "difficulty": "Medium",
+    "topics": [
+      "Graph",
+      "BFS",
+      "DFS",
+      "Union Find"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Determine if an undirected graph is bipartite (nodes can be partitioned into two independent sets).",
+    "exampleTestCase": "graph = [[1,2,3],[0,2],[0,1,3],[0,2]] -> Output: false",
+    "topicOrder": 14
+  },
+  {
+    "id": "743",
+    "title": "Network Delay Time",
+    "slug": "network-delay-time",
+    "link": "https://leetcode.com/problems/network-delay-time/",
+    "difficulty": "Medium",
+    "topics": [
+      "Graph",
+      "Dijkstra",
+      "Shortest Path",
+      "Heap"
+    ],
+    "companyTags": [
+      "Google",
+      "Amazon"
+    ],
+    "descriptionSnippet": "Return the minimum time required for all n nodes to receive a signal sent from node k.",
+    "exampleTestCase": "times = [[2,1,1],[2,3,1],[3,4,1]], n = 4, k = 2 -> Output: 2",
+    "topicOrder": 14
+  },
+  {
+    "id": "1584",
+    "title": "Min Cost to Connect All Points",
+    "slug": "min-cost-to-connect-all-points",
+    "link": "https://leetcode.com/problems/min-cost-to-connect-all-points/",
+    "difficulty": "Medium",
+    "topics": [
+      "Graph",
+      "Minimum Spanning Tree",
+      "Union Find",
+      "Heap"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Return the minimum cost to make all points connected on a 2D plane (Manhattan distance).",
+    "exampleTestCase": "points = [[0,0],[2,2],[3,10],[5,2],[7,0]] -> Output: 20",
+    "topicOrder": 14
+  },
+  {
+    "id": "778",
+    "title": "Swim in Rising Water",
+    "slug": "swim-in-rising-water",
+    "link": "https://leetcode.com/problems/swim-in-rising-water/",
+    "difficulty": "Hard",
+    "topics": [
+      "Graph",
+      "Dijkstra",
+      "Binary Search",
+      "Heap"
+    ],
+    "companyTags": [
+      "Google",
+      "Amazon"
+    ],
+    "descriptionSnippet": "Return the least time until you can reach the bottom right square (n-1, n-1) in an n x n grid.",
+    "exampleTestCase": "grid = [[0,2],[1,3]] -> Output: 3",
+    "topicOrder": 14
+  },
+  {
+    "id": "329",
+    "title": "Longest Increasing Path in a Matrix",
+    "slug": "longest-increasing-path-in-a-matrix",
+    "link": "https://leetcode.com/problems/longest-increasing-path-in-a-matrix/",
+    "difficulty": "Hard",
+    "topics": [
+      "Dynamic Programming",
+      "DFS",
+      "Graph",
+      "Memoization"
+    ],
+    "companyTags": [
+      "Google",
+      "Amazon"
+    ],
+    "descriptionSnippet": "Given an m x n integers matrix, return the length of the longest increasing path.",
+    "exampleTestCase": "matrix = [[9,9,4],[6,6,8],[2,1,1]] -> Output: 4",
+    "topicOrder": 12
+  },
+  {
+    "id": "209",
+    "title": "Minimum Size Subarray Sum",
+    "slug": "minimum-size-subarray-sum",
+    "link": "https://leetcode.com/problems/minimum-size-subarray-sum/",
+    "difficulty": "Medium",
+    "topics": [
+      "Sliding Window",
+      "Array",
+      "Two Pointers",
+      "Binary Search"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Meta"
+    ],
+    "descriptionSnippet": "Return the minimal length of a subarray whose sum is greater than or equal to target.",
+    "exampleTestCase": "target = 7, nums = [2,3,1,2,4,3] -> Output: 2",
+    "topicOrder": 7
+  },
+  {
+    "id": "904",
+    "title": "Fruit Into Baskets",
+    "slug": "fruit-into-baskets",
+    "link": "https://leetcode.com/problems/fruit-into-baskets/",
+    "difficulty": "Medium",
+    "topics": [
+      "Sliding Window",
+      "Hash Table",
+      "Array"
+    ],
+    "companyTags": [
+      "Google",
+      "Amazon"
+    ],
+    "descriptionSnippet": "Return the maximum number of fruits you can pick using two baskets (at most 2 distinct fruit types).",
+    "exampleTestCase": "fruits = [1,2,1] -> Output: 3",
+    "topicOrder": 4
+  },
+  {
+    "id": "1004",
+    "title": "Max Consecutive Ones III",
+    "slug": "max-consecutive-ones-iii",
+    "link": "https://leetcode.com/problems/max-consecutive-ones-iii/",
+    "difficulty": "Medium",
+    "topics": [
+      "Sliding Window",
+      "Array",
+      "Two Pointers"
+    ],
+    "companyTags": [
+      "Meta",
+      "Amazon"
+    ],
+    "descriptionSnippet": "Given a binary array nums and an integer k, return the maximum number of consecutive 1's if you can flip at most k 0's.",
+    "exampleTestCase": "nums = [1,1,1,0,0,0,1,1,1,1,0], k = 2 -> Output: 6",
+    "topicOrder": 4
+  },
+  {
+    "id": "844",
+    "title": "Backspace String Compare",
+    "slug": "backspace-string-compare",
+    "link": "https://leetcode.com/problems/backspace-string-compare/",
+    "difficulty": "Easy",
+    "topics": [
+      "Two Pointers",
+      "Stack",
+      "String"
+    ],
+    "companyTags": [
+      "Google",
+      "Amazon"
+    ],
+    "descriptionSnippet": "Given two strings s and t, return true if they are equal when both are typed into empty text editors ('#' means backspace).",
+    "exampleTestCase": "s = \"ab#c\", t = \"ad#c\" -> Output: true",
+    "topicOrder": 6
+  },
+  {
+    "id": "402",
+    "title": "Remove K Digits",
+    "slug": "remove-k-digits",
+    "link": "https://leetcode.com/problems/remove-k-digits/",
+    "difficulty": "Medium",
+    "topics": [
+      "Monotonic Stack",
+      "String",
+      "Greedy"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Given string num representing a non-negative integer and an integer k, return the smallest possible integer after removing k digits.",
+    "exampleTestCase": "num = \"1432219\", k = 3 -> Output: \"1219\"",
+    "topicOrder": 13
+  },
+  {
+    "id": "448",
+    "title": "Find All Numbers Disappeared in an Array",
+    "slug": "find-all-numbers-disappeared-in-an-array",
+    "link": "https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/",
+    "difficulty": "Easy",
+    "topics": [
+      "Array",
+      "Hash Table"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Given an array nums of n integers where nums[i] is in the range [1, n], return an array of all integers in range [1, n] that do not appear in nums.",
+    "exampleTestCase": "nums = [4,3,2,7,8,2,3,1] -> Output: [5,6]",
+    "topicOrder": 2
+  },
+  {
+    "id": "204",
+    "title": "Count Primes",
+    "slug": "count-primes",
+    "link": "https://leetcode.com/problems/count-primes/",
+    "difficulty": "Medium",
+    "topics": [
+      "Math",
+      "Number Theory",
+      "Array"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "descriptionSnippet": "Given an integer n, return the number of prime numbers that are strictly less than n.",
+    "exampleTestCase": "n = 10 -> Output: 4",
+    "topicOrder": 1
+  },
+  {
+    "id": "115",
+    "title": "Distinct Subsequences",
+    "slug": "distinct-subsequences",
+    "link": "https://leetcode.com/problems/distinct-subsequences/",
+    "difficulty": "Hard",
+    "topics": [
+      "Dynamic Programming",
+      "String"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Given two strings s and t, return the number of distinct subsequences of s which equals t.",
+    "exampleTestCase": "s = \"rabbbit\", t = \"rabbit\" -> Output: 3",
+    "topicOrder": 12
+  },
+  {
+    "id": "312",
+    "title": "Burst Balloons",
+    "slug": "burst-balloons",
+    "link": "https://leetcode.com/problems/burst-balloons/",
+    "difficulty": "Hard",
+    "topics": [
+      "Dynamic Programming",
+      "Array"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Burst balloons to maximize coins collected from multiplying coins[i-1] * coins[i] * coins[i+1].",
+    "exampleTestCase": "nums = [3,1,5,8] -> Output: 167",
+    "topicOrder": 12
+  },
+  {
+    "id": "10",
+    "title": "Regular Expression Matching",
+    "slug": "regular-expression-matching",
+    "link": "https://leetcode.com/problems/regular-expression-matching/",
+    "difficulty": "Hard",
+    "topics": [
+      "Dynamic Programming",
+      "String",
+      "Recursion"
+    ],
+    "companyTags": [
+      "Meta",
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*'.",
+    "exampleTestCase": "s = \"aa\", p = \"a*\" -> Output: true",
+    "topicOrder": 12
+  },
+  {
+    "id": "44",
+    "title": "Wildcard Matching",
+    "slug": "wildcard-matching",
+    "link": "https://leetcode.com/problems/wildcard-matching/",
+    "difficulty": "Hard",
+    "topics": [
+      "Dynamic Programming",
+      "Greedy",
+      "String"
+    ],
+    "companyTags": [
+      "Amazon",
+      "Google"
+    ],
+    "descriptionSnippet": "Given an input string s and a pattern p, implement wildcard pattern matching with support for '?' and '*'.",
+    "exampleTestCase": "s = \"aa\", p = \"*\" -> Output: true",
+    "topicOrder": 13
+  }
 ]

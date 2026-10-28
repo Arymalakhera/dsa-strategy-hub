@@ -3,8 +3,8 @@ import { db, isFirebaseConfigured } from './firebase';
 import { Problem } from '../types';
 import { INITIAL_PROBLEM_BANK } from '../data/problemBankSeed';
 
-const CACHE_KEY = 'dsa_mentor_pb_v134_full';
-const CACHE_TIMESTAMP_KEY = 'dsa_mentor_pb_ts_v134';
+const CACHE_KEY = 'dsa_mentor_pb_v161_full';
+const CACHE_TIMESTAMP_KEY = 'dsa_mentor_pb_ts_v161';
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24 hours
 
 export async function fetchProblemBank(): Promise<Problem[]> {

@@ -8,6 +8,7 @@ import { RoadmapItem } from '../types';
 interface AchievementsViewProps {
   roadmap: RoadmapItem[];
   currentStreak: number;
+  themeMode?: 'mint' | 'glass';
 }
 
 export interface Badge {
@@ -21,7 +22,7 @@ export interface Badge {
   currentProgress: number;
 }
 
-export const AchievementsView: React.FC<AchievementsViewProps> = ({ roadmap, currentStreak }) => {
+export const AchievementsView: React.FC<AchievementsViewProps> = ({ roadmap, currentStreak, themeMode = 'mint' }) => {
   const solvedItems = roadmap.filter((r) => r.status === 'solved');
   const solvedCount = solvedItems.length;
 
@@ -94,26 +95,26 @@ export const AchievementsView: React.FC<AchievementsViewProps> = ({ roadmap, cur
   const unlockedCount = badges.filter((b) => b.unlocked).length;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 max-w-5xl mx-auto">
       {/* Header Banner */}
-      <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-purple-950 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="oceanic-hero-gradient p-6 rounded-3xl border border-[#70D6D1]/20 shadow-xl flex items-center justify-between text-white">
         <div className="space-y-1">
           <div className="flex items-center gap-2">
-            <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-bold flex items-center gap-1.5">
-              <Trophy className="w-3.5 h-3.5 text-amber-400" /> Milestones & Badges
+            <span className="px-3 py-1 rounded-full bg-[#70D6D1]/15 text-[#70D6D1] border border-[#70D6D1]/30 text-xs font-bold flex items-center gap-1.5">
+              <Trophy className="w-3.5 h-3.5 text-[#70D6D1]" /> Milestones &amp; Badges
             </span>
           </div>
           <h1 className="text-2xl font-extrabold text-white">Your Achievements</h1>
-          <p className="text-xs text-slate-300">
+          <p className="text-xs text-[#C2E8E8]">
             Earn badges as you solve problems, maintain daily streaks, and master Socratic DSA concepts.
           </p>
         </div>
 
-        <div className="bg-slate-950/80 px-4 py-3 rounded-xl border border-slate-800 text-center">
-          <div className="text-xl font-black text-amber-400">
+        <div className="bg-[#052630]/80 px-4 py-3 rounded-2xl border border-[#70D6D1]/30 text-center">
+          <div className="text-xl font-black text-[#70D6D1]">
             {unlockedCount} / {badges.length}
           </div>
-          <div className="text-[10px] text-slate-400 uppercase font-semibold">Badges Unlocked</div>
+          <div className="text-[10px] text-[#A2D2D2] uppercase font-semibold">Badges Unlocked</div>
         </div>
       </div>
 
@@ -125,20 +126,20 @@ export const AchievementsView: React.FC<AchievementsViewProps> = ({ roadmap, cur
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: idx * 0.05 }}
-            className={`p-5 rounded-2xl border transition-all flex flex-col justify-between relative overflow-hidden ${
+            className={`p-5 rounded-3xl border transition-all flex flex-col justify-between relative overflow-hidden ${
               badge.unlocked
-                ? 'bg-slate-900/90 border-indigo-500/40 shadow-lg shadow-indigo-950/40'
-                : 'bg-slate-900/40 border-slate-800/80 opacity-75'
+                ? 'mint-glass-card border-[#00A896]/40 shadow-lg'
+                : 'bg-white/60 border-[#0F7A8D]/15 opacity-80'
             }`}
           >
             {badge.unlocked && (
-              <div className="absolute top-3 right-3 text-emerald-400 bg-emerald-950/60 p-1 rounded-full border border-emerald-800/60">
-                <CheckCircle2 className="w-4 h-4" />
+              <div className="absolute top-3 right-3 text-[#00A896] bg-[#D2F1F0] p-1 rounded-full border border-[#70D6D1]/40">
+                <CheckCircle2 className="w-4 h-4 text-[#00A896]" />
               </div>
             )}
 
             {!badge.unlocked && (
-              <div className="absolute top-3 right-3 text-slate-500 bg-slate-950 p-1 rounded-full border border-slate-800">
+              <div className="absolute top-3 right-3 text-[#3B6674] bg-[#E0F4F4] p-1 rounded-full border border-[#0F7A8D]/20">
                 <Lock className="w-4 h-4" />
               </div>
             )}
@@ -148,36 +149,36 @@ export const AchievementsView: React.FC<AchievementsViewProps> = ({ roadmap, cur
                 <div
                   className={`p-3 rounded-2xl border ${
                     badge.unlocked
-                      ? 'bg-indigo-950/80 border-indigo-700/60 shadow-md shadow-indigo-950'
-                      : 'bg-slate-950 border-slate-800'
+                      ? 'bg-[#00A896]/15 border-[#00A896]/30 text-[#00A896]'
+                      : 'bg-white border-[#0F7A8D]/20 text-[#3B6674]'
                   }`}
                 >
                   {badge.icon}
                 </div>
                 <div>
-                  <h3 className="font-bold text-sm text-slate-100">{badge.title}</h3>
-                  <div className="text-[10px] text-slate-400 font-mono">
+                  <h3 className="font-bold text-sm text-[#072A36]">{badge.title}</h3>
+                  <div className="text-[10px] text-[#3B6674] font-mono">
                     Progress: {badge.currentProgress} / {badge.maxProgress}
                   </div>
                 </div>
               </div>
 
-              <p className="text-xs text-slate-400 leading-relaxed">{badge.description}</p>
+              <p className="text-xs text-[#3B6674] leading-relaxed">{badge.description}</p>
             </div>
 
             {/* Progress Bar */}
             <div className="pt-4 space-y-1">
-              <div className="w-full h-2 bg-slate-950 rounded-full overflow-hidden border border-slate-800">
+              <div className="w-full h-2 bg-[#E0F4F4] rounded-full overflow-hidden border border-[#0F7A8D]/15">
                 <div
                   className={`h-full transition-all duration-500 rounded-full ${
                     badge.unlocked
-                      ? 'bg-gradient-to-r from-indigo-500 to-emerald-400'
-                      : 'bg-indigo-600/50'
+                      ? 'bg-gradient-to-r from-[#00A896] to-[#028090]'
+                      : 'bg-[#0F6B7B]/30'
                   }`}
                   style={{ width: `${badge.progress}%` }}
                 />
               </div>
-              <div className="text-[10px] text-right font-mono text-slate-500">{badge.progress}%</div>
+              <div className="text-[10px] text-right font-mono text-[#3B6674]">{badge.progress}%</div>
             </div>
           </motion.div>
         ))}
@@ -185,3 +186,4 @@ export const AchievementsView: React.FC<AchievementsViewProps> = ({ roadmap, cur
     </div>
   );
 };
+

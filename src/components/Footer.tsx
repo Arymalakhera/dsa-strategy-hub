@@ -4,37 +4,44 @@ import { BrainCircuit, Heart, Globe, Share2, Code2 } from 'lucide-react';
 
 interface FooterProps {
   onNavClick?: (tab: 'roadmap' | 'leaderboard' | 'achievements' | 'about') => void;
+  themeMode?: 'mint' | 'glass';
 }
 
-export const Footer: React.FC<FooterProps> = ({ onNavClick }) => {
+export const Footer: React.FC<FooterProps> = ({ onNavClick, themeMode = 'mint' }) => {
   return (
-    <footer className="w-full bg-slate-950 border-t border-slate-800/80 pt-10 pb-8 text-slate-400 text-xs mt-12">
+    <footer
+      className={`w-full ${
+        themeMode === 'glass'
+          ? 'dribbble-glass-card bg-[#03151D]/90 border-t border-cyan-400/25 shadow-2xl'
+          : 'bg-[#05222B] border-t border-[#70D6D1]/20 shadow-2xl'
+      } pt-12 pb-8 text-[#A2D2D2] text-xs mt-16`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         {/* Top Grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Col */}
           <div className="space-y-3 md:col-span-2">
-            <div className="flex items-center gap-2.5">
-              <div className="p-2 rounded-xl bg-indigo-600/30 text-indigo-400 border border-indigo-500/30">
-                <BrainCircuit className="w-5 h-5" />
+            <div className="flex items-center gap-3">
+              <div className="p-2 rounded-2xl bg-gradient-to-tr from-[#00A896] to-[#70D6D1] text-[#05222B] shadow-md">
+                <BrainCircuit className="w-5 h-5 text-[#05222B]" />
               </div>
-              <span className="font-extrabold text-base bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-                DSA Mentor AI
+              <span className="font-black text-lg text-white">
+                DSA Mentor <span className="font-serif-header italic text-[#70D6D1] text-sm">AI</span>
               </span>
             </div>
-            <p className="text-xs text-slate-400 leading-relaxed max-w-md">
+            <p className="text-xs text-[#C2E8E8] leading-relaxed max-w-md">
               An intelligent Socratic learning platform for mastering Data Structures and Algorithms. Get guided conceptual direction without copy-pasting code answers.
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-3">
-            <h4 className="font-bold text-xs uppercase tracking-wider text-slate-200">Platform</h4>
+            <h4 className="font-bold text-xs uppercase tracking-widest text-[#70D6D1] font-mono">// Platform</h4>
             <ul className="space-y-2 font-medium">
               <li>
                 <button
                   onClick={() => onNavClick?.('roadmap')}
-                  className="hover:text-indigo-400 transition-colors"
+                  className="hover:text-white transition-colors"
                 >
                   Personalized Roadmap
                 </button>
@@ -42,7 +49,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick }) => {
               <li>
                 <button
                   onClick={() => onNavClick?.('leaderboard')}
-                  className="hover:text-indigo-400 transition-colors"
+                  className="hover:text-white transition-colors"
                 >
                   Global Leaderboard
                 </button>
@@ -50,7 +57,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick }) => {
               <li>
                 <button
                   onClick={() => onNavClick?.('achievements')}
-                  className="hover:text-indigo-400 transition-colors"
+                  className="hover:text-white transition-colors"
                 >
                   Achievements &amp; Badges
                 </button>
@@ -58,7 +65,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick }) => {
               <li>
                 <button
                   onClick={() => onNavClick?.('about')}
-                  className="hover:text-indigo-400 transition-colors"
+                  className="hover:text-white transition-colors"
                 >
                   Socratic Method &amp; About
                 </button>
@@ -68,37 +75,28 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick }) => {
 
           {/* Social & Legal */}
           <div className="space-y-3">
-            <h4 className="font-bold text-xs uppercase tracking-wider text-slate-200">Connect &amp; Social</h4>
-            <div className="flex items-center gap-3">
+            <h4 className="font-bold text-xs uppercase tracking-widest text-[#70D6D1] font-mono">// Connect</h4>
+            <div className="flex items-center gap-2.5">
               <a
                 href="https://github.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-xl bg-slate-900 border border-slate-800 hover:border-indigo-500/50 hover:text-white transition-all flex items-center gap-1 text-[11px]"
+                className="p-2.5 rounded-full bg-[#073847] border border-[#70D6D1]/25 hover:border-[#00A896] hover:text-white transition-all flex items-center gap-1.5 text-[11px] text-[#C2E8E8]"
                 title="GitHub Repository"
               >
-                <Code2 className="w-4 h-4 text-indigo-400" /> GitHub
+                <Code2 className="w-3.5 h-3.5 text-[#70D6D1]" /> GitHub
               </a>
               <a
                 href="https://leetcode.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-xl bg-slate-900 border border-slate-800 hover:border-indigo-500/50 hover:text-white transition-all flex items-center gap-1 text-[11px]"
+                className="p-2.5 rounded-full bg-[#073847] border border-[#70D6D1]/25 hover:border-[#00A896] hover:text-white transition-all flex items-center gap-1.5 text-[11px] text-[#C2E8E8]"
                 title="LeetCode Official"
               >
-                <Globe className="w-4 h-4 text-amber-400" /> LeetCode
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-xl bg-slate-900 border border-slate-800 hover:border-indigo-500/50 hover:text-white transition-all flex items-center gap-1 text-[11px]"
-                title="Community"
-              >
-                <Share2 className="w-4 h-4 text-purple-400" /> Share
+                <Globe className="w-3.5 h-3.5 text-[#70D6D1]" /> LeetCode
               </a>
             </div>
-            <div className="pt-1 text-[11px] text-slate-500 space-y-1">
+            <div className="pt-1 text-[11px] text-[#86B4B4] space-y-1">
               <div>Privacy Policy • Terms of Service</div>
               <div>Designed for FAANG &amp; High-Yield Interview Prep</div>
             </div>
@@ -106,10 +104,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick }) => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+        <div className="pt-6 border-t border-[#094154] flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#86B4B4]">
           <div>© 2026 DSA Mentor AI. All rights reserved.</div>
           <div className="flex items-center gap-1">
-            Built with <Heart className="w-3 h-3 text-rose-500 fill-rose-500" /> for developers mastering LeetCode.
+            Built with <Heart className="w-3 h-3 text-[#00A896] fill-[#00A896]" /> for developers mastering LeetCode.
           </div>
         </div>
       </div>

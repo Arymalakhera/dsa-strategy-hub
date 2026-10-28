@@ -1,47 +1,61 @@
 import { NextResponse } from 'next/server';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import OpenAI from 'openai';
+import { gemini25CircuitBreaker } from '@/lib/circuitBreaker';
+
+const COMMON_SOCRATIC_FORMAT_INSTRUCTIONS = `
+MANDATORY CODE & FORMAT INSTRUCTIONS:
+1. WHENEVER the user asks for code, hints, examples, or syntax (e.g. "gimme code hint", "code", "syntax", "example", "code dikhao"), YOU MUST INCLUDE A 3-6 LINE CODE BLOCK IN MARKDOWN \`\`\`python ... \`\`\` or \`\`\`cpp ... \`\`\`.
+2. STRUCTURE EVERY RESPONSE INTO 3 MANDATORY SECTIONS:
+   - **Core Insight & Intuition**: 2-3 sentences explaining the core logic or pattern.
+   - **Code & Pseudocode Snippet**: A 3-6 line code block snippet demonstrating the key loop structure, data structure initialization, or pointer logic (e.g. \`seen = {}\` -> \`if num in seen: return True\`). DO NOT write the 100% full solution, but ALWAYS show the 3-6 line core code snippet!
+   - **Socratic Next Step**: End with 1 sharp question asking how they will complete or apply this.
+3. NEVER reply with text only when the user requests a code hint or example. ALWAYS include the \`\`\`python ... \`\`\` code block snippet!`;
 
 const SYSTEM_STAGE_PROMPTS: Record<number, string> = {
   0: `You are an expert Socratic Data Structures & Algorithms Mentor. 
 The user is at STAGE 0: UNDERSTANDING.
 Your goal is to guide the user to clarify the problem statement, constraints, input/output formats, and edge cases.
-CRITICAL RULES:
-1. NEVER reveal any algorithmic solution, pseudocode, or direct code.
-2. Ask 1-2 sharp guiding questions about constraints, inputs, or edge cases (e.g., negative numbers, empty arrays, duplicate values).
-3. Be encouraging, concise, and professional.`,
+${COMMON_SOCRATIC_FORMAT_INSTRUCTIONS}
+CRITICAL STAGE RULES:
+- Focus on constraints (e.g. array length, negative numbers, duplicates).
+- Show a 2-line code snippet showing constraint validation if requested.`,
 
   1: `You are an expert Socratic Data Structures & Algorithms Mentor.
 The user is at STAGE 1: DIRECTIONAL NUDGE.
 Your goal is to help the user identify key patterns or structural properties of the problem.
-CRITICAL RULES:
-1. Do NOT reveal the specific data structure or optimal code yet.
-2. Nudge the user's thinking toward general concepts (e.g., "Is the input sorted?", "How can we avoid redundant work?").
-3. Ask the user what approach they are currently considering.`,
+${COMMON_SOCRATIC_FORMAT_INSTRUCTIONS}
+CRITICAL STAGE RULES:
+- Nudge toward optimal patterns (e.g., sorted arrays, sliding window, frequency map, hash set).
+- Show a 3-4 line generic code snippet demonstrating the pattern syntax.`,
 
   2: `You are an expert Socratic Data Structures & Algorithms Mentor.
 The user is at STAGE 2: BRUTE FORCE HINT.
 Your goal is to guide the user to formulate a naive/brute-force approach and analyze its complexity.
-CRITICAL RULES:
-1. Explain the baseline brute-force logic conceptually.
-2. Ask the user to estimate the Time and Space Complexity of this brute force approach.
-3. Do NOT provide optimal code yet.`,
+${COMMON_SOCRATIC_FORMAT_INSTRUCTIONS}
+CRITICAL STAGE RULES:
+- Explain baseline brute-force logic.
+- Show nested loop pseudocode (\`for i in range(n): for j in range(i+1, n):\`).
+- Ask the user to estimate Time (O(N^2)) and Space Complexity.`,
 
   3: `You are an expert Socratic Data Structures & Algorithms Mentor.
 The user is at STAGE 3: OPTIMAL STRATEGY HINT.
-Your goal is to guide the user toward the optimal data structure or technique (e.g., Two Pointers, Hash Table, Dynamic Programming, Fast & Slow Pointers).
-CRITICAL RULES:
-1. Explain the intuition behind the optimal technique.
-2. Ask the user how they would implement this strategy step-by-step.
-3. Do NOT write full executable code solution yet — let them try writing code first.`,
+Your goal is to guide the user toward the optimal data structure or technique (e.g., Hash Table, Two Pointers, Fast & Slow Pointers, Monotonic Stack).
+${COMMON_SOCRATIC_FORMAT_INSTRUCTIONS}
+CRITICAL STAGE RULES:
+- Explain optimal pattern's core trick.
+- Provide a 4-5 line partial pseudocode code block (\`seen = set()\` -> \`for num in nums: if num in seen: ...\`).
+- Ask the user to fill in the final line.`,
 
   4: `You are an expert Socratic Data Structures & Algorithms Mentor.
 The user is at STAGE 4: CODE DEBUG & REVIEW.
-The user has written or attempted code.
-Your goal is to review their logic, identify syntax/logic bugs, off-by-one errors, or boundary failures.
-CRITICAL RULES:
-1. Point out the exact line or condition that might fail.
-2. Ask them a targeted question to fix it themselves rather than just rewriting the code for them unless explicitly requested.`
+The user has provided their code solution attempt for review.
+YOUR TASK:
+1. Review the user's code snippet for syntax errors, missing variable declarations, boundary bugs (off-by-one), or logic gaps.
+2. In Section Core Insight & Intuition: Explain what part of their code logic is sound and what key boundary/condition is missing.
+3. In Section Code & Pseudocode Snippet: Provide a 3-5 line code snippet demonstrating the corrected loop setup, pointer update, or missing declaration in markdown \`\`\`python ... \`\`\`.
+4. In Section Socratic Next Step: Ask them 1 question about how fixing this condition completes their solution.
+${COMMON_SOCRATIC_FORMAT_INSTRUCTIONS}`
 };
 
 // In-memory rate limiting map: ip -> timestamps array
@@ -66,6 +80,46 @@ function isRateLimited(ip: string): boolean {
   return false;
 }
 
+// In-memory LRU Response Cache to avoid redundant API calls and deliver instant answers
+interface CacheEntry {
+  reply: string;
+  stage: number;
+  source: string;
+  timestamp: number;
+}
+
+const responseCache = new Map<string, CacheEntry>();
+const CACHE_MAX_ENTRIES = 500;
+const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24-hour cache
+
+function createCacheKey(problemTitle: string, targetStage: number, userMessage: string, userCode: string): string {
+  const normTitle = (problemTitle || '').trim().toLowerCase();
+  const normMsg = (userMessage || '').trim().toLowerCase();
+  const normCode = (userCode || '').trim();
+  return `${normTitle}__stage_${targetStage}__${normMsg}__${normCode.slice(0, 100)}`;
+}
+
+function getFromCache(key: string): CacheEntry | null {
+  const entry = responseCache.get(key);
+  if (!entry) return null;
+  if (Date.now() - entry.timestamp > CACHE_TTL_MS) {
+    responseCache.delete(key);
+    return null;
+  }
+  // Refresh order for LRU behavior
+  responseCache.delete(key);
+  responseCache.set(key, entry);
+  return entry;
+}
+
+function setToCache(key: string, entry: Omit<CacheEntry, 'timestamp'>) {
+  if (responseCache.size >= CACHE_MAX_ENTRIES) {
+    const oldestKey = responseCache.keys().next().value;
+    if (oldestKey) responseCache.delete(oldestKey);
+  }
+  responseCache.set(key, { ...entry, timestamp: Date.now() });
+}
+
 export async function POST(req: Request) {
   try {
     // Extract client IP address for rate limiting
@@ -82,6 +136,17 @@ export async function POST(req: Request) {
 
     const stageNum = typeof targetStage === 'number' ? Math.min(Math.max(targetStage, 0), 4) : 0;
 
+    // Fast-path: Check response cache for duplicate query
+    const cacheKey = createCacheKey(problemTitle, stageNum, userMessage || '', userCode || '');
+    const cached = getFromCache(cacheKey);
+    if (cached) {
+      return NextResponse.json({
+        reply: cached.reply,
+        stage: cached.stage,
+        source: `${cached.source} (cached)`
+      });
+    }
+
     const currentSystemPrompt = `${SYSTEM_STAGE_PROMPTS[stageNum]}
 
 PROBLEM METADATA:
@@ -94,77 +159,110 @@ User Code snippet (if provided): ${userCode ? `\`\`\`\n${userCode}\n\`\`\`` : 'N
 
     // 1. Attempt Gemini if key is present
     if (geminiKey && geminiKey !== 'mock-key' && geminiKey !== 'your_gemini_api_key_here') {
-      try {
-        const genAI = new GoogleGenerativeAI(geminiKey);
-        const model = genAI.getGenerativeModel({
-          model: 'gemini-2.5-flash',
-          systemInstruction: currentSystemPrompt,
+      const genAI = new GoogleGenerativeAI(geminiKey);
+
+      // Clean & format conversation history to guarantee strict alternating roles starting & ending with 'user'
+      const rawMessages = Array.isArray(messages) ? messages.slice(-10) : [];
+      const contents: { role: 'user' | 'model'; parts: { text: string }[] }[] = [];
+
+      for (const m of rawMessages) {
+        if (!m.content) continue;
+        const targetRole = m.role === 'assistant' ? 'model' : 'user';
+        const text = String(m.content);
+
+        if (contents.length > 0 && contents[contents.length - 1].role === targetRole) {
+          contents[contents.length - 1].parts[0].text += `\n\n${text}`;
+        } else {
+          contents.push({
+            role: targetRole,
+            parts: [{ text }]
+          });
+        }
+      }
+
+      // Rule A: First turn MUST be 'user'
+      if (contents.length === 0 || contents[0].role === 'model') {
+        contents.unshift({
+          role: 'user',
+          parts: [{ text: `Hello mentor, I am working on "${problemTitle || 'this problem'}".` }]
         });
+      }
 
-        // Clean & format conversation history to guarantee strict alternating roles (user -> model)
-        const contents: { role: 'user' | 'model'; parts: { text: string }[] }[] = [];
-        const rawMessages = Array.isArray(messages) ? messages.slice(-10) : [];
+      // Rule B: Last turn MUST be 'user'
+      if (contents[contents.length - 1].role === 'model') {
+        const promptText = userMessage || (userCode ? `Please review my code implementation:\n\`\`\`python\n${userCode}\n\`\`\`` : 'Please give me a hint for this step.');
+        contents.push({
+          role: 'user',
+          parts: [{ text: promptText }]
+        });
+      }
 
-        for (const m of rawMessages) {
-          if (!m.content) continue;
-          const targetRole = m.role === 'assistant' ? 'model' : 'user';
-          const text = String(m.content);
+      const isPrimaryAllowed = gemini25CircuitBreaker.canExecutePrimary();
+      let modelCandidates: string[];
 
-          if (contents.length > 0 && contents[contents.length - 1].role === targetRole) {
-            // Merge consecutive same-role text into single turn to satisfy Gemini API constraints
-            contents[contents.length - 1].parts[0].text += `\n\n${text}`;
-          } else {
-            contents.push({
-              role: targetRole,
-              parts: [{ text }]
+      if (isPrimaryAllowed) {
+        modelCandidates = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-1.5-flash-latest'];
+      } else {
+        console.warn(
+          `[CircuitBreaker] Primary model gemini-2.5-flash is OPEN (unhealthy). Bypassing directly to fallback gemini-2.0-flash.`
+        );
+        modelCandidates = ['gemini-2.0-flash', 'gemini-1.5-flash-latest'];
+      }
+
+      let lastGeminiError = '';
+
+      for (const modelName of modelCandidates) {
+        try {
+          const model = genAI.getGenerativeModel({
+            model: modelName,
+            systemInstruction: currentSystemPrompt,
+            generationConfig: {
+              maxOutputTokens: 1000,
+              temperature: 0.4
+            }
+          });
+
+          const result = await model.generateContent({ contents });
+          const reply = result.response.text();
+
+          if (reply) {
+            // Record success for primary model if it executed
+            if (modelName === 'gemini-2.5-flash') {
+              gemini25CircuitBreaker.recordSuccess();
+            }
+
+            const sourceStr = `gemini (${modelName})${!isPrimaryAllowed ? ' [circuit-breaker-bypass]' : ''}`;
+            setToCache(cacheKey, { reply, stage: stageNum, source: sourceStr });
+
+            return NextResponse.json({
+              reply,
+              stage: stageNum,
+              source: sourceStr
             });
           }
-        }
+        } catch (geminiError: any) {
+          console.warn(`Gemini Model ${modelName} failed/503:`, geminiError.message);
+          lastGeminiError = geminiError.message || 'Call failed';
 
-        // If userMessage was passed separately and wasn't at the end of messages, append it cleanly
-        if (userMessage) {
-          const lastTurn = contents.length > 0 ? contents[contents.length - 1] : null;
-          if (!lastTurn || !lastTurn.parts[0].text.includes(userMessage)) {
-            if (lastTurn && lastTurn.role === 'user') {
-              lastTurn.parts[0].text += `\n\n${userMessage}`;
-            } else {
-              contents.push({
-                role: 'user',
-                parts: [{ text: userMessage }]
-              });
-            }
+          // Record failure for primary model if it failed
+          if (modelName === 'gemini-2.5-flash') {
+            gemini25CircuitBreaker.recordFailure(geminiError);
           }
         }
+      }
 
-        // Gemini API requires first content turn to be 'user'. Prepend initial prompt instead of discarding greeting.
-        if (contents.length > 0 && contents[0].role === 'model') {
-          contents.unshift({
-            role: 'user',
-            parts: [{ text: `Hello mentor, I am working on ${problemTitle || 'this problem'}.` }]
-          });
-        }
+      // If all Gemini models are 503 or 429 rate limited, return fallback Socratic guidance card
+      if (lastGeminiError) {
+        console.error('All Gemini models failed, serving offline Socratic template');
+        const fallbackReply = `### **💡 Concept & Intuition**\nFor **${problemTitle}**, focus on identifying the core pattern (e.g. Hash Map, Two Pointers, or Frequency Counting) to solve this efficiently.\n\n### **💻 Code & Pseudocode Snippet**\n\`\`\`python\n# Step 1: Initialize data structure\nseen = {}\nfor val in items:\n    # Step 2: Check matching condition\n    if condition(val):\n        return result\n\`\`\`\n\n### **❓ Guiding Next Step**\n*What data structure would allow you to check if an item exists in O(1) time?*`;
 
-        if (contents.length === 0) {
-          contents.push({
-            role: 'user',
-            parts: [{ text: userMessage || 'Hello mentor, please give me a Socratic hint.' }]
-          });
-        }
-
-        const result = await model.generateContent({ contents });
-        const reply = result.response.text();
+        setToCache(cacheKey, { reply: fallbackReply, stage: stageNum, source: 'socratic-fallback-template' });
 
         return NextResponse.json({
-          reply,
+          reply: fallbackReply,
           stage: stageNum,
-          source: 'gemini'
+          source: 'socratic-fallback-template'
         });
-      } catch (geminiError: any) {
-        console.error('Gemini API Failure:', geminiError);
-        return NextResponse.json(
-          { error: `Gemini API Error: ${geminiError.message || 'Call failed'}` },
-          { status: 400 }
-        );
       }
     }
 
@@ -189,6 +287,8 @@ User Code snippet (if provided): ${userCode ? `\`\`\`\n${userCode}\n\`\`\`` : 'N
         });
 
         const reply = response.choices[0]?.message?.content || 'No response generated.';
+
+        setToCache(cacheKey, { reply, stage: stageNum, source: 'openai' });
 
         return NextResponse.json({
           reply,

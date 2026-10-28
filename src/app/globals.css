@@ -1,32 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #020617;
-  --foreground: #f8fafc;
+  --background: #EBF7F7;
+  --foreground: #072A36;
+  --card-bg: #FFFFFF;
+  --card-border: rgba(15, 122, 141, 0.15);
+  --oceanic-dark: #072E38;
+  --oceanic-deep: #0B4F6C;
+  --oceanic-medium: #0F6B7B;
+  --teal-accent: #00A896;
+  --teal-cyan: #70D6D1;
+  --mint-light: #EBF7F7;
+  --mint-card: #F4FAFA;
 }
 
 body {
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  background-color: #EBF7F7;
+  color: #072A36;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
 }
 
-/* Custom sleek dark scrollbar */
+.font-serif-header {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* HorizonMind ambient background mesh gradients */
+.bg-warm-radial {
+  background: 
+    radial-gradient(circle at 10% 15%, rgba(112, 214, 209, 0.25) 0%, transparent 45%),
+    radial-gradient(circle at 90% 85%, rgba(11, 79, 108, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 50% 40%, rgba(2, 128, 144, 0.08) 0%, transparent 60%);
+}
+
+.warm-card-glow {
+  box-shadow: 0 20px 40px -15px rgba(11, 79, 108, 0.12), 0 0 25px 2px rgba(112, 214, 209, 0.15);
+}
+
+.warm-pill-glow {
+  box-shadow: 0 10px 25px -5px rgba(0, 168, 150, 0.3);
+}
+
+.oceanic-hero-gradient {
+  background: linear-gradient(135deg, #05222B 0%, #073847 30%, #0B4F6C 65%, #0F6F7F 100%);
+}
+
+.oceanic-card-dark {
+  background: linear-gradient(135deg, #072E38 0%, #094154 50%, #0C586B 100%);
+}
+
+.mint-glass-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 250, 250, 0.88) 100%);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(15, 122, 141, 0.15);
+}
+
+/* Custom sleek oceanic scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #020617;
+  background: #E6F3F4;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #0B4F6C;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #00A896;
 }
+
+/* Dribbble Glassmorphism Translucent Blue Theme Utilities */
+.glass-theme-bg {
+  background-color: #03141B;
+  background-image: 
+    radial-gradient(circle at 80% 15%, rgba(245, 158, 11, 0.18) 0%, transparent 40%),
+    radial-gradient(circle at 15% 35%, rgba(112, 214, 209, 0.22) 0%, transparent 50%),
+    radial-gradient(circle at 50% 85%, rgba(11, 79, 108, 0.35) 0%, transparent 60%),
+    linear-gradient(180deg, #021117 0%, #05222D 45%, #082F3E 100%);
+  background-attachment: fixed;
+  color: #F0FDF4;
+}
+
+.dribbble-glass-card {
+  background: rgba(7, 36, 48, 0.65);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(112, 214, 209, 0.25);
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5), 0 0 30px -5px rgba(112, 214, 209, 0.15);
+}
+
+.dribbble-glass-card-hover:hover {
+  background: rgba(9, 44, 58, 0.82);
+  border-color: rgba(112, 214, 209, 0.45);
+  box-shadow: 0 35px 70px -15px rgba(0, 0, 0, 0.65), 0 0 35px 0px rgba(112, 214, 209, 0.3);
+}
+
+.dribbble-glass-pill {
+  background: rgba(11, 60, 78, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(112, 214, 209, 0.25);
+}
+
+.dribbble-glass-input {
+  background: rgba(4, 24, 32, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(112, 214, 209, 0.28);
+  color: #FFFFFF;
+}
+
+.dribbble-glow-border {
+  box-shadow: 0 0 25px 2px rgba(112, 214, 209, 0.25), inset 0 0 15px rgba(112, 214, 209, 0.1);
+}
+
+
