@@ -120,4 +120,27 @@ body {
   box-shadow: 0 0 25px 2px rgba(112, 214, 209, 0.25), inset 0 0 15px rgba(112, 214, 209, 0.1);
 }
 
+/* Completely suppress and hide Netlify injected badges and drawer */
+#nl-badge,
+.nl-badge,
+[id^="nl-badge"],
+[class*="nl-badge"],
+#netlify-drawer,
+[data-netlify-drawer],
+[data-netlify-feedback],
+iframe[src*="netlify"],
+button[aria-label*="Netlify"],
+button[title*="Netlify"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+  z-index: -9999 !important;
+}
+
 

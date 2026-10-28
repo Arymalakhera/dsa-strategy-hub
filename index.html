@@ -10,6 +10,29 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      #nl-badge,
+      .nl-badge,
+      [id^="nl-badge"],
+      [class*="nl-badge"],
+      #netlify-drawer,
+      [data-netlify-drawer],
+      [data-netlify-feedback],
+      iframe[src*="netlify"],
+      button[aria-label*="Netlify"],
+      button[title*="Netlify"] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        position: absolute !important;
+        top: -9999px !important;
+        left: -9999px !important;
+        z-index: -9999 !important;
+      }
+    </style>
     <script>
       (function() {
         try {
@@ -20,6 +43,23 @@
             document.documentElement.classList.remove('dark');
           }
         } catch (e) {}
+
+        function removeNetlifyBadge() {
+          var badges = document.querySelectorAll('#nl-badge, .nl-badge, [id^="nl-badge"], [class*="nl-badge"], #netlify-drawer, [data-netlify-drawer]');
+          badges.forEach(function(el) {
+            if (el && el.parentNode) {
+              el.parentNode.removeChild(el);
+            }
+          });
+        }
+        if (typeof document !== 'undefined') {
+          document.addEventListener('DOMContentLoaded', removeNetlifyBadge);
+          window.addEventListener('load', removeNetlifyBadge);
+          try {
+            var observer = new MutationObserver(removeNetlifyBadge);
+            observer.observe(document.documentElement, { childList: true, subtree: true });
+          } catch(err) {}
+        }
       })();
     </script>
   </head>
