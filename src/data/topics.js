@@ -1,8 +1,38 @@
 export const TOPICS = [
   {
+    id: 'arrays',
+    name: 'Arrays',
+    order: 1,
+    importance: 'Tier 1',
+    baseWeightDays: 3,
+    shortSummary: 'Array fundamentals, in-place manipulation, prefix products, Kadane\'s algorithm, and Dutch National Flag.',
+    patterns: [
+      'Basic Traversal & In-Place Manipulation',
+      'Kadane\'s Algorithm (Maximum Subarray)',
+      'Prefix & Suffix Products without Division',
+      'Matrix & 2D Array Transformations'
+    ],
+    icon: 'Layers'
+  },
+  {
+    id: 'two-pointers',
+    name: 'Two Pointers',
+    order: 2,
+    importance: 'Tier 1',
+    baseWeightDays: 3,
+    shortSummary: 'Converging pointers on sorted sequences, fast & slow runner pointers, and multi-pointer partitioning techniques.',
+    patterns: [
+      'Opposite Direction (Converging Pointers for Two Sum & Palindromes)',
+      'Same Direction / Fast & Slow Runner (In-Place Duplicates)',
+      'Three Pointers (3Sum & Sorting Triplets)',
+      'Trapping Rain Water & Boundary Two Pointers'
+    ],
+    icon: 'ArrowDownUp'
+  },
+  {
     id: 'sliding-window',
     name: 'Sliding Window',
-    order: 1,
+    order: 3,
     importance: 'Tier 1',
     baseWeightDays: 3,
     shortSummary: 'Maintain a window of elements to find optimal contiguous subarrays or substrings in linear time O(n).',
@@ -17,7 +47,7 @@ export const TOPICS = [
   {
     id: 'hashing-prefix-sum',
     name: 'Hashing + Prefix Sum',
-    order: 2,
+    order: 4,
     importance: 'Tier 1',
     baseWeightDays: 3,
     shortSummary: 'Use O(1) lookups and cumulative prefix calculations to answer range queries and subarray sum problems instantly.',
@@ -32,7 +62,7 @@ export const TOPICS = [
   {
     id: 'strings',
     name: 'Strings',
-    order: 3,
+    order: 5,
     importance: 'Tier 1',
     baseWeightDays: 2,
     shortSummary: 'Essential character-level operations, palindrome checking, two-pointer parsing, and string transformations.',
@@ -47,10 +77,10 @@ export const TOPICS = [
   {
     id: 'binary-search',
     name: 'Binary Search',
-    order: 4,
+    order: 6,
     importance: 'Tier 1',
     baseWeightDays: 5,
-    shortSummary: 'Divide and conquer search spaces in O(log n), applicable to sorted arrays, rotated arrays, and monotonic monotonic answer spaces.',
+    shortSummary: 'Divide and conquer search spaces in O(log n), applicable to sorted arrays, rotated arrays, and monotonic answer spaces.',
     patterns: [
       'Classic Binary Search on sorted array',
       'Lower Bound & Upper Bound / First & Last Occurrence',
@@ -62,7 +92,7 @@ export const TOPICS = [
   {
     id: 'stack-queue',
     name: 'Stack + Queue',
-    order: 5,
+    order: 7,
     importance: 'Tier 1',
     baseWeightDays: 4,
     shortSummary: 'LIFO and FIFO data structures, monotonic stacks for nearest smaller/greater elements, and sliding window maximums.',
@@ -77,7 +107,7 @@ export const TOPICS = [
   {
     id: 'sorting-intervals',
     name: 'Sorting + Intervals',
-    order: 6,
+    order: 8,
     importance: 'Tier 2',
     baseWeightDays: 2,
     shortSummary: 'Custom comparators, interval overlaps, merging disjoint ranges, and greedy scheduling.',
@@ -92,7 +122,7 @@ export const TOPICS = [
   {
     id: 'linked-list',
     name: 'Linked List',
-    order: 7,
+    order: 9,
     importance: 'Tier 1',
     baseWeightDays: 5,
     shortSummary: 'Pointer manipulation, fast & slow runner pointers, in-place reversal, and LRU cache implementations.',
@@ -107,7 +137,7 @@ export const TOPICS = [
   {
     id: 'recursion-backtracking',
     name: 'Recursion + Backtracking',
-    order: 8,
+    order: 10,
     importance: 'Tier 1',
     baseWeightDays: 6,
     shortSummary: 'Exhaustive state-space exploration, pruning branches with constraints, permutations, combinations, and grid traversals.',
@@ -122,7 +152,7 @@ export const TOPICS = [
   {
     id: 'trees',
     name: 'Trees',
-    order: 9,
+    order: 11,
     importance: 'Tier 1',
     baseWeightDays: 10,
     shortSummary: 'Hierarchical structures, DFS (pre/in/post), BFS level order, Binary Search Trees, and Lowest Common Ancestor.',
@@ -137,7 +167,7 @@ export const TOPICS = [
   {
     id: 'heap',
     name: 'Heap',
-    order: 10,
+    order: 12,
     importance: 'Tier 2',
     baseWeightDays: 3,
     shortSummary: 'Efficient retrieval of min/max elements, Top-K problems, two-heap median stream tracking, and k-way merging.',
@@ -152,7 +182,7 @@ export const TOPICS = [
   {
     id: 'greedy',
     name: 'Greedy',
-    order: 11,
+    order: 13,
     importance: 'Tier 2',
     baseWeightDays: 3,
     shortSummary: 'Making locally optimal choices at each stage that lead to a globally optimal solution when the greedy-choice property holds.',
@@ -167,7 +197,7 @@ export const TOPICS = [
   {
     id: 'graphs',
     name: 'Graphs',
-    order: 12,
+    order: 14,
     importance: 'Tier 1',
     baseWeightDays: 10,
     shortSummary: 'Networks of vertices and edges, DFS/BFS traversals, cycle detection, topological sorting, Dijkstra, and Union-Find.',
@@ -183,7 +213,7 @@ export const TOPICS = [
   {
     id: 'dynamic-programming',
     name: 'Dynamic Programming',
-    order: 13,
+    order: 15,
     importance: 'Tier 1',
     baseWeightDays: 15,
     shortSummary: 'Overlapping subproblems and optimal substructure. Memoization (top-down) and Tabulation (bottom-up) with space optimization.',
@@ -199,7 +229,7 @@ export const TOPICS = [
   {
     id: 'trie-bit-manipulation',
     name: 'Trie + Bit Manipulation',
-    order: 14,
+    order: 16,
     importance: 'Tier 3',
     baseWeightDays: 2,
     shortSummary: 'Prefix tree for fast string search & autocomplete; bitwise XOR, AND, bit shifts for space-efficient constant-time tricks.',
