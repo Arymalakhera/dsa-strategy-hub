@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
+import { LottieMentorBot } from './LottieMentorBot';
 import { PROBLEMS } from '../data/problems';
 import { TOPICS } from '../data/topics';
 import { SUGGESTED_QUESTIONS, getZeroCreditResponse } from '../services/socraticService';
@@ -73,13 +74,13 @@ export const FloatingMentorBot = ({ onOpenProblemHints, activeProblem = null }) 
 
   return (
     <>
-      {/* Floating Trigger Button (Bottom-Right) */}
-      <div className="fixed bottom-20 sm:bottom-6 right-3 sm:right-6 z-40 flex flex-col items-end pointer-events-none">
+      {/* Floating Trigger Button (Bottom-Right with Standalone Lottie Animated Robot) */}
+      <div className="fixed bottom-20 sm:bottom-4 right-2 sm:right-4 z-40 flex flex-col items-end pointer-events-none">
         {/* Welcome Tooltip */}
         {!isOpen && !hasDismissedTooltip && (
-          <div className="mb-2 mr-1 bg-white dark:bg-[#1C1D22] text-black dark:text-white border-2 border-black dark:border-zinc-700 rounded-2xl px-3 py-1.5 shadow-[0_3px_0_0_#18181B] text-xs font-black flex items-center gap-2 pointer-events-auto animate-bounce-subtle">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-            <span>Need Socratic hints? Click here</span>
+          <div className="mb-1 mr-3 animate-bounce-subtle bg-white dark:bg-[#1C1D22] text-black dark:text-white border-2 border-black dark:border-zinc-700 rounded-2xl px-3.5 py-1.5 shadow-[0_3px_0_0_#18181B] dark:shadow-[0_3px_0_0_#3F3F46] text-xs font-black flex items-center gap-2 max-w-[260px] pointer-events-auto">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+            <span className="truncate">Need a hint? Click me!</span>
             <button
               onClick={(e) => {
                 e.stopPropagation();
@@ -98,17 +99,16 @@ export const FloatingMentorBot = ({ onOpenProblemHints, activeProblem = null }) 
             setIsOpen(!isOpen);
             setHasDismissedTooltip(true);
           }}
-          className="group relative px-3.5 sm:px-4 py-2.5 rounded-2xl bg-[#FFDE59] hover:bg-[#FDE047] text-black border-2 border-black shadow-[0_4px_0_0_#18181B] hover:translate-y-[-2px] active:translate-y-[2px] transition-all cursor-pointer flex items-center gap-2 sm:gap-2.5 pointer-events-auto font-black text-xs"
-          title="Open Socratic Mentor Guide"
-          aria-label="Open Socratic Mentor Guide"
+          className="relative group transition-all duration-300 hover:scale-108 active:scale-95 cursor-pointer flex items-center justify-center p-0 border-none bg-transparent outline-none focus:outline-none pointer-events-auto"
+          title="Open DSA Mentor AI Bot"
+          aria-label="Open DSA Mentor AI Bot"
         >
-          <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-white border border-black flex items-center justify-center shrink-0">
-            <BrainCircuit className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-black" />
-          </div>
-          <span className="hidden sm:inline">Socratic Mentor</span>
-          <span className="px-1.5 py-0.5 rounded-md bg-[#34D399] border border-black text-[9px] font-mono font-black uppercase">
-            Helper
-          </span>
+          {/* Animated Standalone Lottie Robot */}
+          <LottieMentorBot
+            className="w-36 sm:w-48 md:w-52 drop-shadow-[0_8px_20px_rgba(0,0,0,0.22)] dark:drop-shadow-[0_8px_25px_rgba(255,255,255,0.18)]"
+            showGlow={false}
+          />
+          <span className="sr-only">DSA Mentor Bot</span>
         </button>
       </div>
 
@@ -120,19 +120,19 @@ export const FloatingMentorBot = ({ onOpenProblemHints, activeProblem = null }) 
             role="dialog"
             aria-modal="true"
           >
-            {/* Header: Clean Neo-Brutalist styling consistent with the website */}
+            {/* Header: Clean Neo-Brutalist styling consistent with the website with animated Lottie Robot */}
             <div className="p-4 sm:p-5 bg-[#FAF6EE] dark:bg-[#18191E] text-[#18181B] dark:text-[#F4F4F5] border-b-2 border-black dark:border-zinc-700 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[#FFDE59] border-2 border-black flex items-center justify-center shrink-0 shadow-[0_2.5px_0_0_#18181B]">
-                  <BrainCircuit className="w-5 h-5 text-black" />
+                <div className="w-12 h-10 flex items-center justify-center shrink-0">
+                  <LottieMentorBot size={44} showGlow={false} />
                 </div>
                 <div>
                   <div className="flex items-center gap-2 flex-wrap">
                     <h2 className="font-black text-sm sm:text-base tracking-tight text-black dark:text-white">
-                      Socratic Mentor Guide
+                      DSA Mentor Bot
                     </h2>
                     <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-[#A7F3D0] text-black border-2 border-black shadow-[0_1.5px_0_0_#18181B]">
-                      Intuition Helper
+                      Socratic Guide
                     </span>
                   </div>
                   <p className="text-xs text-slate-600 dark:text-zinc-400 font-medium">
@@ -239,7 +239,7 @@ export const FloatingMentorBot = ({ onOpenProblemHints, activeProblem = null }) 
                 </div>
               </div>
 
-              {/* Guidance Output Card */}
+              {/* Guidance Output Card with Animated Lottie Robot */}
               {quickQuestionReply ? (
                 <div className="p-4 rounded-2xl bg-white dark:bg-[#1C1D22] border-2 border-black dark:border-zinc-700 shadow-[0_2.5px_0_0_#18181B] space-y-3 animate-fade-in">
                   <div className="flex items-center justify-between border-b-2 border-black/10 dark:border-white/10 pb-2">
@@ -266,21 +266,21 @@ export const FloatingMentorBot = ({ onOpenProblemHints, activeProblem = null }) 
                   </div>
                 </div>
               ) : (
-                <div className="p-4 rounded-2xl bg-white dark:bg-[#1C1D22] border-2 border-black dark:border-zinc-700 shadow-[0_2.5px_0_0_#18181B] flex flex-col sm:flex-row items-center gap-3.5 text-center sm:text-left">
-                  <div className="w-12 h-12 rounded-xl bg-[#BAE6FD] border-2 border-black flex items-center justify-center shrink-0 shadow-[0_2px_0_0_#18181B]">
-                    <Lightbulb className="w-6 h-6 text-black" />
+                <div className="p-4 rounded-2xl bg-white dark:bg-[#1C1D22] border-2 border-black dark:border-zinc-700 shadow-[0_3px_0_0_#18181B] flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+                  <div className="shrink-0 flex items-center justify-center p-1">
+                    <LottieMentorBot size={120} showGlow={false} badgeText="DSA Mentor" />
                   </div>
-                  <div className="space-y-1">
+                  <div className="space-y-1.5">
                     <div className="flex items-center justify-center sm:justify-start gap-2">
-                      <h4 className="font-black text-sm text-black dark:text-white">
+                      <h4 className="font-black text-sm sm:text-base text-black dark:text-white">
                         Socratic Intuition Coach
                       </h4>
-                      <span className="text-[10px] font-black px-2 py-0.2 rounded-full bg-[#FFDE59] text-black border border-black">
-                        Self-Paced
+                      <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-[#FFDE59] text-black border border-black shadow-[0_1px_0_0_#18181B]">
+                        Interactive Guide
                       </span>
                     </div>
                     <p className="text-xs text-slate-600 dark:text-zinc-300 font-medium leading-relaxed">
-                      Click any prompt above to explore step-by-step intuition, complexity bounds, or edge cases without seeing the full solution right away.
+                      Select any prompt above to explore step-by-step intuition, complexity bounds, or edge cases without seeing the full solution right away.
                     </p>
                   </div>
                 </div>

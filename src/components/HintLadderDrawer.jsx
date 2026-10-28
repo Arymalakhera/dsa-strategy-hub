@@ -434,10 +434,10 @@ export const HintLadderDrawer = ({
           <div className="flex-1 flex flex-col min-h-0 bg-[#FAF6EE] dark:bg-[#121316]">
             {/* Chat Messages Body */}
             <div className="flex-1 overflow-y-auto p-4 space-y-3.5">
-              {/* Socratic Mentor Header Card */}
+              {/* Socratic Mentor Header Card with Lottie Bot */}
               <div className="p-3 bg-white dark:bg-[#1C1D22] border-2 border-black rounded-2xl flex items-center gap-3 shadow-[0_2.5px_0_0_#18181B]">
-                <div className="w-10 h-10 rounded-xl bg-[#FFDE59] border-2 border-black flex items-center justify-center shrink-0 shadow-[0_2px_0_0_#18181B]">
-                  <BrainCircuit className="w-5 h-5 text-black" />
+                <div className="w-11 h-10 shrink-0 flex items-center justify-center">
+                  <LottieMentorBot size={44} showGlow={false} />
                 </div>
                 <div>
                   <h4 className="font-black text-xs text-black dark:text-white flex items-center gap-1.5">
