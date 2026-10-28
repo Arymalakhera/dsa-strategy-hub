@@ -81,7 +81,7 @@ export const QuickSearchModal = ({ isOpen, onClose, onSelectProblem }) => {
               setQuery(e.target.value);
               setSelectedIndex(0);
             }}
-            placeholder="Search 125 curated problems by title, # number, pattern, or topic..."
+            placeholder={`Search ${PROBLEMS.length} curated problems by title, # number, pattern, or topic...`}
             className="flex-1 bg-transparent border-none text-sm sm:text-base font-bold text-black dark:text-white placeholder-slate-400 dark:placeholder-zinc-500 focus:outline-hidden"
           />
           {query && (
@@ -162,7 +162,7 @@ export const QuickSearchModal = ({ isOpen, onClose, onSelectProblem }) => {
         <div className="p-2.5 bg-white dark:bg-[#1C1D22] border-t-2 border-black dark:border-zinc-700 flex items-center justify-between text-[11px] font-bold text-slate-500 dark:text-zinc-400">
           <span className="flex items-center gap-1.5">
             <Code2 className="w-3.5 h-3.5 text-black dark:text-white" />
-            125 Curated Placement Problems
+            {PROBLEMS.length} Curated Placement Problems
           </span>
           <span className="hidden sm:inline font-mono text-[10px]">
             ↑↓ to navigate • ↵ to select

@@ -15,7 +15,7 @@ import {
 
 const NAV_ITEMS = [
   { path: '/', label: 'Dashboard', icon: LayoutDashboard },
-  { path: '/roadmap', label: '14-Topic Roadmap', icon: Map },
+  { path: '/roadmap', label: '16-Topic Roadmap', icon: Map },
   { path: '/planner', label: 'Study Planner', icon: CalendarDays },
   { path: '/mock', label: 'Timed Assessment', icon: Timer },
   { path: '/revision', label: 'Revise Today', icon: RefreshCw },

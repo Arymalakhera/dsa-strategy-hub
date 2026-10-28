@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import { storageService } from '../services/storageService';
 import { useAuth } from '../context/AuthContext';
+import { PROBLEMS } from '../data/problems';
 
 export const Navbar = ({
   theme,
@@ -96,7 +97,7 @@ export const Navbar = ({
                 DSA Strategy Hub
               </span>
               <span className="text-[10px] text-slate-500 dark:text-zinc-400 font-bold block leading-none">
-                125 LeetCode Patterns
+                {PROBLEMS.length}+ Curated Patterns
               </span>
             </div>
           </Link>
@@ -105,7 +106,7 @@ export const Navbar = ({
           <button
             onClick={onOpenSearch}
             className="flex-1 max-w-xs md:max-w-sm flex items-center justify-between px-3 py-1.5 rounded-xl bg-white dark:bg-[#27272A] border-2 border-black dark:border-zinc-600 text-xs font-bold text-slate-700 dark:text-zinc-200 hover:bg-[#FAF6EE] dark:hover:bg-zinc-850 hover:translate-y-[-1px] active:translate-y-[2px] transition-all cursor-pointer min-h-[38px] shadow-[0_3px_0_0_#18181B] dark:shadow-[0_3px_0_0_#3F3F46]"
-            title="Search 125 curated problems (Ctrl+K)"
+            title={`Search ${PROBLEMS.length} curated problems (Ctrl+K)`}
           >
             <div className="flex items-center gap-2 truncate">
               <Search className="w-3.5 h-3.5 text-slate-500 dark:text-zinc-400 shrink-0" />

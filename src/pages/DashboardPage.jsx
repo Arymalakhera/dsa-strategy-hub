@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { PROBLEMS } from '../data/problems';
+import { TOPICS } from '../data/topics';
 import {
   Flame,
   Target,
@@ -90,7 +91,7 @@ export const DashboardPage = ({
             Master DSA Patterns Without The Confusion
           </h1>
           <p className="text-slate-700 dark:text-zinc-300 text-xs sm:text-sm font-medium leading-relaxed">
-            Stop blindly grinding random LeetCode problems. Follow a structured 14-topic roadmap, use step-by-step hints when stuck, and retain everything through automated daily reviews.
+            Stop blindly grinding random LeetCode problems. Follow a structured {TOPICS.length}-topic roadmap, use step-by-step hints when stuck, and retain everything through automated daily reviews.
           </p>
         </div>
 
@@ -102,7 +103,7 @@ export const DashboardPage = ({
               <span>Pick a Roadmap Topic</span>
             </div>
             <p className="text-[11px] text-slate-600 dark:text-zinc-300 mt-1 font-medium">
-              Start with Sliding Window or Hashing. Solve MUST problems first.
+              Start with Arrays or Two Pointers. Solve MUST problems first.
             </p>
           </div>
 
@@ -130,17 +131,17 @@ export const DashboardPage = ({
         {/* Quick CTA Actions */}
         <div className="mt-5 flex items-center gap-3 flex-wrap">
           <Link
-            to="/topic/sliding-window"
+            to="/topic/arrays"
             className="neo-btn bg-[#FFDE59] text-black px-4 py-2.5"
           >
-            <span>Start Topic 1: Sliding Window</span>
+            <span>Start Topic 1: Arrays</span>
             <ArrowRight className="w-4 h-4 text-black" strokeWidth={2.5} />
           </Link>
           <Link
             to="/roadmap"
             className="neo-btn bg-white dark:bg-zinc-800 text-black dark:text-white px-4 py-2.5"
           >
-            <span>Browse Full Roadmap (14 Topics)</span>
+            <span>Browse Full Roadmap ({TOPICS.length} Topics)</span>
           </Link>
         </div>
       </div>
@@ -330,7 +331,7 @@ export const DashboardPage = ({
               </div>
               <div>
                 <div className="font-black text-xs text-slate-900 dark:text-white group-hover:text-amber-600 transition-colors">
-                  14-Topic Roadmap
+                  {TOPICS.length}-Topic Roadmap
                 </div>
                 <div className="text-[11px] text-slate-600 dark:text-zinc-400 font-medium">Curated sequence & filters</div>
               </div>

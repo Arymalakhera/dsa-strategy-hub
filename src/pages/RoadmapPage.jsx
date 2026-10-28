@@ -62,13 +62,13 @@ export const RoadmapPage = ({ progressMap = {} }) => {
             Sequenced Placement Curriculum
           </span>
           <span className="neo-pill bg-[#A7F3D0] text-black">
-            14 Core Topics
+            {TOPICS.length} Core Topics
           </span>
         </div>
 
         <div className="max-w-3xl space-y-2">
           <h1 className="text-2xl sm:text-4xl font-black tracking-tight text-black dark:text-white uppercase">
-            Curated 14-Topic DSA Roadmap
+            Curated {TOPICS.length}-Topic DSA Roadmap
           </h1>
           <p className="text-slate-700 dark:text-zinc-300 text-xs sm:text-sm font-medium leading-relaxed">
             Follow this battle-tested sequence. Master the high-yield <strong>⭐ Must</strong> problems first to lock down core algorithmic intuition before tackling Good and Bonus challenges.
